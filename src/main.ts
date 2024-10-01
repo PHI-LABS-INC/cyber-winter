@@ -19,7 +19,7 @@ async function main() {
   const artManager = new ArtManager(signerPrivateKey, artChainId);
 
   // please change number of configs based on your requirement
-  for (let configId = 0; configId <= 3; configId++) {
+  for (let configId = 0; configId <= 0; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 
@@ -29,11 +29,12 @@ async function main() {
         continue;
       }
 
+      let credCreator = executor; // default to executor
       // Create Cred
       let credRequest = await createCredRequest(
         configId,
         executor,
-        executor,
+        credCreator,
         config.network, // eligible network for your cred
         config.verificationType === 'SIGNATURE' ? signer : undefined,
         config.verificationType === 'SIGNATURE' ? credVerifyEndpoint[configId] : undefined,
@@ -60,6 +61,7 @@ async function main() {
         network: artChainId,
         executor,
         artist: artSetting.artist,
+        receiver: artSetting.receiver,
         price: artSetting.price,
         maxSupply: artSetting.maxSupply,
         startDate: artSetting.startDate,

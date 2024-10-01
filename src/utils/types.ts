@@ -17,7 +17,7 @@ type BaseCredConfig = {
 export type TxFilterFunction = typeof txFilter_Any | typeof txFilter_Standard;
 export type SignatureCredConfig = BaseCredConfig & {
   verificationType: 'SIGNATURE';
-  apiChoice: 'etherscan';
+  apiChoice: 'etherscan' | 'contractCall';
   apiKeyOrUrl: string;
   contractAddress: Address | 'any';
   methodId: string | 'any';
@@ -28,13 +28,23 @@ export type SignatureCredConfig = BaseCredConfig & {
   transactionCountCondition: (txs: any[], address: string) => number;
 };
 
+export type ContractCallCredConfig = BaseCredConfig & {
+  verificationType: 'SIGNATURE';
+  apiChoice: 'contractCall';
+  apiKeyOrUrl: string;
+  contractAddress: Address;
+  functionName: string;
+  abi: any[];
+  contractCallCondition: (result: any) => boolean;
+};
+
 export type MerkleCredConfig = BaseCredConfig & {
   verificationType: 'MERKLE';
   contractAddress: Address;
   fileName: string;
 };
 
-export type CredConfig = SignatureCredConfig | MerkleCredConfig;
+export type CredConfig = SignatureCredConfig | MerkleCredConfig | ContractCallCredConfig;
 export type EtherscanFilter = (a: EtherscanTxItem) => boolean;
 
 export type GeneralTxItem = {
@@ -88,6 +98,7 @@ export type BaseArtSetting = {
   startDate: number;
   endDate: number;
   artist: Address;
+  receiver: Address;
 };
 
 export type ImageArtSetting = BaseArtSetting & {

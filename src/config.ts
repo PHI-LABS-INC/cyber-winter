@@ -11,3 +11,5 @@ export const signer_account = privateKeyToAccount(SIGNER_PRIVATE_KEY as Hex);
 export const signer = signer_account.address;
 
 export const executor = privateKeyToAccount(EXECUTOR_PRIVATE_KEY as Hex).address;
+
+export const ENDPOINT = 'base-autumn.vercel.app';
