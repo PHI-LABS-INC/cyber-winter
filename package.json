@@ -1,0 +1,36 @@
+{
+  "name": "phi-sdk-example",
+  "version": "1.0.0",
+  "author": "zak3939",
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod",
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.52",
+    "@phi-hub/sdk": "0.0.18",
+    "@types/gif-encoder": "^0.7.4",
+    "@vercel/node": "^3.1.6",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "gif-encoder": "^0.7.2",
+    "viem": "^2.13.3"
+  },
+  "devDependencies": {
+    "@ethereumjs/util": "^9.1.0",
+    "@metamask/eth-sig-util": "^7.0.3",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.13.0",
+    "eslint": "8.36.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.4",
+    "typescript": "^5.4.5",
+    "vercel": "^32.0.0"
+  }
+}
