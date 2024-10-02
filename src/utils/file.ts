@@ -20,6 +20,9 @@ export async function readFileAsBase64(filePath: string): Promise<string> {
       case '.png':
         mimeType = 'image/png';
         break;
+      case '.webp':
+        mimeType = 'image/webp';
+        break;
       case '.gif':
         mimeType = 'image/gif';
         break;

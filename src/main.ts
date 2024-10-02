@@ -1,25 +1,25 @@
-import { Address, bytesToHex, Hex } from 'viem';
+import { Hex } from 'viem';
 import { createCredRequest } from './cred/createCredRequest';
 import { createArtRequest } from './art/createArtRequest';
 import { ArtManager, CredManager, CredChainId, ArtChainId } from '@phi-hub/sdk';
 import { credConfig, credVerifyEndpoint } from './cred/credConfig';
-import { executor, signer, SIGNER_PRIVATE_KEY } from './config';
+import { executor, EXECUTOR_PRIVATE_KEY, verifier, VERIFIER_PRIVATE_KEY } from './config';
 import { artSettings } from './art/artConfig';
 
 // this script is an example of how to create cred and art using phi-sdk
 async function main() {
-  const signerPrivateKey = SIGNER_PRIVATE_KEY as Hex;
+  const privateKey = EXECUTOR_PRIVATE_KEY as Hex;
   console.log(`Processing executor: ${executor}`);
 
   // please check these chainIds are supported by phi.
   const credChainId: CredChainId = 84532;
   const artChainId: ArtChainId = 84532;
 
-  const credManager = new CredManager(signerPrivateKey, credChainId);
-  const artManager = new ArtManager(signerPrivateKey, artChainId);
+  const credManager = new CredManager(privateKey, credChainId);
+  const artManager = new ArtManager(privateKey, artChainId);
 
   // please change number of configs based on your requirement
-  for (let configId = 0; configId <= 0; configId++) {
+  for (let configId = 0; configId <= 26; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 
@@ -36,7 +36,7 @@ async function main() {
         executor,
         credCreator,
         config.network, // eligible network for your cred
-        config.verificationType === 'SIGNATURE' ? signer : undefined,
+        config.verificationType === 'SIGNATURE' ? verifier : undefined,
         config.verificationType === 'SIGNATURE' ? credVerifyEndpoint[configId] : undefined,
       );
 

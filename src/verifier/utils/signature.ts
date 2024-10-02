@@ -1,8 +1,6 @@
 import { encodeAbiParameters, parseAbiParameters, toBytes, Hex, hashMessage, keccak256, toHex, Address } from 'viem';
 import { sign } from 'viem/accounts';
-import { SIGNER_PRIVATE_KEY } from '../../config';
 
-const signerPrivateKey = SIGNER_PRIVATE_KEY as Hex;
 export async function create_signature(address: Address, mint_eligibility: boolean, data: string): Promise<Hex> {
   // Check if data fits in bytes32
   let dataFitsInBytes32 = false;
@@ -22,7 +20,7 @@ export async function create_signature(address: Address, mint_eligibility: boole
   const encodedData = encodeAbiParameters(parseAbiParameters(types), valueArray);
   const { r, s, v } = await sign({
     hash: hashMessage({ raw: toBytes(keccak256(encodedData)) }),
-    privateKey: process.env.SIGNER_PRIVATE_KEY as `0x${string}`,
+    privateKey: process.env.VERIFIER_PRIVATE_KEY as `0x${string}`,
   });
 
   // Sign the hash message using the private key

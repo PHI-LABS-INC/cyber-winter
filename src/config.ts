@@ -1,15 +1,31 @@
-import { ArtManager, CredManager } from '@phi-hub/sdk';
 import dotenv from 'dotenv';
-import { Hex } from 'viem';
+import { Hex, Address } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
+
 dotenv.config();
 
-export const SIGNER_PRIVATE_KEY = process.env.SIGNER_PRIVATE_KEY;
-export const EXECUTOR_PRIVATE_KEY = process.env.EXECUTOR_PRIVATE_KEY;
+function getEnvVar(name: string): string {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Environment variable ${name} is not set`);
+  }
+  return value;
+}
 
-export const signer_account = privateKeyToAccount(SIGNER_PRIVATE_KEY as Hex);
-export const signer = signer_account.address;
+function hexToPrivateKey(hex: string): Hex {
+  if (!hex.startsWith('0x')) {
+    hex = '0x' + hex;
+  }
+  return hex as Hex;
+}
 
-export const executor = privateKeyToAccount(EXECUTOR_PRIVATE_KEY as Hex).address;
+export const VERIFIER_PRIVATE_KEY = hexToPrivateKey(getEnvVar('VERIFIER_PRIVATE_KEY'));
+export const EXECUTOR_PRIVATE_KEY = hexToPrivateKey(getEnvVar('EXECUTOR_PRIVATE_KEY'));
+
+export const verifier_account = privateKeyToAccount(VERIFIER_PRIVATE_KEY);
+export const verifier: Address = verifier_account.address;
+
+export const executor_account = privateKeyToAccount(EXECUTOR_PRIVATE_KEY);
+export const executor: Address = executor_account.address;
 
 export const ENDPOINT = 'base-autumn.vercel.app';
