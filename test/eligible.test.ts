@@ -1,4 +1,4 @@
-import { check_cred } from '../src/verifier/utils/check';
+import { check_cred } from '../src/verifier/check';
 import { TestCase, testCases } from './case/testCases';
 import { credConfig } from '../src/cred/credConfig';
 

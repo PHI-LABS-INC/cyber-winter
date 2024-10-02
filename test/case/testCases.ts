@@ -129,14 +129,22 @@ export const testCases = {
     },
     expectedDataCheck: (data: string) => data === '26000000000000000000000000',
   },
-  // 15: {
-  //   title: credConfig[15].title,
-  //   addresses: {
-  //     valid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //     invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '33292547162150163023924134',
-  // },
+  15: {
+    title: credConfig[15].title,
+    addresses: {
+      valid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+      invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
+    },
+    expectedDataCheck: (data: string) => data === '33292547162150163023924134',
+  },
+  16: {
+    title: credConfig[16].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
   // 16: {
   //   title: credConfig[16].title,
   //   addresses: {
@@ -145,86 +153,86 @@ export const testCases = {
   //   },
   //   expectedDataCheck: (data: string) => data === '',
   // },
-  // 17: {
-  //   title: credConfig[17].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 18: {
-  //   title: credConfig[18].title,
-  //   addresses: {
-  //     valid: '0xa903C06BF35286f6d1cDAD25396748353979a44C',
-  //     invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 19: {
-  //   title: credConfig[19].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 20: {
-  //   title: credConfig[20].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 21: {
-  //   title: credConfig[21].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 22: {
-  //   title: credConfig[22].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 23: {
-  //   title: credConfig[23].title,
-  //   addresses: {
-  //     valid: '0xf0e5e56b6a727d8ebd88a582985ff2bee74b6723',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 24: {
-  //   title: credConfig[24].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 25: {
-  //   title: credConfig[25].title,
-  //   addresses: {
-  //     valid: '0x5Bea2b2835e359A2DE3A65F4a68fc10f2bE271EA',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 26: {
-  //   title: credConfig[26].title,
-  //   addresses: {
-  //     valid: '0xEfEf4558802bF373Ce3307189C79a9cAb0a4Cb9C',
-  //     invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
-  //   },
-  //   expectedDataCheck: (data: string) => data >= '463178461776059131347474252',
-  // },
+  17: {
+    title: credConfig[17].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  18: {
+    title: credConfig[18].title,
+    addresses: {
+      valid: '0xa903C06BF35286f6d1cDAD25396748353979a44C',
+      invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  19: {
+    title: credConfig[19].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  20: {
+    title: credConfig[20].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0xe35E5f8B912C25cDb6B00B347cb856467e4112A3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  21: {
+    title: credConfig[21].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  22: {
+    title: credConfig[22].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  23: {
+    title: credConfig[23].title,
+    addresses: {
+      valid: '0x5589fD6856534a3AdfE16173AA308D2DC0E8Fb5B',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '37388240993000000000000000000',
+  },
+  24: {
+    title: credConfig[24].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  25: {
+    title: credConfig[25].title,
+    addresses: {
+      valid: '0x5Bea2b2835e359A2DE3A65F4a68fc10f2bE271EA',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  26: {
+    title: credConfig[26].title,
+    addresses: {
+      valid: '0xEfEf4558802bF373Ce3307189C79a9cAb0a4Cb9C',
+      invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
+    },
+    expectedDataCheck: (data: string) => data >= '463178461776059131347474252',
+  },
   // 27: {
   //   title: credConfig[27].title,
   //   addresses: {

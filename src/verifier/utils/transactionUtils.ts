@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { EtherscanResponse, GeneralTxItem, EtherscanTxItem, TxFilterFunction } from '../../utils/types';
+import {
+  EtherscanResponse,
+  GeneralTxItem,
+  EtherscanTxItem,
+  TxFilterFunction,
+  SignatureCredConfig,
+  CredResult,
+} from '../../utils/types';
 import { Address, Chain } from 'viem';
 
 export async function getTransactions(
@@ -85,4 +92,32 @@ async function getTransactionsFromExplorer(
   return response.result
     .map(transformExplorerTxToGeneralTx)
     .filter((tx) => filterFunction(tx, contractAddresses, methodIds));
+}
+
+export async function handleTransactionCheck(config: SignatureCredConfig, check_address: Address): Promise<CredResult> {
+  const contractAddresses = Array.isArray(config.contractAddress) ? config.contractAddress : [config.contractAddress];
+  const methodIds =
+    config.methodId === 'any' ? ['any'] : Array.isArray(config.methodId) ? config.methodId : [config.methodId];
+
+  const txs = await getTransactions(
+    config.apiKeyOrUrl,
+    check_address,
+    contractAddresses,
+    methodIds,
+    config.network,
+    config.startBlock,
+    config.endBlock,
+    config.filterFunction,
+  );
+  return handleTransactionResult(config, txs, check_address);
+}
+
+function handleTransactionResult(config: SignatureCredConfig, txs: any[], address: Address): CredResult {
+  const transactionCount = config.transactionCountCondition(txs, address);
+  const mintEligibility = config.mintEligibility(transactionCount);
+
+  if (config.credType === 'ADVANCED') {
+    return [mintEligibility, transactionCount.toString()];
+  }
+  return [mintEligibility, ''];
 }
