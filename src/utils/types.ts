@@ -14,13 +14,19 @@ type BaseCredConfig = {
   sellShareRoyalty: number;
   quantity: number;
 };
-export type TxFilterFunction = typeof txFilter_Any | typeof txFilter_Standard;
+
+export type TxFilterFunction = (
+  tx: GeneralTxItem,
+  contractAddresses: (Address | 'any')[],
+  methodIds: (string | 'any')[],
+) => boolean;
+
 export type SignatureCredConfig = BaseCredConfig & {
   verificationType: 'SIGNATURE';
   apiChoice: 'etherscan' | 'contractCall';
   apiKeyOrUrl: string;
   contractAddress: Address | 'any';
-  methodId: string | 'any';
+  methodId: string | string[] | 'any';
   startBlock: string;
   endBlock: string;
   filterFunction: TxFilterFunction;

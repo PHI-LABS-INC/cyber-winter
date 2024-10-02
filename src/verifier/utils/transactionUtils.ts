@@ -5,8 +5,8 @@ import { Address, Chain } from 'viem';
 export async function getTransactions(
   api_key: string,
   address: Address,
-  contractAddress: Address | 'any',
-  methodId: string,
+  contractAddresses: (Address | 'any')[],
+  methodIds: (string | 'any')[],
   network: Chain['id'],
   startblock: string,
   endblock: string,
@@ -15,8 +15,8 @@ export async function getTransactions(
   return getTransactionsFromExplorer(
     api_key,
     address,
-    contractAddress,
-    methodId,
+    contractAddresses,
+    methodIds,
     network,
     startblock,
     endblock,
@@ -66,8 +66,8 @@ function transformExplorerTxToGeneralTx(tx: EtherscanTxItem): GeneralTxItem {
 async function getTransactionsFromExplorer(
   api_key: string,
   address: Address,
-  contractAddress: Address | 'any',
-  methodId: string,
+  contractAddresses: (Address | 'any')[],
+  methodIds: (string | 'any')[],
   network: Chain['id'],
   startblock: string = '0',
   endblock: string = 'latest',
@@ -84,5 +84,5 @@ async function getTransactionsFromExplorer(
 
   return response.result
     .map(transformExplorerTxToGeneralTx)
-    .filter((tx) => filterFunction(tx, contractAddress, methodId));
+    .filter((tx) => filterFunction(tx, contractAddresses, methodIds));
 }
