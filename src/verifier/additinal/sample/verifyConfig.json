@@ -1,0 +1,17 @@
+{
+  "baseSettings": {
+    "address": "0x1234567890123456789012345678901234567890",
+    "verificationSource": "https://github.com/example/verify-source"
+  },
+  "overrideSettings": [
+    {
+      "credId": 0,
+      "endpoint": "https://example.com/api/verify/0"
+    },
+    {
+      "credId": 32,
+      "verificationSource": "https://github.com/example/special-verify-source-32"
+    }
+  ],
+  "defaultEndpoint": "https://example.com/api/verify/{configId}"
+}

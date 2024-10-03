@@ -127,3 +127,10 @@ export type ApiArtSetting = BaseArtSetting & {
 };
 
 export type ArtSetting = ImageArtSetting | ApiArtSetting;
+
+export type VerifySetting = {
+  credId: number;
+  endpoint: string;
+  address: Address;
+  verificationSource: string;
+};
