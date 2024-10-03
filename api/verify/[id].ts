@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-import { create_signature } from '../src/verifier/utils/signature';
-import { check_cred } from '../src/verifier/check';
+import { create_signature } from '../../src/verifier/utils/signature';
+import { check_cred } from '../../src/verifier/check';
 import { Address } from 'viem';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
