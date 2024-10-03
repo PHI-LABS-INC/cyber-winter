@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 import { Address } from 'viem';
-import { check_cred } from '../../src/verifier/check';
-import { create_signature } from '../../src/verifier/utils/signature';
+import { check_cred } from '@/verifier/check';
+import { create_signature } from '@/verifier/utils/signature';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { id, address } = req.query;
