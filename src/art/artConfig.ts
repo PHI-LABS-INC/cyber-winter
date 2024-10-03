@@ -309,8 +309,8 @@ export const artSettings: { [key: number]: ArtSetting } = {
     tags: ['SushiSwap', 'Josiah'],
     externalURL: 'https://www.sushi.com/swap?chainId=8453',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '24.png'),
-    artist: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
-    receiver: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
+    artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+    receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
   },
   25: {
     ...baseSettings,
@@ -321,8 +321,8 @@ export const artSettings: { [key: number]: ArtSetting } = {
     tags: ['Aave', 'Josiah', 'DeFi'],
     externalURL: 'https://app.aave.com/?marketName=proto_base_v3',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '25.png'),
-    artist: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
-    receiver: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
+    artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+    receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
   },
   26: {
     ...baseSettings,
@@ -333,8 +333,8 @@ export const artSettings: { [key: number]: ArtSetting } = {
     tags: ['Degen', 'Josiah', 'DeFi'],
     externalURL: 'https://app.aave.com/?marketName=proto_base_v3',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '26.png'),
-    artist: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
-    receiver: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
+    artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+    receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
   },
   27: {
     ...baseSettings,
@@ -357,8 +357,8 @@ export const artSettings: { [key: number]: ArtSetting } = {
     tags: ['Highlight.xyz', 'Josiah'],
     externalURL: 'https://highlight.xyz',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '28.png'),
-    artist: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
-    receiver: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
+    artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+    receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
   },
   29: {
     ...baseSettings,
