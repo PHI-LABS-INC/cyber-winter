@@ -372,4 +372,16 @@ export const artSettings: { [key: number]: ArtSetting } = {
     artist: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
     receiver: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
   },
+  30: {
+    ...baseSettings,
+    title: 'Race of Heroes',
+    description:
+      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Outro. This unique artwork captures the essence of blockchain activity onBuild on Speedtracer.',
+    project: 'Speedtracer',
+    tags: ['Speedtracer', 'Outro'],
+    externalURL: 'https://www.speedtracer.xyz/',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '30.gif'),
+    artist: '0x35d0445a9183a6dd55bb4e2ef69e37bfcddd566b',
+    receiver: '0x35d0445a9183a6dd55bb4e2ef69e37bfcddd566b',
+  },
 };

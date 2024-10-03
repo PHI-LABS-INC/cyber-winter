@@ -19,7 +19,7 @@ async function main() {
   const artManager = new ArtManager(privateKey, artChainId);
 
   // please change number of configs based on your requirement
-  for (let configId = 28; configId <= 29; configId++) {
+  for (let configId = 30; configId <= 30; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 

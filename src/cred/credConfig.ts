@@ -693,6 +693,27 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://market.shreddingsassy.com/collections/0x227f81f5f697cdd9554a43bbab01d7a85b9466c1/networks/base',
     ],
   },
+  30: {
+    ...baseSettings,
+    title: 'Submit Result on Speedtracer',
+    description: 'Submit a result on the Speedtracer platform',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    contractAddress: '0xCD45E55DB12E9CA3E82370F5D0c5C6876bF6f466',
+    methodId: '0x72c275a4',
+    filterFunction: txFilter_Standard,
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'Speedtracer',
+    tags: ['Gaming'],
+    relatedLinks: [
+      'https://www.speedtracer.xyz/',
+      'https://basescan.org/address/0xCD45E55DB12E9CA3E82370F5D0c5C6876bF6f466',
+    ],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
