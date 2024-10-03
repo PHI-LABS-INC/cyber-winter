@@ -233,30 +233,30 @@ export const testCases = {
     },
     expectedDataCheck: (data: string) => data >= '463178461776059131347474252',
   },
-  // 27: {
-  //   title: credConfig[27].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 28: {
-  //   title: credConfig[28].title,
-  //   addresses: {
-  //     valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
-  // 29: {
-  //   title: credConfig[29].title,
-  //   addresses: {
-  //     valid: '0xd4f4f6a1f386e041984da38e7be351903c767c2d',
-  //     invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
-  //   },
-  //   expectedDataCheck: (data: string) => data === '',
-  // },
+  27: {
+    title: credConfig[27].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  28: {
+    title: credConfig[28].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
+  29: {
+    title: credConfig[29].title,
+    addresses: {
+      valid: '0xd4f4f6a1f386e041984da38e7be351903c767c2d',
+      invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
+    },
+    expectedDataCheck: (data: string) => data === '',
+  },
 };
 
 export type TestCase = {

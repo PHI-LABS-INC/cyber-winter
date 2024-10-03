@@ -619,6 +619,80 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['Token', 'Degen'],
     relatedLinks: ['https://basescan.org/token/0x4ed4e862860bed51a9570b96d89af5e1b0efefed', 'https://www.degen.tips/'],
   },
+  27: {
+    ...baseSettings,
+    title: 'Register name on Basenames',
+    description:
+      'Basenames are a core onchain building block that enable builders to establish their identity on Base by registering human-readable names for their wallet address(es).',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    contractAddress: '0x4cCb0BB02FCABA27e82a56646E81d8c5bC4119a5',
+    methodId: '0xc7c79676',
+    filterFunction: txFilter_Standard,
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'Basenames',
+    tags: ['Base'],
+    relatedLinks: ['https://www.base.org/names'],
+  },
+  28: {
+    ...baseSettings,
+    title: 'Mint on Highlight.xyz',
+    description: 'Mint NFTs on Highlight.xyz platform',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    contractAddress: ['0xd9E58978808d17F99ccCEAb5195B052E972c0188', '0x481f9289257795bbC5Cc9bab8c986D3377450331'], // Highlight.xyz contract address
+    methodId: ['0x02c3a65b', '0xcdacf467'], // mint function method ID
+    filterFunction: txFilter_Standard,
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'Highlight.xyz',
+    tags: ['NFT', 'Minting'],
+    relatedLinks: ['https://highlight.xyz/'],
+  },
+  29: {
+    ...baseSettings,
+    title: 'Shredding Sassy',
+    description: 'Own at least one Shredding Sassy',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'contractCall',
+    apiKeyOrUrl: '',
+    contractAddress: '0x227f81f5f697cdd9554a43bbab01d7a85b9466c1',
+    functionName: 'balanceOf',
+    abi: [
+      {
+        name: 'balanceOf',
+        type: 'function',
+        inputs: [
+          {
+            name: 'account',
+            type: 'address',
+          },
+        ],
+        outputs: [
+          {
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+      },
+    ],
+    contractCallCondition: (result: number) => result > 0,
+    project: 'Shredding Sassy',
+    tags: ['NFT'],
+    relatedLinks: [
+      'https://market.shreddingsassy.com/home',
+      'https://market.shreddingsassy.com/collections/0x227f81f5f697cdd9554a43bbab01d7a85b9466c1/networks/base',
+    ],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(

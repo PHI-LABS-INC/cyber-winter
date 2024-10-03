@@ -7,7 +7,7 @@ import { resolve } from 'path';
 
 config({ path: resolve(__dirname, '../.env') });
 
-const privateKey = Buffer.from(process.env.SIGNER_PRIVATE_KEY?.slice(2) as string, 'hex');
+const privateKey = Buffer.from(process.env.VERIFIER_PRIVATE_KEY?.slice(2) as string, 'hex');
 
 describe('create_signature', function () {
   it('should sign a message correctly', async function () {

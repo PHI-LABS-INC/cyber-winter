@@ -336,4 +336,40 @@ export const artSettings: { [key: number]: ArtSetting } = {
     artist: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
     receiver: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
   },
+  27: {
+    ...baseSettings,
+    title: 'BaseTag',
+    description:
+      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Soju. This unique artwork captures the essence of blockchain activity onBuild on Basenames.',
+    project: 'Basenames',
+    tags: ['Basenames', 'Soju'],
+    externalURL: 'https://www.base.org/names',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '27.jpg'),
+    artist: '0x8CbF96319b3C56d50a7C82EFb6d3c46bD6f889Ba',
+    receiver: '0x8CbF96319b3C56d50a7C82EFb6d3c46bD6f889Ba',
+  },
+  28: {
+    ...baseSettings,
+    title: 'Highlighting the Horizon',
+    description:
+      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Josiah. This unique artwork captures the essence of blockchain activity onBuild on Highlight.xyz.',
+    project: 'Highlight.xyz',
+    tags: ['Highlight.xyz', 'Josiah'],
+    externalURL: 'https://highlight.xyz',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '28.png'),
+    artist: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
+    receiver: '0x1113237f7d7e3e10834afafa448e28e1332fdacd',
+  },
+  29: {
+    ...baseSettings,
+    title: 'Shaka Bros CC',
+    description:
+      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Sukota. This unique artwork captures the essence of blockchain activity onBuild on Shredding Sassy.',
+    project: 'Shredding Sassy',
+    tags: ['Shredding Sassy', 'Sukota'],
+    externalURL: 'https://market.shreddingsassy.com/home',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '29.png'),
+    artist: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
+    receiver: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
+  },
 };
