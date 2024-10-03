@@ -3,7 +3,7 @@ import { createCredRequest } from './cred/createCredRequest';
 import { createArtRequest } from './art/createArtRequest';
 import { ArtManager, CredManager, CredChainId, ArtChainId } from '@phi-hub/sdk';
 import { credConfig, credVerifyEndpoint } from './cred/credConfig';
-import { executor, EXECUTOR_PRIVATE_KEY, verifier, VERIFIER_PRIVATE_KEY } from './config';
+import { executor, EXECUTOR_PRIVATE_KEY, verifier } from './config';
 import { artSettings } from './art/artConfig';
 
 // this script is an example of how to create cred and art using phi-sdk
@@ -19,7 +19,7 @@ async function main() {
   const artManager = new ArtManager(privateKey, artChainId);
 
   // please change number of configs based on your requirement
-  for (let configId = 30; configId <= 30; configId++) {
+  for (let configId = 0; configId <= 30; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 
