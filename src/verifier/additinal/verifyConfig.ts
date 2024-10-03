@@ -29,7 +29,7 @@ export function getVerifySettings(): VerifySetting[] {
 
   return existingResults.map((result) => ({
     credId: result.credId,
-    endpoint: config.defaultEndpoint.replace('{credId}', result.configId.toString()),
+    endpoint: config.defaultEndpoint.replace('{configId}', result.configId.toString()),
     ...baseSettings,
   }));
 }
