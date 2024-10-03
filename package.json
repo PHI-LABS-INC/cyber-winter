@@ -7,9 +7,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint ./src --ext .ts",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod",
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.52",
