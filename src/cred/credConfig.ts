@@ -42,7 +42,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
     contractAddress: '0xD68fe5b53e7E1AbeB5A4d0A6660667791f39263a',
     methodId: 'any',
-    filterFunction: txFilter_Any,
+    filterFunction: txFilter_Standard,
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -466,8 +466,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     methodId: 'any',
     filterFunction: txFilter_Any,
     mintEligibility: (result: number) => result > 0,
-    transactionCountCondition: (txs: any[], address: string) =>
-      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    transactionCountCondition: (txs: any[], address: string) => txs.filter((tx) => tx.to === '').length,
     project: 'Base',
     tags: ['Smart Contract', 'Development'],
     relatedLinks: ['https://docs.base.org/building-with-base/'],
