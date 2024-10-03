@@ -5,13 +5,10 @@
   "license": "MIT",
   "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "vercel dev",
-    "deploy": "vercel deploy --prod",
-    "lint": "eslint . --ext .ts",
-    "test": "jest"
+    "lint": "eslint ./src --ext .ts",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.52",
