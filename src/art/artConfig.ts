@@ -17,7 +17,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Base Cosmic Maker',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Edu. This unique artwork captures the essence of blockchain activity on Base.',
+      '[PHI-Season-0] For the pioneers ready to explore the vast universe of onchain possibilities on Base.',
     project: 'Base',
     tags: ['Base', 'Edu'],
     externalURL: 'https://base.org/',
@@ -29,7 +29,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Pixel Flow',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Edu. This unique artwork captures the essence of blockchain activity on Base Paint.',
+      '[PHI-Season-0] Theres an inner artist in you, unleash it with this tube of BasePaint!',
     project: 'BasePaint',
     tags: ['Basepaint', 'Edu'],
     externalURL: 'https://basepaint.xyz/',
@@ -41,7 +41,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Stryker',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Skyfor. This unique artwork captures the essence of blockchain activity on Stryke.',
+      '[PHI-Season-0] The Stryke Coin Trophy.',
     project: 'Stryke',
     tags: ['Base', 'Skyfor'],
     externalURL: 'https://www.stryke.xyz',
@@ -53,7 +53,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Frens4Ever',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Soju. This unique artwork captures the essence of blockchain activity on Frenpet.',
+      '[PHI-Season-0] Meet your Frenpet. Ready to spread love and joy.',
     project: 'Frenpet',
     tags: ['Frenpet', 'Soju'],
     externalURL: 'https://frenpet.xyz/',
@@ -65,7 +65,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'PoolyBank',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Soju. This unique artwork captures the essence of blockchain activity on Cabana.',
+      '[PHI-Season-0] This quirky purple bird is here to bring a little extra luck to your PoolTogether experience. With its beak full of possibilities, it’s the perfect charm for anyone looking to save, win, and fly high with rewards!',
     project: 'Cabana',
     tags: ['Cabana', 'Soju'],
     externalURL: 'https://app.cabana.fi/',
@@ -77,7 +77,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'A Pixel is a Dot',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Musicguy. This unique artwork captures the essence of blockchain activity on DOT.',
+      '[PHI-Season-0] A world of digital adventures one Dot at a time.',
     project: 'Cabana',
     tags: ['Social', 'Musicguy', 'DOT'],
     externalURL: 'https://dot.fan/',
@@ -89,7 +89,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'VRBS Daily',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Picopops. This unique artwork captures the essence of blockchain activity on Vrbs.',
+      '[PHI-Season-0] Each pixelated VRBS personality represents the vibrant and diverse builders creating the future of digital spaces.',
     project: 'Vrbs',
     tags: ['Social', 'Picopops', 'Vrbs'],
     externalURL: 'https://vrbs.build/vrbs',
@@ -99,9 +99,9 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   7: {
     ...baseSettings,
-    title: 'paragraph',
+    title: 'Onchain Writer',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on paragraph.',
+      '[PHI-Season-0] Embody the freedom and creativity that Paragraph offers.',
     project: 'paragraph',
     tags: ['Social', 'Teji', 'paragraph'],
     externalURL: 'https://paragraph.xyz',
@@ -113,7 +113,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Express Yourself',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Picopops. This unique artwork captures the essence of blockchain activity on Zora.',
+      '[PHI-Season-0] Zoras dynamic sphere symbolizing endless creative potential and infinite possibilities for exploration. There is art in every dimension.',
     project: 'Zora',
     tags: ['Social', 'Picopops', 'Zora'],
     externalURL: 'https://zora.co/',
@@ -125,7 +125,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Uniswap Ecosystem',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Picopops. This unique artwork captures the essence of blockchain activity on Uniswap.',
+      '[PHI-Season-0] Uniswaps pink temple of DeFi invites you to trade, swap, and explore with ease.',
     project: 'Uniswap',
     tags: ['DeFi', 'Picopops', 'Uniswap'],
     externalURL: 'https://app.uniswap.org/',
@@ -137,7 +137,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Seamless, Future',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Ryf256. This unique artwork captures the essence of blockchain activity on Seamless.',
+      '[PHI-Season-0] A seamless art piece showcasing that every layer represents fluidity and precision in blockchain, powered by Seamless Protocol.',
     project: 'Seamless',
     tags: ['DeFi', 'Ryf256', 'Seamless'],
     externalURL: 'https://app.seamlessprotocol.com',
@@ -149,7 +149,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Rainbow Day',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Musicguy. This unique artwork captures the essence of blockchain activity on Rainbow.',
+      '[PHI-Season-0] Step into a colorful, dreamlike world where the horizon is as bright as your future in Web3. This vibrant artwork captures the spirit of exploration and wonder that comes with using Rainbow.',
     project: 'Rainbow',
     tags: ['Wallet', 'Musicguy', 'Rainbow'],
     externalURL: 'https://rainbow.me',
@@ -161,7 +161,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Coin Porter CC',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Sukota. This unique artwork captures the essence of blockchain activity on Reserve Protocol.',
+      '[PHI-Season-0] With a coin in hand and a smile that says it all, this playful character embodies the fun and ease of using Reserve Protocol',
     project: 'Reserve Protocol',
     tags: ['DeFi', 'Sukota', 'Reserve Protocol'],
     externalURL: 'https://app.reserve.org',
@@ -173,7 +173,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Aeroplane',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Olga Kuri. This unique artwork captures the essence of blockchain activity on Aerodrome.',
+      '[PHI-Season-0] Hop aboard and let this adorable plane guide you through the stars of Aerodrome!',
     project: 'Aerodrome',
     tags: ['DeFi', 'Olga Kuri', 'Aerodrome'],
     externalURL: 'https://aerodrome.finance',
@@ -183,9 +183,9 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   14: {
     ...baseSettings,
-    title: 'Brett',
+    title: 'Brett Enthusiast',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on Brett.',
+      '[PHI-Season-0] Cool vibes and good energy, thats what we Brett about.',
     project: 'Brett Token',
     tags: ['Token', 'Teji', 'Brett Token'],
     externalURL: 'https://www.basedbrett.com/',
@@ -195,9 +195,9 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   15: {
     ...baseSettings,
-    title: 'Higher',
+    title: 'Higher Holder',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on Higher.',
+      '[PHI-Season-0] Representing ambition and progress, always aim Higher.',
     project: 'Higher Token',
     tags: ['Token', 'Teji', 'Higher Token'],
     externalURL: 'https://basescan.org/token/0x0578d8a44db98b23bf096a382e016e29a5ce0ffe',
@@ -207,9 +207,9 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   16: {
     ...baseSettings,
-    title: 'Farcasster Dreams',
+    title: 'Farcaster Dreams',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Musicguy. This unique artwork captures the essence of blockchain activity on Farcaster.',
+      '[PHI-Season-0] Portal to the Social Future',
     project: 'Farcaster',
     tags: ['Social', 'Musicguy', 'Farcaster'],
     externalURL: 'https://www.farcaster.xyz/',
@@ -219,9 +219,9 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   17: {
     ...baseSettings,
-    title: 'For extra?',
+    title: 'Extra Power',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Ryf256. This unique artwork captures the essence of blockchain activity on Extra Finance.',
+      '[PHI-Season-0] Go the "Extra" mile',
     project: 'Extra Finance',
     tags: ['DeFi', 'Ryf256', 'Extra Finance'],
     externalURL: 'https://www.farcaster.xyz/',
@@ -233,7 +233,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Nyan Bob Noun',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Soju. This unique artwork captures the essence of blockchain activity on Yellow Collective.',
+      '[PHI-Season-0] Embark on a vibrant, out-of-this-world journey with the Yellow Collectives afro-rocking icon. Channeling the limitless potential of creators through the universe and leaving a rainbow trail of inspiration.',
     project: 'Yellow Collective',
     tags: ['NFT', 'Soju', 'Yellow Collective'],
     externalURL: 'https://www.yellowcollective.xyz/',
@@ -245,7 +245,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'The Floating Self',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Edu. This unique artwork captures the essence of blockchain activity on Phi.',
+      '[PHI-Season-0] Step into the creative playground of Phi Protocol, where you’re the artist!',
     project: 'PHI',
     tags: ['NFT', 'Edu', 'PHI'],
     externalURL: 'https://phiprotocol.xyz/',
@@ -268,7 +268,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Avanti-s',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Ryf256. This unique artwork captures the essence of blockchain activity on Avantis.',
+      '[PHI-Season-0] From Atlantis to Avantis.',
     project: 'Avantis',
     tags: ['Avantis', 'Ryf256', 'DeFi'],
     externalURL: 'https://www.avantisfi.com',
@@ -280,7 +280,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'The Cygnus Journey',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Ta2nb. This unique artwork captures the essence of blockchain activity on CYGNUS FINANCE.',
+      '[PHI-Season-0] Capturing the excitement of reaching new heights in DeFi on Cygnus Finance.',
     project: 'CYGNUS FINANCE',
     tags: ['CYGNUS FINANCE', 'Ta2nb', 'DeFi'],
     externalURL: 'https://app.cygnus.finance/mint',
@@ -292,7 +292,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Build on Base',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Zoopdrop. This unique artwork captures the essence of blockchain activity onBuild on BUILD.',
+      '[PHI-Season-0] Base is where you build the future of Web3.',
     project: 'BUILD Token',
     tags: ['BUILD Token', 'Zoopdrop', 'DeFi'],
     externalURL: 'https://app.cygnus.finance/mint',
@@ -304,7 +304,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Rolling Sushi Waves',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Josiah. This unique artwork captures the essence of blockchain activity onBuild on SushiSwap.',
+      '[PHI-Season-0] A Sushiswap ship navigates a serene river, its bottom made entirely of sushi. The artwork combines the worlds of food and finance in a dreamlike, idyllic setting.',
     project: 'SushiSwap',
     tags: ['SushiSwap', 'Josiah'],
     externalURL: 'https://www.sushi.com/swap?chainId=8453',
@@ -316,7 +316,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Whispers in the Woods',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Josiah. This unique artwork captures the essence of blockchain activity onBuild on SushiSwap.',
+      '[PHI-Season-0] In a forest glade, a ghostly AAVE mother tenderly releases her baby ghosts from a transparent cylinder, as if setting them free into the world. The soft, ethereal light evokes a sense of enchantment.',
     project: 'Aave',
     tags: ['Aave', 'Josiah', 'DeFi'],
     externalURL: 'https://app.aave.com/?marketName=proto_base_v3',
@@ -328,7 +328,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: "Fortune's Fancy",
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Josiah. This unique artwork captures the essence of blockchain activity onBuild on Degen.',
+      '[PHI-Season-0] A whimsical magical hat spills $DEGEN coins, as if Fortune herself has smiled upon the scene. The artwork exudes a sense of lighthearted joy and the promise of good fortune.',
     project: 'Degen',
     tags: ['Degen', 'Josiah', 'DeFi'],
     externalURL: 'https://app.aave.com/?marketName=proto_base_v3',
@@ -340,7 +340,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'BaseTag',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Soju. This unique artwork captures the essence of blockchain activity onBuild on Basenames.',
+      '[PHI-Season-0] Whether youre repping your favorite blockchain or just want to let the world know youre BASED in all the right ways, this sticker of Jesse for Basenames is the way to go. Hand-drawn Illustration (ink on paper and digital color) by the artist Soju.',
     project: 'Basenames',
     tags: ['Basenames', 'Soju'],
     externalURL: 'https://www.base.org/names',
@@ -352,7 +352,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Highlighting the Horizon',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Josiah. This unique artwork captures the essence of blockchain activity onBuild on Highlight.xyz.',
+      '[PHI-Season-0] An excited lady points to the sky, where a blazing "Highlight" airplane soars, carrying a banner that represents the thrill of discovery.',
     project: 'Highlight.xyz',
     tags: ['Highlight.xyz', 'Josiah'],
     externalURL: 'https://highlight.xyz',
@@ -364,7 +364,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Shaka Bros CC',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Sukota. This unique artwork captures the essence of blockchain activity onBuild on Shredding Sassy.',
+      '[PHI-Season-0] Love to roll through life with a smile and a trick up your sleeve? Shred on and Shaka off!',
     project: 'Shredding Sassy',
     tags: ['Shredding Sassy', 'Sukota'],
     externalURL: 'https://market.shreddingsassy.com/home',
@@ -376,7 +376,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     title: 'Race of Heroes',
     description:
-      '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Outro. This unique artwork captures the essence of blockchain activity onBuild on Speedtracer.',
+      '[PHI-Season-0] Touch to start, and may the fastest fingers win! This retro-inspired button graphic is your go-to for that adrenaline rush of SpeedTracer.',
     project: 'Speedtracer',
     tags: ['Speedtracer', 'Outro'],
     externalURL: 'https://www.speedtracer.xyz/',

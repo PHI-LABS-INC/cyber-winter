@@ -16,8 +16,8 @@ const baseSettings = {
 export const credConfig: { [key: number]: CredConfig } = {
   0: {
     ...baseSettings,
-    title: 'Number of transactions on Basechain',
-    description: '[PHI-Season-0] Execute any transaction on Basechain',
+    title: 'Transact on Base',
+    description: 'Execute any transaction on Base chain',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -34,8 +34,8 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   1: {
     ...baseSettings,
-    title: 'Mint a brush to save your art on the canvas',
-    description: 'Mint a Brush on Base Paint',
+    title: 'Base Paint Starter',
+    description: 'Mint a brush to save your art on the canvas',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -55,7 +55,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   2: {
     ...baseSettings,
-    title: '[Base] Trade Options on Stryke',
+    title: 'Stryke Options Novice',
     description: 'Purchase Option on the Stryke platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -74,8 +74,8 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   3: {
     ...baseSettings,
-    title: 'More than 5 transactions with Fren pet',
-    description: 'Interact with Fren pet more than 5 times',
+    title: 'Fren Pet Breeder',
+    description: 'Interact with Fren Pet more than 5 times',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -92,7 +92,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   4: {
     ...baseSettings,
-    title: 'Deposit USDC in PoolTogether (Base)',
+    title: 'PoolTogether Depositor',
     description: 'Deposit USDC into PoolTogether on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -126,7 +126,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   5: {
     ...baseSettings,
-    title: 'Create on chain Activity on DOT',
+    title: 'Dot Creator',
     description: 'Perform an on-chain activity on DOT platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -144,7 +144,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   6: {
     ...baseSettings,
-    title: 'Holder of a Vrbs',
+    title: 'Vrbs Holder',
     description: 'Own at least one Vrbs token',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -181,7 +181,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   7: {
     ...baseSettings,
-    title: 'Create and Mint on paragraph.xyz',
+    title: 'Paragraph Creator',
     description: 'Create and mint content on paragraph.xyz',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -199,7 +199,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   8: {
     ...baseSettings,
-    title: 'Create Collection on Zora (Base)',
+    title: 'Zora Creator (Base)',
     description: 'Create a new collection on Zora on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -217,7 +217,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   9: {
     ...baseSettings,
-    title: 'Execute Swap on Uniswap (Base)',
+    title: 'Uniswap Dealer (Base)',
     description: 'Perform a token swap on Uniswap on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -235,7 +235,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   10: {
     ...baseSettings,
-    title: 'Deposit ETH to Seamless and leverage',
+    title: 'Seamless Depositor',
     description: 'Deposit ETH and create a leveraged position on Seamless',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -255,7 +255,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   11: {
     ...baseSettings,
-    title: 'Execute Swap on Rainbow (Base)',
+    title: 'Rainbow Dealer (Base)',
     description: 'Perform a token swap on Rainbow on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -273,7 +273,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   12: {
     ...baseSettings,
-    title: 'Mint bsdETH in Reserve Protocol (Base)',
+    title: 'Reserve Protocol Minter (Base)',
     description: 'Mint bsdETH token in Reserve Protocol on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -294,7 +294,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   13: {
     ...baseSettings,
-    title: 'Add Liquidity on Aerodrome (Base)',
+    title: 'Aerodrome Pooler (Base)',
     description: 'Add liquidity to a pool on Aerodrome on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -315,7 +315,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   14: {
     ...baseSettings,
-    title: 'Holder of Brett Token',
+    title: 'Brett Token Holder',
     description: 'Own at least one Brett Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
@@ -352,7 +352,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   15: {
     ...baseSettings,
-    title: 'Holder of Higher Token',
+    title: 'Higher Token Holder',
     description: 'Own at least one Higher Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
@@ -399,7 +399,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   17: {
     ...baseSettings,
-    title: 'Create Leveraged Farming Position in Extra Finance (Base)',
+    title: 'Extra Finance Farmer (Base)',
     description: 'Create a leveraged farming position on Extra Finance on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -417,7 +417,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   18: {
     ...baseSettings,
-    title: 'Place Bid on Yellow Collective',
+    title: 'Yellow Collective Bidder',
     description: 'Place a bid on Yellow Collective platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -473,7 +473,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   21: {
     ...baseSettings,
-    title: 'Execute Trade on Avantis',
+    title: 'Avantis Trader',
     description: 'Execute a trade on Avantis platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -491,7 +491,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   22: {
     ...baseSettings,
-    title: 'Mint cgUSD on CYGNUS FINANCE',
+    title: 'Cygnus Finance Minter',
     description: 'Mint cgUSD token on CYGNUS FINANCE platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -512,7 +512,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   23: {
     ...baseSettings,
-    title: 'Holder of BUILD Token',
+    title: 'BUILD Token Holder',
     description: 'Own at least one BUILD Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
@@ -546,7 +546,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   24: {
     ...baseSettings,
-    title: 'Execute Swap on SushiSwap (Base)',
+    title: 'SushiSwap Dealer (Base)',
     description: 'Perform a token swap on SushiSwap on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -564,7 +564,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   25: {
     ...baseSettings,
-    title: 'Supply to Aave v3 on Base',
+    title: 'Aave Supporter (Base)',
     description: 'Supply assets to Aave v3 lending pool on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -586,7 +586,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   26: {
     ...baseSettings,
-    title: 'Holder of Degen Token',
+    title: 'Degen Token Holder',
     description: 'Own at least one Degen Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
@@ -620,7 +620,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   27: {
     ...baseSettings,
-    title: 'Register name on Basenames',
+    title: 'Verified Basename',
     description:
       'Basenames are a core onchain building block that enable builders to establish their identity on Base by registering human-readable names for their wallet address(es).',
     credType: 'BASIC',
@@ -639,7 +639,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   28: {
     ...baseSettings,
-    title: 'Mint on Highlight.xyz',
+    title: 'Highlight Minter',
     description: 'Mint NFTs on Highlight.xyz platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -694,7 +694,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   30: {
     ...baseSettings,
-    title: 'Submit Result on Speedtracer',
+    title: 'Speedtracer Zoomer',
     description: 'Submit a result on the Speedtracer platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
