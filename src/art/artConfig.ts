@@ -16,8 +16,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   0: {
     ...baseSettings,
     title: 'Base Cosmic Maker',
-    description:
-      '[PHI-Season-0] For the pioneers ready to explore the vast universe of onchain possibilities on Base.',
+    description: '[PHI-Season-0] For the pioneers ready to explore the vast universe of onchain possibilities on Base.',
     project: 'Base',
     tags: ['Base', 'Edu'],
     externalURL: 'https://base.org/',
@@ -28,8 +27,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   1: {
     ...baseSettings,
     title: 'Pixel Flow',
-    description:
-      '[PHI-Season-0] Theres an inner artist in you, unleash it with this tube of BasePaint!',
+    description: '[PHI-Season-0] Theres an inner artist in you, unleash it with this tube of BasePaint!',
     project: 'BasePaint',
     tags: ['Basepaint', 'Edu'],
     externalURL: 'https://basepaint.xyz/',
@@ -40,8 +38,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   2: {
     ...baseSettings,
     title: 'Stryker',
-    description:
-      '[PHI-Season-0] The Stryke Coin Trophy.',
+    description: '[PHI-Season-0] The Stryke Coin Trophy.',
     project: 'Stryke',
     tags: ['Base', 'Skyfor'],
     externalURL: 'https://www.stryke.xyz',
@@ -52,8 +49,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   3: {
     ...baseSettings,
     title: 'Frens4Ever',
-    description:
-      '[PHI-Season-0] Meet your Frenpet. Ready to spread love and joy.',
+    description: '[PHI-Season-0] Meet your Frenpet. Ready to spread love and joy.',
     project: 'Frenpet',
     tags: ['Frenpet', 'Soju'],
     externalURL: 'https://frenpet.xyz/',
@@ -76,8 +72,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   5: {
     ...baseSettings,
     title: 'A Pixel is a Dot',
-    description:
-      '[PHI-Season-0] A world of digital adventures one Dot at a time.',
+    description: '[PHI-Season-0] A world of digital adventures one Dot at a time.',
     project: 'Cabana',
     tags: ['Social', 'Musicguy', 'DOT'],
     externalURL: 'https://dot.fan/',
@@ -100,8 +95,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   7: {
     ...baseSettings,
     title: 'Onchain Writer',
-    description:
-      '[PHI-Season-0] Embody the freedom and creativity that Paragraph offers.',
+    description: '[PHI-Season-0] Embody the freedom and creativity that Paragraph offers.',
     project: 'paragraph',
     tags: ['Social', 'Teji', 'paragraph'],
     externalURL: 'https://paragraph.xyz',
@@ -124,8 +118,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   9: {
     ...baseSettings,
     title: 'Uniswap Ecosystem',
-    description:
-      '[PHI-Season-0] Uniswaps pink temple of DeFi invites you to trade, swap, and explore with ease.',
+    description: '[PHI-Season-0] Uniswaps pink temple of DeFi invites you to trade, swap, and explore with ease.',
     project: 'Uniswap',
     tags: ['DeFi', 'Picopops', 'Uniswap'],
     externalURL: 'https://app.uniswap.org/',
@@ -172,8 +165,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   13: {
     ...baseSettings,
     title: 'Aeroplane',
-    description:
-      '[PHI-Season-0] Hop aboard and let this adorable plane guide you through the stars of Aerodrome!',
+    description: '[PHI-Season-0] Hop aboard and let this adorable plane guide you through the stars of Aerodrome!',
     project: 'Aerodrome',
     tags: ['DeFi', 'Olga Kuri', 'Aerodrome'],
     externalURL: 'https://aerodrome.finance',
@@ -184,8 +176,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   14: {
     ...baseSettings,
     title: 'Brett Enthusiast',
-    description:
-      '[PHI-Season-0] Cool vibes and good energy, thats what we Brett about.',
+    description: '[PHI-Season-0] Cool vibes and good energy, thats what we Brett about.',
     project: 'Brett Token',
     tags: ['Token', 'Teji', 'Brett Token'],
     externalURL: 'https://www.basedbrett.com/',
@@ -196,8 +187,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   15: {
     ...baseSettings,
     title: 'Higher Holder',
-    description:
-      '[PHI-Season-0] Representing ambition and progress, always aim Higher.',
+    description: '[PHI-Season-0] Representing ambition and progress, always aim Higher.',
     project: 'Higher Token',
     tags: ['Token', 'Teji', 'Higher Token'],
     externalURL: 'https://basescan.org/token/0x0578d8a44db98b23bf096a382e016e29a5ce0ffe',
@@ -208,8 +198,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   16: {
     ...baseSettings,
     title: 'Farcaster Dreams',
-    description:
-      '[PHI-Season-0] Portal to the Social Future',
+    description: '[PHI-Season-0] Portal to the Social Future',
     project: 'Farcaster',
     tags: ['Social', 'Musicguy', 'Farcaster'],
     externalURL: 'https://www.farcaster.xyz/',
@@ -220,8 +209,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   17: {
     ...baseSettings,
     title: 'Extra Power',
-    description:
-      '[PHI-Season-0] Go the "Extra" mile',
+    description: '[PHI-Season-0] Go the "Extra" mile',
     project: 'Extra Finance',
     tags: ['DeFi', 'Ryf256', 'Extra Finance'],
     externalURL: 'https://www.farcaster.xyz/',
@@ -244,8 +232,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   19: {
     ...baseSettings,
     title: 'The Floating Self',
-    description:
-      '[PHI-Season-0] Step into the creative playground of Phi Protocol, where you’re the artist!',
+    description: '[PHI-Season-0] Step into the creative playground of Phi Protocol, where you’re the artist!',
     project: 'PHI',
     tags: ['NFT', 'Edu', 'PHI'],
     externalURL: 'https://phiprotocol.xyz/',
@@ -267,8 +254,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   21: {
     ...baseSettings,
     title: 'Avanti-s',
-    description:
-      '[PHI-Season-0] From Atlantis to Avantis.',
+    description: '[PHI-Season-0] From Atlantis to Avantis.',
     project: 'Avantis',
     tags: ['Avantis', 'Ryf256', 'DeFi'],
     externalURL: 'https://www.avantisfi.com',
@@ -279,8 +265,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   22: {
     ...baseSettings,
     title: 'The Cygnus Journey',
-    description:
-      '[PHI-Season-0] Capturing the excitement of reaching new heights in DeFi on Cygnus Finance.',
+    description: '[PHI-Season-0] Capturing the excitement of reaching new heights in DeFi on Cygnus Finance.',
     project: 'CYGNUS FINANCE',
     tags: ['CYGNUS FINANCE', 'Ta2nb', 'DeFi'],
     externalURL: 'https://app.cygnus.finance/mint',
@@ -291,8 +276,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   23: {
     ...baseSettings,
     title: 'Build on Base',
-    description:
-      '[PHI-Season-0] Base is where you build the future of Web3.',
+    description: '[PHI-Season-0] Base is where you build the future of Web3.',
     project: 'BUILD Token',
     tags: ['BUILD Token', 'Zoopdrop', 'DeFi'],
     externalURL: 'https://app.cygnus.finance/mint',
@@ -374,13 +358,25 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   30: {
     ...baseSettings,
+    title: 'Frenpet',
+    description:
+      '[PHI-Season-0]  Feed, play, and grow your pet while embarking on exciting adventures. Show your dedication by being a responsible pet owner and watch your Frenpet thrive!',
+    project: 'Frenpet',
+    tags: ['Frenpet', 'Sukota'],
+    externalURL: 'https://frenpet.xyz/',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '30.png'),
+    artist: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
+    receiver: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
+  },
+  31: {
+    ...baseSettings,
     title: 'Race of Heroes',
     description:
       '[PHI-Season-0] Touch to start, and may the fastest fingers win! This retro-inspired button graphic is your go-to for that adrenaline rush of SpeedTracer.',
     project: 'Speedtracer',
     tags: ['Speedtracer', 'Outro'],
     externalURL: 'https://www.speedtracer.xyz/',
-    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '30.gif'),
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '31.gif'),
     artist: '0x35d0445a9183a6dd55bb4e2ef69e37bfcddd566b',
     receiver: '0x35d0445a9183a6dd55bb4e2ef69e37bfcddd566b',
   },

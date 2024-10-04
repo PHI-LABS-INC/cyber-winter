@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import { txFilter_Any, txFilter_Contract, txFilter_Standard } from '../verifier/utils/filter';
-import { CredConfig } from '../utils/types';
+import { CredConfig, EtherscanTxItem } from '../utils/types';
 import { ENDPOINT } from '../config';
+import { decodeAbiParameters } from 'viem';
 
 const baseSettings = {
   network: 8453,
@@ -694,6 +695,24 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   30: {
     ...baseSettings,
+    title: 'Fren Pet Daily Feeder',
+    description: 'Feed your pet to extend its life',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    contractAddress: '0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
+    methodId: '0x715488b0',
+    filterFunction: txFilter_Standard,
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase() && checkItemIdZero(tx)).length,
+    project: 'Frenpet',
+    tags: ['Gaming', 'Pet'],
+    relatedLinks: ['https://frenpet.xyz/', 'https://basescan.org/address/0x0e22B5f3E11944578b37ED04F5312Dfc246f443C'],
+  },
+  31: {
+    ...baseSettings,
     title: 'Speedtracer Zoomer',
     description: 'Submit a result on the Speedtracer platform',
     credType: 'BASIC',
@@ -718,3 +737,12 @@ export const credConfig: { [key: number]: CredConfig } = {
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
   Object.keys(credConfig).map((key) => [key, `https://${ENDPOINT}/api/verify/${key}`]),
 );
+
+const checkItemIdZero = (tx: EtherscanTxItem): boolean => {
+  if (tx.methodId === '0x715488b0' && tx.input.length >= 74) {
+    const inputData = '0x' + tx.input.slice(10);
+    const [, itemId] = decodeAbiParameters([{ type: 'uint256' }, { type: 'uint256' }], inputData as `0x${string}`);
+    return BigInt(itemId) === BigInt(0);
+  }
+  return false;
+};
