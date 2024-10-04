@@ -99,7 +99,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   7: {
     ...baseSettings,
-    title: 'paragraph',
+    title: 'Its Paragraph',
     description:
       '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on paragraph.',
     project: 'paragraph',
@@ -183,7 +183,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   14: {
     ...baseSettings,
-    title: 'Brett',
+    title: 'Brettime',
     description:
       '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on Brett.',
     project: 'Brett Token',
@@ -195,7 +195,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   15: {
     ...baseSettings,
-    title: 'Higher',
+    title: 'Higher n Higher',
     description:
       '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on Higher.',
     project: 'Higher Token',
@@ -207,7 +207,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   16: {
     ...baseSettings,
-    title: 'Farcasster Dreams',
+    title: 'Farcaster Dreams',
     description:
       '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Musicguy. This unique artwork captures the essence of blockchain activity on Farcaster.',
     project: 'Farcaster',
