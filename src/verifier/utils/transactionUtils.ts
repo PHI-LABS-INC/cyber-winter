@@ -9,6 +9,9 @@ import {
 } from '../../utils/types';
 import { Address, Chain } from 'viem';
 
+const MAX_RETRIES = 5;
+const INITIAL_DELAY = 1000;
+
 export async function getTransactions(
   api_key: string,
   address: Address,
@@ -49,13 +52,29 @@ async function fetchTransactionsFromExplorer(
 
   const url = `${apiBaseURL}/api?module=account&action=txlist&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&apikey=${api_key}`;
 
-  try {
-    const response = await axios.get<EtherscanResponse>(url);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching transactions:', error);
-    throw error;
+  let retries = 0;
+  while (retries < MAX_RETRIES) {
+    try {
+      const response = await axios.get<EtherscanResponse>(url);
+      if (response.data.message === 'Max calls per sec rate limit reached (5/sec)') {
+        console.log(`Rate limit reached. Retrying in ${(INITIAL_DELAY * Math.pow(2, retries)) / 1000} seconds...`);
+        await new Promise((resolve) => setTimeout(resolve, INITIAL_DELAY * Math.pow(2, retries)));
+        retries++;
+      } else {
+        return response.data;
+      }
+    } catch (error) {
+      console.error('Error fetching transactions:', error);
+      if (retries === MAX_RETRIES - 1) {
+        throw error;
+      }
+      console.log(`Request failed. Retrying in ${(INITIAL_DELAY * Math.pow(2, retries)) / 1000} seconds...`);
+      await new Promise((resolve) => setTimeout(resolve, INITIAL_DELAY * Math.pow(2, retries)));
+      retries++;
+    }
   }
+
+  throw new Error('Max retries reached. Unable to fetch transactions.');
 }
 
 function transformExplorerTxToGeneralTx(tx: EtherscanTxItem): GeneralTxItem {

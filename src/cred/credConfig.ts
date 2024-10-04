@@ -183,7 +183,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   7: {
     ...baseSettings,
     title: 'Paragraph Creator',
-    description: 'Create and mint content on paragraph.xyz',
+    description: 'Miint content on paragraph.xyz',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
