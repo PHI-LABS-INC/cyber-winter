@@ -350,7 +350,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     description:
       '[PHI-Season-0] Love to roll through life with a smile and a trick up your sleeve? Shred on and Shaka off!',
     project: 'Shredding Sassy',
-    tags: ['Shredding Sassy', 'Sukota'],
+    tags: ['Shredding Sassy', 'Sukota', 'Shaka'],
     externalURL: 'https://market.shreddingsassy.com/home',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '29.png'),
     artist: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
