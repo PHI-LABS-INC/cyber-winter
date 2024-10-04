@@ -99,7 +99,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   7: {
     ...baseSettings,
-    title: 'Its Paragraph',
+    title: 'Onchain Writer',
     description:
       '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on paragraph.',
     project: 'paragraph',
@@ -183,7 +183,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   },
   14: {
     ...baseSettings,
-    title: 'Brettime',
+    title: 'Brett Enthusiast',
     description:
       '[PHI-Season-0] An artistic representation of transactions on Basechain, created by the artist Teji. This unique artwork captures the essence of blockchain activity on Brett.',
     project: 'Brett Token',
