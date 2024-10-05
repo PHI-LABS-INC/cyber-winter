@@ -11,6 +11,7 @@ import { Address, Chain } from 'viem';
 
 const MAX_RETRIES = 5;
 const INITIAL_DELAY = 1000;
+const MAX_DELAY = 60000; // Maximum wait of 60 seconds
 
 export async function getTransactions(
   api_key: string,
@@ -56,9 +57,13 @@ async function fetchTransactionsFromExplorer(
   while (retries < MAX_RETRIES) {
     try {
       const response = await axios.get<EtherscanResponse>(url);
-      if (response.data.message === 'Max calls per sec rate limit reached (5/sec)') {
-        console.log(`Rate limit reached. Retrying in ${(INITIAL_DELAY * Math.pow(2, retries)) / 1000} seconds...`);
-        await new Promise((resolve) => setTimeout(resolve, INITIAL_DELAY * Math.pow(2, retries)));
+      if (
+        response.data.message === 'Max calls per sec rate limit reached (5/sec)' ||
+        response.data.message === 'NOTOK'
+      ) {
+        const delay = Math.min(INITIAL_DELAY * Math.pow(2, retries), MAX_DELAY);
+        console.log(`Rate limit reached. Retrying in ${delay / 1000} seconds...`);
+        await new Promise((resolve) => setTimeout(resolve, delay));
         retries++;
       } else {
         return response.data;
@@ -68,8 +73,9 @@ async function fetchTransactionsFromExplorer(
       if (retries === MAX_RETRIES - 1) {
         throw error;
       }
-      console.log(`Request failed. Retrying in ${(INITIAL_DELAY * Math.pow(2, retries)) / 1000} seconds...`);
-      await new Promise((resolve) => setTimeout(resolve, INITIAL_DELAY * Math.pow(2, retries)));
+      const delay = Math.min(INITIAL_DELAY * Math.pow(2, retries), MAX_DELAY);
+      console.log(`Request failed. Retrying in ${delay / 1000} seconds...`);
+      await new Promise((resolve) => setTimeout(resolve, delay));
       retries++;
     }
   }
@@ -99,18 +105,23 @@ async function getTransactionsFromExplorer(
   endblock: string = 'latest',
   filterFunction: TxFilterFunction,
 ): Promise<GeneralTxItem[]> {
-  const response = await fetchTransactionsFromExplorer(network, address, startblock, endblock, api_key);
-  if (response.status === '0' && response.message === 'No transactions found') {
-    return [];
-  }
-  if (response.message !== 'OK') {
-    const msg = `Explorer API error: ${JSON.stringify(response)}`;
-    throw new Error(`Explorer API failed: ${msg}`);
-  }
+  try {
+    const response = await fetchTransactionsFromExplorer(network, address, startblock, endblock, api_key);
+    if (response.status === '0' && response.message === 'No transactions found') {
+      return [];
+    }
+    if (response.status === '0' || response.message !== 'OK') {
+      console.error(`Explorer API error: ${JSON.stringify(response)}`);
+      return []; // Return an empty array in case of error
+    }
 
-  return response.result
-    .map(transformExplorerTxToGeneralTx)
-    .filter((tx) => filterFunction(tx, contractAddresses, methodIds));
+    return response.result
+      .map(transformExplorerTxToGeneralTx)
+      .filter((tx) => filterFunction(tx, contractAddresses, methodIds));
+  } catch (error) {
+    console.error('Failed to fetch transactions:', error);
+    return []; // Return an empty array in case of error
+  }
 }
 
 export async function handleTransactionCheck(config: SignatureCredConfig, check_address: Address): Promise<CredResult> {

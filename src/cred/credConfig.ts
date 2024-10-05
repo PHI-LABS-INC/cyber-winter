@@ -658,13 +658,13 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   29: {
     ...baseSettings,
-    title: 'Shredding Sassy',
-    description: 'Own at least one Shredding Sassy',
-    credType: 'BASIC',
+    title: 'Shaka Token Holder',
+    description: 'Own at least one Shaka Token',
+    credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
     apiKeyOrUrl: '',
-    contractAddress: '0x227f81f5f697cdd9554a43bbab01d7a85b9466c1',
+    contractAddress: '0x478e03D45716dDa94F6DbC15A633B0D90c237E2F',
     functionName: 'balanceOf',
     abi: [
       {
@@ -686,11 +686,11 @@ export const credConfig: { [key: number]: CredConfig } = {
       },
     ],
     contractCallCondition: (result: number) => result > 0,
-    project: 'Shredding Sassy',
-    tags: ['NFT'],
+    project: 'Shaka',
+    tags: ['Token', 'Shaka'],
     relatedLinks: [
-      'https://market.shreddingsassy.com/home',
-      'https://market.shreddingsassy.com/collections/0x227f81f5f697cdd9554a43bbab01d7a85b9466c1/networks/base',
+      'https://basescan.org/token/0x478e03D45716dDa94F6DbC15A633B0D90c237E2F',
+      'https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base',
     ],
   },
   30: {
