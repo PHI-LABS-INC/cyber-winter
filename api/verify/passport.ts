@@ -19,7 +19,7 @@ async function checkIsArtMintedNumber(address: Address): Promise<[boolean, strin
     const credArtResults: CredArtResult[] = JSON.parse(jsonData);
 
     // Define the chain ID (adjust as necessary)
-    const chainId: ArtChainId = 8453; // Base Sepolia testnet
+    const chainId: ArtChainId = 84532; // Base Sepolia testnet
 
     let mintedCount = 0;
     const mintedArtIds: number[] = [];
