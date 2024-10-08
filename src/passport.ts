@@ -1,24 +1,22 @@
 import { Hex } from 'viem';
-import { createCredRequest } from './cred/createCredRequest';
 import { createArtRequest } from './art/createArtRequest';
-import { ArtManager, CredManager, CredChainId, ArtChainId, fetchIsArtMinted } from '@phi-hub/sdk';
+import {
+  ArtManager,
+  CredManager,
+  CredChainId,
+  ArtChainId,
+  SignatureCredRequest,
+  BaseCredRequest,
+  ArtCreateInput,
+} from '@phi-hub/sdk';
 import { ENDPOINT, executor, EXECUTOR_PRIVATE_KEY, verifier } from './config';
-import fs from 'fs';
-import path from 'path';
-
-interface ProcessResult {
-  configId: number;
-  credId: number;
-  artId?: number;
-}
-
-const OUTPUT_FILE = path.join(__dirname, 'output', 'cred_art_results.json');
+import { readImageAsBase64 } from './utils/file';
 
 // New configuration JSON
 const customConfig = {
   cred: {
     title: 'PHI Achievement',
-    description: 'Perform a specific action on the blockchain',
+    requirement: 'Perform a specific action on the blockchain',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'phi',
@@ -40,22 +38,12 @@ const customConfig = {
     soulbound: true,
     startDate: Math.floor(Date.now() / 1000),
     endDate: Math.floor(Date.now() / 1000) + 365 * 24 * 60 * 60, // One year from now
-    artType: 'API_ENDPOINT' as const,
-    endpoint: `https:/${ENDPOINT}/api/image/passport`,
-    previewInput: { address: executor, data: '0' },
     artist: executor,
     receiver: executor,
     executor: executor,
+    network: 84532 as ArtChainId,
   },
 };
-
-function loadExistingResults(): ProcessResult[] {
-  if (fs.existsSync(OUTPUT_FILE)) {
-    const data = fs.readFileSync(OUTPUT_FILE, 'utf8');
-    return JSON.parse(data);
-  }
-  return [];
-}
 
 async function main() {
   const privateKey = EXECUTOR_PRIVATE_KEY as Hex;
@@ -66,36 +54,43 @@ async function main() {
 
   const credManager = new CredManager(privateKey, credChainId);
   const artManager = new ArtManager(privateKey, artChainId);
-
-  const configId = 1; // Custom config ID
-
+  const base64Image = await readImageAsBase64(19); //phi
   try {
-    console.log(`Processing custom cred config: ${configId}`);
-
-    const config = customConfig.cred;
-
     let credCreator = executor;
-    let credRequest = await createCredRequest(
-      configId,
-      executor,
-      credCreator,
-      credChainId,
-      verifier,
-      'https:/${ENDPOINT}/api/verify/passort',
-    );
+    let request: SignatureCredRequest;
+    const baseRequest: BaseCredRequest = {
+      executor: executor,
+      creator: credCreator,
+      credType: 'ADVANCED',
+      requirement: customConfig.cred.requirement,
+      imageData: base64Image,
+      verificationSource: 'https://phi.box',
+      title: customConfig.cred.title,
+      networks: [84532],
+      project: customConfig.cred.project,
+      tags: customConfig.cred.tags,
+      relatedLinks: customConfig.cred.relatedLinks,
+      quantity: BigInt(1),
+      buyShareRoyalty: 100,
+      sellShareRoyalty: 100,
+    };
 
+    let credRequest = (request = {
+      ...baseRequest,
+      verificationType: 'SIGNATURE',
+      verifier: {
+        address: verifier,
+        endpoint: `https:/${ENDPOINT}/api/verify/passport`,
+      },
+    } as SignatureCredRequest);
     const credId = await credManager.createCred(credRequest, credChainId);
-    console.log(`Successfully processed configId: ${configId} with credID: ${credId}`);
-
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    console.log(`Processing custom art config: ${configId}`);
+    console.log(`Successfully processed`);
 
     const artSetting = customConfig.art;
 
-    const artRequest = await createArtRequest({
+    const artRequest: ArtCreateInput = await createArtRequest({
       ...artSetting,
-      network: artChainId,
+      endpoint: `https:/${ENDPOINT}/api/image/passport`,
       previewInput: { address: executor, data: '0' },
     });
 
@@ -105,7 +100,7 @@ async function main() {
       `Art details: Title - ${artSetting.title}, Project - ${artSetting.project}, Tags - ${artSetting.tags.join(', ')}`,
     );
   } catch (error) {
-    console.error(`Error processing configId ${configId}:`, error);
+    console.error(`Error processing configId`, error);
   }
 }
 
