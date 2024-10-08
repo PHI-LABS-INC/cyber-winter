@@ -13,6 +13,7 @@ export async function createArtRequest(params: {
   startDate: number;
   endDate: number;
   soulbound: boolean;
+  tags?: string[];
   network: ArtChainId;
   externalURL: string;
   relatedLink?: string;
@@ -32,6 +33,7 @@ export async function createArtRequest(params: {
       description: params.description,
       externalURL: params.externalURL,
       relatedLink: params.relatedLink,
+      tags: params.tags,
       start: params.startDate,
       end: params.endDate,
       maxSupply: params.maxSupply,

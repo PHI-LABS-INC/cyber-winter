@@ -33,8 +33,8 @@ export async function createCredRequest(
     tags: config.tags,
     relatedLinks: config.relatedLinks,
     quantity: BigInt(config.quantity),
-    buyShareRoyalty: 100,
-    sellShareRoyalty: 100,
+    buyShareRoyalty: config.buyShareRoyalty,
+    sellShareRoyalty: config.sellShareRoyalty,
   };
 
   let request: MerkleCredRequest | SignatureCredRequest;

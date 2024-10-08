@@ -14,7 +14,7 @@ interface ProcessResult {
   artId?: number;
 }
 
-const OUTPUT_FILE = path.join(__dirname, 'output', 'cred_art_results.json');
+const OUTPUT_FILE = path.join(process.cwd(), 'public/assets/output', 'cred_art_results.json');
 
 function loadExistingResults(): ProcessResult[] {
   if (fs.existsSync(OUTPUT_FILE)) {
