@@ -472,7 +472,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     filterFunction: txFilter_Standard,
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
-      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase() && checkItemIdZero(tx)).length,
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
     project: 'Moonwell',
     tags: ['DeFi', 'Lending'],
     relatedLinks: [
