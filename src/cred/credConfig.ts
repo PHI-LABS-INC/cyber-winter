@@ -71,7 +71,6 @@ export const credConfig: { [key: number]: CredConfig } = {
     project: 'Stryke',
     tags: ['DeFi', 'Option'],
     relatedLinks: ['https://www.stryke.xyz/en/dashboard'],
-    verificationSource: 'https://github.com/PHI-LABS-INC/base-autumn',
   },
   3: {
     ...baseSettings,
@@ -87,7 +86,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 5,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Frenpet',
+    project: 'Fren Pet',
     tags: ['Gaming', 'Pet'],
     relatedLinks: ['https://frenpet.xyz/', 'https://basescan.org/address/0x0e22B5f3E11944578b37ED04F5312Dfc246f443C'],
   },
@@ -123,7 +122,10 @@ export const credConfig: { [key: number]: CredConfig } = {
     contractCallCondition: (result: number) => result > 0,
     project: 'PoolTogether',
     tags: ['DeFi', 'Savings'],
-    relatedLinks: ['https://app.cabana.fi/vault/8453/0x7f5C2b379b88499aC2B997Db583f8079503f25b9'],
+    relatedLinks: [
+      'https://thedapplist.com/project/pool-together',
+      'https://app.cabana.fi/vault/8453/0x7f5C2b379b88499aC2B997Db583f8079503f25b9',
+    ],
   },
   5: {
     ...baseSettings,
@@ -139,9 +141,9 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'DOT',
-    tags: ['Social'],
-    relatedLinks: ['https://dot.fan/'],
+    project: 'Dot',
+    tags: ['Social', 'Art'],
+    relatedLinks: ['https://thedapplist.com/project/dot', 'https://dot.fan/'],
   },
   6: {
     ...baseSettings,
@@ -194,7 +196,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'paragraph.xyz',
+    project: 'paragraph',
     tags: ['Content', 'NFT'],
     relatedLinks: ['https://paragraph.xyz/discover/feed/recent/paragraph'],
   },
@@ -268,7 +270,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'rainbow',
+    project: 'Rainbow',
     tags: ['Wallet'],
     relatedLinks: ['https://rainbow.me/'],
   },
@@ -286,9 +288,10 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Reserve Protocol',
-    tags: ['DeFi', 'Stablecoin'],
+    project: 'Reserve',
+    tags: ['DeFi', 'Stablecoin', 'Reserve'],
     relatedLinks: [
+      'https://thedapplist.com/project/reserve',
       'https://app.reserve.org/base/token/0xcb327b99ff831bf8223cced12b1338ff3aa322ff/overview',
       'https://basescan.org/address/0xe811b62ab97d9370ce2e25f9cebc904522b81fe1',
     ],
@@ -344,7 +347,7 @@ export const credConfig: { [key: number]: CredConfig } = {
       },
     ],
     contractCallCondition: (result: number) => result > 0,
-    project: 'Brett Token',
+    project: 'Brett',
     tags: ['Token', 'Holder'],
     relatedLinks: [
       'https://www.basedbrett.com/',
@@ -381,7 +384,7 @@ export const credConfig: { [key: number]: CredConfig } = {
       },
     ],
     contractCallCondition: (result: number) => result > 0,
-    project: 'Higher Token',
+    project: 'Higher',
     tags: ['Token', 'Holder'],
     relatedLinks: ['https://basescan.org/token/0x0578d8a44db98b23bf096a382e016e29a5ce0ffe'],
   },
@@ -395,7 +398,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     apiKey: process.env.NEYNAR_API_KEY ?? '',
     endpoint: 'https://api.neynar.com/v1/farcaster/user-by-verification',
     project: 'Farcaster',
-    tags: ['Social', 'Verification'],
+    tags: ['Social', 'SNS'],
     relatedLinks: ['https://www.farcaster.xyz/'],
   },
   17: {
@@ -448,29 +451,35 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Phi Protocol',
-    tags: ['NFT', 'Minting'],
+    project: 'Phi',
+    tags: ['NFT', 'Content'],
     relatedLinks: [
+      'https://thedapplist.com/project/phi',
       'https://phiprotocol.xyz/',
       'https://basescan.org/address/0xc649989246faa59bbefa7c65551cc4461e823320',
     ],
   },
   20: {
     ...baseSettings,
-    title: 'Contract Creator on Base',
-    description: 'Deploy a smart contract on Base network',
+    title: 'Deposit USDC in Moonwell Flagship (Base)',
+    description: 'Deposit USDC into Moonwell Flagship on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: 'any',
-    methodId: 'any',
-    filterFunction: txFilter_Any,
+    contractAddress: '0xc1256Ae5FF1cf2719D4937adb3bbCCab2E00A2Ca',
+    methodId: '0x6e553f65',
+    filterFunction: txFilter_Standard,
     mintEligibility: (result: number) => result > 0,
-    transactionCountCondition: (txs: any[], address: string) => txs.filter((tx) => tx.to === '').length,
-    project: 'Base',
-    tags: ['Smart Contract', 'Development'],
-    relatedLinks: ['https://docs.base.org/building-with-base/'],
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase() && checkItemIdZero(tx)).length,
+    project: 'Moonwell',
+    tags: ['DeFi', 'Lending'],
+    relatedLinks: [
+      'https://thedapplist.com/project/moonwell',
+      'https://moonwell.fi/vaults/deposit/base/mwusdc',
+      'https://basescan.org/address/0x5037e7747faa78fc0ecf8dfc526dcd19f73076ce',
+    ],
   },
   21: {
     ...baseSettings,
@@ -505,7 +514,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
     project: 'CYGNUS FINANCE',
-    tags: ['DeFi', 'Stablecoin'],
+    tags: ['DeFi'],
     relatedLinks: [
       'https://app.cygnus.finance/mint',
       'https://basescan.org/tx/0x5fc2bfc66eb2c44e1e2ab2ea89479552f7f8b99c61de2afba7efdbe113b303bd',
@@ -559,9 +568,9 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'SushiSwap',
+    project: 'sushiswap',
     tags: ['DeFi', 'Swap'],
-    relatedLinks: ['https://www.sushi.com/swap?chainId=8453'],
+    relatedLinks: ['https://thedapplist.com/project/sushiswap', 'https://www.sushi.com/swap?chainId=8453'],
   },
   25: {
     ...baseSettings,
@@ -577,9 +586,10 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Aave',
+    project: 'aave',
     tags: ['DeFi', 'Lending'],
     relatedLinks: [
+      'https://thedapplist.com/project/aave-1',
       'https://app.aave.com/?marketName=proto_base_v3',
       'https://basescan.org/address/0x8be473dCfA93132658821E67CbEB684ec8Ea2E74',
       'https://basescan.org/address/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5',
@@ -615,9 +625,13 @@ export const credConfig: { [key: number]: CredConfig } = {
       },
     ],
     contractCallCondition: (result: number) => result > 0,
-    project: 'DegenToken',
+    project: 'Degen',
     tags: ['Token', 'Degen'],
-    relatedLinks: ['https://basescan.org/token/0x4ed4e862860bed51a9570b96d89af5e1b0efefed', 'https://www.degen.tips/'],
+    relatedLinks: [
+      'https://thedapplist.com/project/degen',
+      'https://basescan.org/token/0x4ed4e862860bed51a9570b96d89af5e1b0efefed',
+      'https://www.degen.tips/',
+    ],
   },
   27: {
     ...baseSettings,
@@ -634,9 +648,9 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Basenames',
+    project: '"Base Name Service',
     tags: ['Base'],
-    relatedLinks: ['https://www.base.org/names'],
+    relatedLinks: ['https://thedapplist.com/project/base-name-service', 'https://www.base.org/names'],
   },
   28: {
     ...baseSettings,
@@ -652,7 +666,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Highlight.xyz',
+    project: 'Highlight',
     tags: ['NFT', 'Minting'],
     relatedLinks: ['https://highlight.xyz/'],
   },
@@ -707,29 +721,12 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase() && checkItemIdZero(tx)).length,
-    project: 'Frenpet',
+    project: 'Fren Pet',
     tags: ['Gaming', 'Pet'],
-    relatedLinks: ['https://frenpet.xyz/', 'https://basescan.org/address/0x0e22B5f3E11944578b37ED04F5312Dfc246f443C'],
-  },
-  31: {
-    ...baseSettings,
-    title: 'Speedtracer Zoomer',
-    description: 'Submit a result on the Speedtracer platform',
-    credType: 'BASIC',
-    verificationType: 'SIGNATURE',
-    apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0xCD45E55DB12E9CA3E82370F5D0c5C6876bF6f466',
-    methodId: '0x72c275a4',
-    filterFunction: txFilter_Standard,
-    mintEligibility: (result: number) => result > 0,
-    transactionCountCondition: (txs: any[], address: string) =>
-      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Speedtracer',
-    tags: ['Gaming'],
     relatedLinks: [
-      'https://www.speedtracer.xyz/',
-      'https://basescan.org/address/0xCD45E55DB12E9CA3E82370F5D0c5C6876bF6f466',
+      'https://thedapplist.com/project/fren-pet',
+      'https://frenpet.xyz/',
+      'https://basescan.org/address/0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
     ],
   },
 };
