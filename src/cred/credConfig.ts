@@ -8,8 +8,8 @@ const baseSettings = {
   network: 8453,
   startBlock: '0', // eligible network for your cred
   endBlock: 'latest',
-  buyShareRoyalty: 100, // buy share royalty 1%
-  sellShareRoyalty: 100, // sell royalty 1%
+  buyShareRoyalty: 0, // buy share royalty 0%
+  sellShareRoyalty: 50, // sell royalty 0.5%
   quantity: 1, // initial share quantity
   verificationSource: 'https://github.com/PHI-LABS-INC/base-autumn',
 };
@@ -18,7 +18,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   0: {
     ...baseSettings,
     title: 'Transact on Base',
-    description: 'Execute any transaction on Base chain',
+    requirement: 'Execute any transaction on Base chain',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -36,7 +36,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   1: {
     ...baseSettings,
     title: 'Base Paint Starter',
-    description: 'Mint a brush to save your art on the canvas',
+    requirement: 'Mint a brush to save your art on the canvas',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -57,7 +57,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   2: {
     ...baseSettings,
     title: 'Stryke Options Novice',
-    description: 'Purchase Option on the Stryke platform',
+    requirement: 'Purchase Option on the Stryke platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -75,7 +75,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   3: {
     ...baseSettings,
     title: 'Fren Pet Breeder',
-    description: 'Interact with Fren Pet more than 5 times',
+    requirement: 'Interact with Fren Pet more than 5 times',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -93,7 +93,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   4: {
     ...baseSettings,
     title: 'PoolTogether Depositor',
-    description: 'Deposit USDC into PoolTogether on Base network',
+    requirement: 'Deposit USDC into PoolTogether on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
@@ -130,7 +130,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   5: {
     ...baseSettings,
     title: 'Dot Creator',
-    description: 'Perform an on-chain activity on DOT platform',
+    requirement: 'Perform an on-chain activity on DOT platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -148,7 +148,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   6: {
     ...baseSettings,
     title: 'Vrbs Holder',
-    description: 'Own at least one Vrbs token',
+    requirement: 'Own at least one Vrbs token',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
@@ -185,7 +185,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   7: {
     ...baseSettings,
     title: 'Paragraph Creator',
-    description: 'Miint content on paragraph.xyz',
+    requirement: 'Miint content on paragraph.xyz',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -203,7 +203,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   8: {
     ...baseSettings,
     title: 'Zora Creator (Base)',
-    description: 'Create a new collection on Zora on Base network',
+    requirement: 'Create a new collection on Zora on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -221,7 +221,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   9: {
     ...baseSettings,
     title: 'Uniswap Dealer (Base)',
-    description: 'Perform a token swap on Uniswap on Base network',
+    requirement: 'Perform a token swap on Uniswap on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -239,7 +239,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   10: {
     ...baseSettings,
     title: 'Seamless Depositor',
-    description: 'Deposit ETH and create a leveraged position on Seamless',
+    requirement: 'Deposit ETH and create a leveraged position on Seamless',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -259,7 +259,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   11: {
     ...baseSettings,
     title: 'Rainbow Dealer (Base)',
-    description: 'Perform a token swap on Rainbow on Base network',
+    requirement: 'Perform a token swap on Rainbow on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -277,7 +277,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   12: {
     ...baseSettings,
     title: 'Reserve Protocol Minter (Base)',
-    description: 'Mint bsdETH token in Reserve Protocol on Base network',
+    requirement: 'Mint bsdETH token in Reserve Protocol on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -299,7 +299,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   13: {
     ...baseSettings,
     title: 'Aerodrome Pooler (Base)',
-    description: 'Add liquidity to a pool on Aerodrome on Base network',
+    requirement: 'Add liquidity to a pool on Aerodrome on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -320,7 +320,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   14: {
     ...baseSettings,
     title: 'Brett Token Holder',
-    description: 'Own at least one Brett Token',
+    requirement: 'Own at least one Brett Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
@@ -357,7 +357,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   15: {
     ...baseSettings,
     title: 'Higher Token Holder',
-    description: 'Own at least one Higher Token',
+    requirement: 'Own at least one Higher Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
@@ -391,7 +391,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   16: {
     ...baseSettings,
     title: 'Verified Farcaster User',
-    description: 'Check if the address is verified on Farcaster',
+    requirement: 'Check if the address is verified on Farcaster',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'neynar',
@@ -404,7 +404,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   17: {
     ...baseSettings,
     title: 'Extra Finance Farmer (Base)',
-    description: 'Create a leveraged farming position on Extra Finance on Base network',
+    requirement: 'Create a leveraged farming position on Extra Finance on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -422,7 +422,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   18: {
     ...baseSettings,
     title: 'Yellow Collective Bidder',
-    description: 'Place a bid on Yellow Collective platform',
+    requirement: 'Place a bid on Yellow Collective platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -440,7 +440,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   19: {
     ...baseSettings,
     title: 'Mint Why Phi',
-    description: 'Mint a Why Phi token on Phi protocol',
+    requirement: 'Mint a Why Phi token on Phi protocol',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -462,7 +462,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   20: {
     ...baseSettings,
     title: 'Deposit USDC in Moonwell Flagship (Base)',
-    description: 'Deposit USDC into Moonwell Flagship on Base network',
+    requirement: 'Deposit USDC into Moonwell Flagship on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -484,7 +484,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   21: {
     ...baseSettings,
     title: 'Avantis Trader',
-    description: 'Execute a trade on Avantis platform',
+    requirement: 'Execute a trade on Avantis platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -502,7 +502,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   22: {
     ...baseSettings,
     title: 'Cygnus Finance Minter',
-    description: 'Mint cgUSD token on CYGNUS FINANCE platform',
+    requirement: 'Mint cgUSD token on CYGNUS FINANCE platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -523,7 +523,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   23: {
     ...baseSettings,
     title: 'BUILD Token Holder',
-    description: 'Own at least one BUILD Token',
+    requirement: 'Own at least one BUILD Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
@@ -557,7 +557,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   24: {
     ...baseSettings,
     title: 'SushiSwap Dealer (Base)',
-    description: 'Perform a token swap on SushiSwap on Base network',
+    requirement: 'Perform a token swap on SushiSwap on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -575,7 +575,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   25: {
     ...baseSettings,
     title: 'Aave Supporter (Base)',
-    description: 'Supply assets to Aave v3 lending pool on Base network',
+    requirement: 'Supply assets to Aave v3 lending pool on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -598,7 +598,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   26: {
     ...baseSettings,
     title: 'Degen Token Holder',
-    description: 'Own at least one Degen Token',
+    requirement: 'Own at least one Degen Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
@@ -636,7 +636,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   27: {
     ...baseSettings,
     title: 'Verified Basename',
-    description:
+    requirement:
       'Basenames are a core onchain building block that enable builders to establish their identity on Base by registering human-readable names for their wallet address(es).',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
@@ -655,7 +655,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   28: {
     ...baseSettings,
     title: 'Highlight Minter',
-    description: 'Mint NFTs on Highlight.xyz platform',
+    requirement: 'Mint NFTs on Highlight.xyz platform',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -673,7 +673,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   29: {
     ...baseSettings,
     title: 'Shaka Token Holder',
-    description: 'Own at least one Shaka Token',
+    requirement: 'Own at least one Shaka Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
@@ -710,7 +710,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   30: {
     ...baseSettings,
     title: 'Fren Pet Daily Feeder',
-    description: 'Feed your pet to extend its life',
+    requirement: 'Feed your pet to extend its life',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',

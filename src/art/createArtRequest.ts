@@ -3,7 +3,7 @@ import { readFileAsBase64 } from '../utils/file';
 import { Address } from 'viem';
 
 export async function createArtRequest(params: {
-  title: string;
+  name: string;
   description: string;
   executor: Address;
   artist: Address;
@@ -27,7 +27,7 @@ export async function createArtRequest(params: {
   try {
     const baseArtRequest = {
       executor: params.executor,
-      title: params.title,
+      name: params.name,
       artist: params.artist,
       receiver: params.receiver,
       description: params.description,

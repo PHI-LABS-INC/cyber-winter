@@ -28,7 +28,7 @@ const customConfig = {
     relatedLinks: ['https://phi.box'],
   },
   art: {
-    title: 'Phi Achievement Art',
+    name: 'Phi Achievement Art',
     description: 'Dynamic art representing phi achievement',
     project: 'PHI',
     tags: ['PHI', 'Custom'],
@@ -97,7 +97,7 @@ async function main() {
     const artId = await artManager.createArt(artRequest, credId, credChainId);
     console.log(`Successfully processed createArt for credID: ${credId} with artID: ${artId}`);
     console.log(
-      `Art details: Title - ${artSetting.title}, Project - ${artSetting.project}, Tags - ${artSetting.tags.join(', ')}`,
+      `Art details: Title - ${artSetting.name}, Project - ${artSetting.project}, Tags - ${artSetting.tags.join(', ')}`,
     );
   } catch (error) {
     console.error(`Error processing configId`, error);

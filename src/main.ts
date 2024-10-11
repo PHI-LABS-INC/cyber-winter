@@ -1,4 +1,4 @@
-import { Hex } from 'viem';
+import { Address, Hex } from 'viem';
 import { createCredRequest } from './cred/createCredRequest';
 import { createArtRequest } from './art/createArtRequest';
 import { ArtManager, CredManager, CredChainId, ArtChainId } from '@phi-hub/sdk';
@@ -45,7 +45,7 @@ async function main() {
 
   let results = loadExistingResults();
 
-  for (let configId = 30; configId <= 30; configId++) {
+  for (let configId = 0; configId <= 30; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 
@@ -55,7 +55,7 @@ async function main() {
         continue;
       }
 
-      let credCreator = executor;
+      let credCreator = '0x6e4a4525c1b0f9237acc0ab8da9a1934ef75ba94' as Address;
       let credRequest = await createCredRequest(
         configId,
         executor,
@@ -77,7 +77,7 @@ async function main() {
       if (artSetting) {
         let artRequest;
         const baseArtRequest = {
-          title: artSetting.title,
+          name: artSetting.name,
           description: artSetting.description,
           externalURL: artSetting.externalURL,
           network: artChainId,
@@ -108,11 +108,7 @@ async function main() {
 
         const artId = await artManager.createArt(artRequest, credId, credChainId);
         console.log(`Successfully processed createArt for credID: ${credId} with artID: ${artId}`);
-        console.log(
-          `Art details: Title - ${artSetting.title}, Project - ${artSetting.project}, Tags - ${artSetting.tags.join(
-            ', ',
-          )}`,
-        );
+        console.log(`Art details: Title - ${artSetting.name}, Tags - ${artSetting.tags.join(', ')}`);
 
         result.artId = Number(artId);
       } else {

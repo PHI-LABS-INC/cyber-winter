@@ -1,9 +1,8 @@
 import { Address, Chain } from 'viem';
-import { txFilter_Any, txFilter_Standard } from '../verifier/utils/filter';
 
 type BaseCredConfig = {
   title: string;
-  description: string;
+  requirement: string;
   credType: 'BASIC' | 'ADVANCED';
   network: Chain['id'];
   project: string;
@@ -100,9 +99,8 @@ export type EtherscanResponse = {
 };
 
 export type BaseArtSetting = {
-  title: string;
+  name: string;
   description: string;
-  project: string;
   tags: string[];
   externalURL: string;
   price: number;
