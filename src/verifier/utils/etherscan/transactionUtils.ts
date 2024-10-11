@@ -6,7 +6,7 @@ import {
   TxFilterFunction,
   SignatureCredConfig,
   CredResult,
-} from '../../utils/types';
+} from '../../../utils/types';
 import { Address, Chain } from 'viem';
 
 const MAX_RETRIES = 5;
@@ -51,7 +51,7 @@ async function fetchTransactionsFromExplorer(
     throw new Error(`Unsupported network: ${network}`);
   }
 
-  const url = `${apiBaseURL}/api?module=account&action=txlist&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&apikey=${api_key}`;
+  const url = `${apiBaseURL}/api?module=account&action=txlist&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=1000&apikey=${api_key}`;
 
   let retries = 0;
   while (retries < MAX_RETRIES) {
@@ -129,17 +129,33 @@ export async function handleTransactionCheck(config: SignatureCredConfig, check_
   const methodIds =
     config.methodId === 'any' ? ['any'] : Array.isArray(config.methodId) ? config.methodId : [config.methodId];
 
-  const txs = await getTransactions(
-    config.apiKeyOrUrl,
-    check_address,
-    contractAddresses,
-    methodIds,
-    config.network,
-    config.startBlock,
-    config.endBlock,
-    config.filterFunction,
-  );
-  return handleTransactionResult(config, txs, check_address);
+  if (config.from) {
+    const txs = await getTransactions(
+      config.apiKeyOrUrl,
+      config.from,
+      contractAddresses,
+      methodIds,
+      config.network,
+      config.startBlock,
+      config.endBlock,
+      config.filterFunction,
+    );
+
+    return handleTransactionResult(config, txs, check_address);
+  } else {
+    const txs = await getTransactions(
+      config.apiKeyOrUrl,
+      check_address,
+      contractAddresses,
+      methodIds,
+      config.network,
+      config.startBlock,
+      config.endBlock,
+      config.filterFunction,
+    );
+
+    return handleTransactionResult(config, txs, check_address);
+  }
 }
 
 function handleTransactionResult(config: SignatureCredConfig, txs: any[], address: Address): CredResult {

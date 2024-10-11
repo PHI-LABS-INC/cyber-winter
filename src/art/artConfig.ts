@@ -338,4 +338,14 @@ export const artSettings: { [key: number]: ArtSetting } = {
     artist: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
     receiver: '0xabc4529cb57001583e64d9d67e1658ac0ecca805',
   },
+  31: {
+    ...baseSettings,
+    name: 'Every Dot Matters',
+    description: '[PHI-Season-0] A world of digital adventures one Dot at a time.',
+    tags: ['Social', 'Art', 'Musicguy', 'DOT'],
+    externalURL: 'https://dot.fan/',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod', '31.png'),
+    artist: '0xf56E55e35d2CCa5A34F5Ba568454974424aEA0F4',
+    receiver: '0xf56E55e35d2CCa5A34F5Ba568454974424aEA0F4',
+  },
 };

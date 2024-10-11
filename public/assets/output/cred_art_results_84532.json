@@ -153,5 +153,15 @@
     "configId": 29,
     "credId": 63,
     "artId": 62
+  },
+  {
+    "configId": 30,
+    "credId": 64,
+    "artId": 63
+  },
+  {
+    "configId": 31,
+    "credId": 67,
+    "artId": 65
   }
 ]

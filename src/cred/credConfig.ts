@@ -1,8 +1,8 @@
 import 'dotenv/config';
-import { txFilter_Any, txFilter_Contract, txFilter_Standard } from '../verifier/utils/filter';
+import { txFilter_Any, txFilter_Contract, txFilter_Standard } from '../verifier/utils/etherscan/filter';
 import { CredConfig, EtherscanTxItem } from '../utils/types';
 import { ENDPOINT } from '../config';
-import { decodeAbiParameters } from 'viem';
+import { Address, decodeAbiParameters } from 'viem';
 
 const baseSettings = {
   network: 8453,
@@ -729,6 +729,25 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://basescan.org/address/0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
     ],
   },
+  31: {
+    ...baseSettings,
+    title: 'Dot Painter',
+    requirement: 'Perform Publish and Collect your first Dot Card on Dot platform',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    from: '0xf35365763a881475f4c1ba4ad8e41f6078011bda',
+    contractAddress: '0x7b5673B598A71d27a56781271eC5fa05DE216df0',
+    methodId: '0x9c1a1c4d',
+    filterFunction: txFilter_Standard,
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => checkDotCollector(tx, address as Address)).length,
+    project: 'Dot',
+    tags: ['Social', 'Art'],
+    relatedLinks: ['https://thedapplist.com/project/dot', 'https://dot.fan/'],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
@@ -742,4 +761,13 @@ const checkItemIdZero = (tx: EtherscanTxItem): boolean => {
     return BigInt(itemId) === BigInt(0);
   }
   return false;
+};
+
+const checkDotCollector = (tx: EtherscanTxItem, address: Address): boolean => {
+  const inputData = '0x' + tx.input.slice(10);
+  const [collector] = decodeAbiParameters(
+    [{ type: 'address' }, { type: 'string' }, { type: 'string' }],
+    inputData as `0x${string}`,
+  );
+  return collector.toLowerCase() === address.toLowerCase();
 };

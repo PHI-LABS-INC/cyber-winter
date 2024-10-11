@@ -14,7 +14,10 @@ interface ProcessResult {
   artId?: number;
 }
 
-const OUTPUT_FILE = path.join(process.cwd(), 'public/assets/output', 'cred_art_results.json');
+const credChainId: CredChainId = 84532;
+const artChainId: ArtChainId = 84532;
+
+const OUTPUT_FILE = path.join(process.cwd(), 'public/assets/output', `cred_art_results_${artChainId}.json`);
 
 function loadExistingResults(): ProcessResult[] {
   if (fs.existsSync(OUTPUT_FILE)) {
@@ -37,15 +40,12 @@ async function main() {
   const privateKey = EXECUTOR_PRIVATE_KEY as Hex;
   console.log(`Processing executor: ${executor}`);
 
-  const credChainId: CredChainId = 84532;
-  const artChainId: ArtChainId = 84532;
-
   const credManager = new CredManager(privateKey, credChainId);
   const artManager = new ArtManager(privateKey, artChainId);
 
   let results = loadExistingResults();
 
-  for (let configId = 0; configId <= 30; configId++) {
+  for (let configId = 31; configId <= 31; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 

@@ -1,5 +1,5 @@
 import { credConfig } from '../cred/credConfig';
-import { handleTransactionCheck } from './utils/transactionUtils';
+import { handleTransactionCheck } from './utils/etherscan/transactionUtils';
 import { ContractCallCredConfig, SignatureCredConfig, CredResult, NeynarCredConfig } from '../utils/types';
 import { Address } from 'viem';
 import { handleContractCall } from './utils/contractCall';

@@ -1,5 +1,5 @@
 import { Address } from 'viem';
-import { GeneralTxItem } from '../../utils/types';
+import { GeneralTxItem } from '../../../utils/types';
 
 export const txFilter_Standard = (
   tx: GeneralTxItem,
