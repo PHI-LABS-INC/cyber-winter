@@ -10,7 +10,7 @@ import {
   ArtCreateInput,
 } from '@phi-hub/sdk';
 import { ENDPOINT, executor, EXECUTOR_PRIVATE_KEY, verifier } from './config';
-import { readImageAsBase64 } from './utils/file';
+import { readImageAsBase64 } from './utils/readFiles';
 
 // New configuration JSON
 const customConfig = {

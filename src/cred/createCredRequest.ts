@@ -1,6 +1,6 @@
 import { CredType, BaseCredRequest, SignatureCredRequest, MerkleCredRequest, CredChainId } from '@phi-hub/sdk';
 import { Address } from 'viem';
-import { readCSVFile, readImageAsBase64 } from '../utils/file';
+import { readCSVFile, readImageAsBase64 } from '../utils/readFiles';
 import path from 'path';
 import { credConfig } from './credConfig';
 
