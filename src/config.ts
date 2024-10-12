@@ -21,11 +21,9 @@ function hexToPrivateKey(hex: string): Hex {
 
 export const VERIFIER_PRIVATE_KEY = hexToPrivateKey(getEnvVar('VERIFIER_PRIVATE_KEY'));
 export const EXECUTOR_PRIVATE_KEY = hexToPrivateKey(getEnvVar('EXECUTOR_PRIVATE_KEY'));
-
-export const verifier_account = privateKeyToAccount(VERIFIER_PRIVATE_KEY);
-export const verifier: Address = verifier_account.address;
-
 export const executor_account = privateKeyToAccount(EXECUTOR_PRIVATE_KEY);
 export const executor: Address = executor_account.address;
+export const verifier_account = privateKeyToAccount(VERIFIER_PRIVATE_KEY);
+export const verifier: Address = verifier_account.address;
 
 export const ENDPOINT = 'base-autumn.vercel.app';
