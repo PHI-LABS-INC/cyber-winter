@@ -56,7 +56,6 @@ async function fetchTransactionsFromExplorer(
   let retries = 0;
   while (retries < MAX_RETRIES) {
     try {
-      console.log(`Fetching transactions from ${url}`);
       const response = await axios.get<EtherscanResponse>(url);
       if (
         response.data.message === 'Max calls per sec rate limit reached (5/sec)' ||

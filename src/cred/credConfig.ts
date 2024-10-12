@@ -648,7 +648,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: '"Base Name Service',
+    project: 'Base Name Service',
     tags: ['Base'],
     relatedLinks: ['https://thedapplist.com/project/base-name-service', 'https://www.base.org/names'],
   },
@@ -731,8 +731,8 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   31: {
     ...baseSettings,
-    title: 'Dot Painter',
-    requirement: 'Perform Publish and Collect your first Dot Card on Dot platform',
+    title: 'Dot Painter on Base (Last 1000 Blocks)',
+    requirement: 'Perform Publish and Collect Dot Card on Dot platform within the last 1000 blocks on Base network',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
