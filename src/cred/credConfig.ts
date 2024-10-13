@@ -395,7 +395,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'neynar',
-    apiKey: process.env.NEYNAR_API_KEY2 ?? '',
+    apiKey: process.env.NEYNAR_API_KEY ?? '',
     endpoint: 'https://api.neynar.com/v1/farcaster/user-by-verification',
     project: 'Farcaster',
     tags: ['Social', 'SNS'],
@@ -636,8 +636,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   27: {
     ...baseSettings,
     title: 'Verified Basename',
-    requirement:
-      'Basenames are a core onchain building block that enable builders to establish their identity on Base by registering human-readable names for their wallet address(es).',
+    requirement: 'Basenames: Register a human-readable name for your wallet address',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
