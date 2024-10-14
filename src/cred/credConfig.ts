@@ -580,7 +580,11 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: ['0x8be473dCfA93132658821E67CbEB684ec8Ea2E74', '0xA238Dd80C259a72e81d7e4664a9801593F98d1c5'],
+    contractAddress: [
+      '0x729b3EA8C005AbC58c9150fb57Ec161296F06766',
+      '0x8be473dCfA93132658821E67CbEB684ec8Ea2E74',
+      '0xA238Dd80C259a72e81d7e4664a9801593F98d1c5',
+    ],
     methodId: ['0x474cf53d', '0x617ba037'],
     filterFunction: txFilter_Standard,
     mintEligibility: (result: number) => result > 0,
