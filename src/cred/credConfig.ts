@@ -239,7 +239,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   10: {
     ...baseSettings,
     title: 'Seamless Depositor',
-    requirement: 'Deposit ETH and create a leveraged position on Seamless',
+    requirement: 'Deposit ETH and create a wstETH Leveraged Staking 3x position on Seamless',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -252,9 +252,7 @@ export const credConfig: { [key: number]: CredConfig } = {
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
     project: 'Seamless',
     tags: ['DeFi', 'Leverage'],
-    relatedLinks: [
-      'https://app.seamlessprotocol.com/#/?tab=Earn&asset=0x4200000000000000000000000000000000000006-0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
-    ],
+    relatedLinks: ['https://app.seamlessprotocol.com/#/ilm-details/0x258730e23cF2f25887Cb962d32Bd10b878ea8a4e'],
   },
   11: {
     ...baseSettings,
