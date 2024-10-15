@@ -649,7 +649,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
-    project: 'Base Name Service',
+    project: 'Base',
     tags: ['Base'],
     relatedLinks: ['https://thedapplist.com/project/base-name-service', 'https://www.base.org/names'],
   },

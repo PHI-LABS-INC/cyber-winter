@@ -33,7 +33,7 @@ describe('check_cred', () => {
     });
   };
 
-  // TEST_CONFIG_ID=31 bun run test/eligible.test.ts
+  // TEST_CONFIG_ID=16 bun run test/eligible.test.ts
   const testSpecificId = process.env.TEST_CONFIG_ID;
 
   if (testSpecificId) {

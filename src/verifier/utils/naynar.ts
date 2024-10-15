@@ -56,7 +56,7 @@ export async function handleNeynarCheck(config: NeynarCredConfig, address: strin
   if (!isNeynarResponse(data)) {
     throw new Error('Invalid response format from Neynar API');
   }
-
+  // console.log(data.result.user.verifications);
   const isVerified = data.result.user.verifications.includes(address.toLowerCase());
 
   if (config.credType === 'ADVANCED') {
