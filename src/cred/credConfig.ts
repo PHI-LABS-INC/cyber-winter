@@ -239,7 +239,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   10: {
     ...baseSettings,
     title: 'Seamless Depositor',
-    requirement: 'Deposit ETH and create a wstETH Leveraged Staking 3x position on Seamless',
+    requirement: 'Deposit ETH and create a wstETH Leveraged Staking position on Seamless',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
