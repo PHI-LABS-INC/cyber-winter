@@ -644,7 +644,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
     contractAddress: '0x4cCb0BB02FCABA27e82a56646E81d8c5bC4119a5',
-    methodId: '0xc7c79676',
+    methodId: ['0xc7c79676', '0xe0093eda'],
     filterFunction: txFilter_Standard,
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
