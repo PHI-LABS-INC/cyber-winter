@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import path from 'path';
-import { Season0endDate } from '../utils/data';
-import { ArtSettingToCred } from '../utils/types';
+import { Season0endDate } from '../../utils/data';
+import { ArtSettingToCred } from '../../utils/types';
 
 const baseSettings = {
   price: 0,

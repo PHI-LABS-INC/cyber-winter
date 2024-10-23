@@ -23,9 +23,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: 'any',
-    methodId: 'any',
-    filterFunction: txFilter_Any,
+    verificationConfigs: [
+      {
+        contractAddress: 'any',
+        methodId: 'any',
+        filterFunction: txFilter_Any,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -41,9 +45,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0xD68fe5b53e7E1AbeB5A4d0A6660667791f39263a',
-    methodId: 'any',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0xD68fe5b53e7E1AbeB5A4d0A6660667791f39263a',
+        methodId: 'any',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -62,9 +70,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0x8C4D42ACdAf0dea678B02A092276E2313eD7D820',
-    methodId: '0xac9650d8',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x8C4D42ACdAf0dea678B02A092276E2313eD7D820',
+        methodId: '0xac9650d8',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -80,9 +92,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
-    methodId: 'any',
-    filterFunction: txFilter_Contract,
+    verificationConfigs: [
+      {
+        contractAddress: '0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
+        methodId: 'any',
+        filterFunction: txFilter_Contract,
+      },
+    ],
     mintEligibility: (result: number) => result > 5,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -98,6 +114,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
     apiKeyOrUrl: '',
+
     contractAddress: '0x7f5C2b379b88499aC2B997Db583f8079503f25b9',
     functionName: 'balanceOf',
     abi: [
@@ -135,9 +152,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0x7b5673B598A71d27a56781271eC5fa05DE216df0',
-    methodId: 'any', // 0x72c275a4
-    filterFunction: txFilter_Contract,
+    verificationConfigs: [
+      {
+        contractAddress: '0x7b5673B598A71d27a56781271eC5fa05DE216df0',
+        methodId: 'any', // 0x72c275a4
+        filterFunction: txFilter_Contract,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -190,9 +211,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0x9Bf9D0D88C1A835F1052Ef0FBa325b35bBea127a',
-    methodId: '0x3a81b8a5',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x9Bf9D0D88C1A835F1052Ef0FBa325b35bBea127a',
+        methodId: '0x3a81b8a5',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -208,9 +233,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0x777777C338d93e2C7adf08D102d45CA7CC4Ed021',
-    methodId: '0x0582823a',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x777777C338d93e2C7adf08D102d45CA7CC4Ed021',
+        methodId: '0x0582823a',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -226,9 +255,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
-    contractAddress: '0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD',
-    methodId: '0x3593564c',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD',
+        methodId: '0x3593564c',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -244,9 +277,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: '0x258730e23cF2f25887Cb962d32Bd10b878ea8a4e',
-    methodId: '0xbc157ac1',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x258730e23cF2f25887Cb962d32Bd10b878ea8a4e',
+        methodId: '0xbc157ac1',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -262,9 +299,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: '0x00000000009726632680FB29d3F7A9734E3010E2',
-    methodId: ['0x999b6464', '0x3c2b9a7d', '0x55e4b7be'],
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x00000000009726632680FB29d3F7A9734E3010E2',
+        methodId: ['0x999b6464', '0x3c2b9a7d', '0x55e4b7be'],
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -280,9 +321,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: ['0xe811b62AB97d9370cE2e25F9ceBC904522b81FE1', '0xaA560D5C2Fade67CF6836Ab793e56A79F09d4282'],
-    methodId: ['0xdd074ea0', '0x8e0a8e9d'],
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: ['0xe811b62AB97d9370cE2e25F9ceBC904522b81FE1', '0xaA560D5C2Fade67CF6836Ab793e56A79F09d4282'],
+        methodId: ['0xdd074ea0', '0x8e0a8e9d'],
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -302,9 +347,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: ['0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43', '0x827922686190790b37229fd06084350E74485b72'],
-    methodId: ['0xb7e0d4c0', '0x5a47ddc3', '0xb5007d1f'],
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: ['0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43', '0x827922686190790b37229fd06084350E74485b72'],
+        methodId: ['0xb7e0d4c0', '0x5a47ddc3', '0xb5007d1f'],
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -407,9 +456,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: '0xf9cFB8a62f50e10AdDE5Aa888B44cF01C5957055',
-    methodId: '0x4dbe83ed',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0xf9cFB8a62f50e10AdDE5Aa888B44cF01C5957055',
+        methodId: '0x4dbe83ed',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -425,9 +478,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: '0x0aa23A7E112889C965010558803813710beCF263',
-    methodId: ['0x659dd2b4', '0xc0d5bb8b'],
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x0aa23A7E112889C965010558803813710beCF263',
+        methodId: ['0x659dd2b4', '0xc0d5bb8b'],
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -443,9 +500,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: '0xc649989246FAa59bBefA7c65551cc4461E823320',
-    methodId: '0x6a627842',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0xc649989246FAa59bBefA7c65551cc4461E823320',
+        methodId: '0x6a627842',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -465,9 +526,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
-    contractAddress: '0xc1256Ae5FF1cf2719D4937adb3bbCCab2E00A2Ca',
-    methodId: '0x6e553f65',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0xc1256Ae5FF1cf2719D4937adb3bbCCab2E00A2Ca',
+        methodId: '0x6e553f65',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -487,9 +552,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: '0x5FF292d70bA9cD9e7CCb313782811b3D7120535f',
-    methodId: '0xf5567637',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x5FF292d70bA9cD9e7CCb313782811b3D7120535f',
+        methodId: '0xf5567637',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -505,9 +574,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: '0xCa72827a3D211CfD8F6b00Ac98824872b72CAb49',
-    methodId: '0x40c10f19',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0xCa72827a3D211CfD8F6b00Ac98824872b72CAb49',
+        methodId: '0x40c10f19',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -560,9 +633,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55', // SushiSwap Router contract on Base
-    methodId: '0x6678ec1f', // This is the method ID for processRouteWithTransferValueOutput
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0xf2614A233c7C3e7f08b1F887Ba133a13f1eb2c55', // SushiSwap Router contract on Base
+        methodId: '0x6678ec1f', // This is the method ID for processRouteWithTransferValueOutput
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -578,13 +655,17 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: [
-      '0x729b3EA8C005AbC58c9150fb57Ec161296F06766',
-      '0x8be473dCfA93132658821E67CbEB684ec8Ea2E74',
-      '0xA238Dd80C259a72e81d7e4664a9801593F98d1c5',
+    verificationConfigs: [
+      {
+        contractAddress: [
+          '0x729b3EA8C005AbC58c9150fb57Ec161296F06766',
+          '0x8be473dCfA93132658821E67CbEB684ec8Ea2E74',
+          '0xA238Dd80C259a72e81d7e4664a9801593F98d1c5',
+        ],
+        methodId: ['0x474cf53d', '0x617ba037'],
+        filterFunction: txFilter_Standard,
+      },
     ],
-    methodId: ['0x474cf53d', '0x617ba037'],
-    filterFunction: txFilter_Standard,
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -643,9 +724,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: '0x4cCb0BB02FCABA27e82a56646E81d8c5bC4119a5',
-    methodId: ['0xc7c79676', '0xe0093eda'],
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x4cCb0BB02FCABA27e82a56646E81d8c5bC4119a5',
+        methodId: ['0xc7c79676', '0xe0093eda'],
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -661,9 +746,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: ['0xd9E58978808d17F99ccCEAb5195B052E972c0188', '0x481f9289257795bbC5Cc9bab8c986D3377450331'], // Highlight.xyz contract address
-    methodId: ['0x02c3a65b', '0xcdacf467'], // mint function method ID
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: ['0xd9E58978808d17F99ccCEAb5195B052E972c0188', '0x481f9289257795bbC5Cc9bab8c986D3377450331'], // Highlight.xyz contract address
+        methodId: ['0x02c3a65b', '0xcdacf467'], // mint function method ID
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
@@ -716,9 +805,13 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    contractAddress: '0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
-    methodId: '0x715488b0',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        contractAddress: '0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
+        methodId: '0x715488b0',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase() && checkItemIdZero(tx)).length,
@@ -738,16 +831,105 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
     apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
-    from: '0xf35365763a881475f4c1ba4ad8e41f6078011bda',
-    contractAddress: '0x7b5673B598A71d27a56781271eC5fa05DE216df0',
-    methodId: '0x9c1a1c4d',
-    filterFunction: txFilter_Standard,
+    verificationConfigs: [
+      {
+        from: '0xf35365763a881475f4c1ba4ad8e41f6078011bda',
+        contractAddress: '0x7b5673B598A71d27a56781271eC5fa05DE216df0',
+        methodId: '0x9c1a1c4d',
+        filterFunction: txFilter_Standard,
+      },
+    ],
     mintEligibility: (result: number) => result > 0,
     transactionCountCondition: (txs: any[], address: string) =>
       txs.filter((tx) => checkDotCollector(tx, address as Address)).length,
     project: 'Dot',
     tags: ['Social', 'Art'],
     relatedLinks: ['https://thedapplist.com/project/dot', 'https://dot.fan/'],
+  },
+  32: {
+    ...baseSettings,
+    title: 'Safe Deployer',
+    requirement: 'Deploy a Safe Smart Account on the Base network',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    verificationConfigs: [
+      {
+        contractAddress: [
+          '0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67',
+          '0xa6B71E26C5e0845f74c812102Ca7114b6a896AB21',
+          '0xC22834581EbC8527d974F8a1c97E1bEA4EF910BC',
+        ],
+        methodId: [
+          '0x61b69abd', // createProxyWithNonce
+          '0x1688f0b9', // createProxy
+        ],
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'Safe',
+    tags: ['Safe', 'Wallet', 'Smart Account'],
+    relatedLinks: ['https://app.safe.global/'],
+  },
+  33: {
+    ...baseSettings,
+    title: 'Submit Result on Speedtracer',
+    requirement: 'Submit a result on the Speedtracer platform',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    verificationConfigs: [
+      {
+        contractAddress: ['0xCD45E55DB12E9CA3E82370F5D0c5C6876bF6f466', '0xF803F5E6072f469AB36CE365F9e7dE6C595f3484'],
+        methodId: ['0x72c275a4'],
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'Speedtracer',
+    tags: ['Gaming'],
+    relatedLinks: [
+      'https://www.speedtracer.xyz/',
+      'https://basescan.org/address/0xCD45E55DB12E9CA3E82370F5D0c5C6876bF6f466',
+    ],
+  },
+  34: {
+    ...baseSettings,
+    title: 'Owlto Finance Bridger/Swapper',
+    requirement:
+      'Bridge assets to Base using Owlto Finance within the last 1000 trancasciton or perform a swap on Owlto Finance',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    verificationConfigs: [
+      {
+        from: '0x5e809A85Aa182A9921EDD10a4163745bb3e36284',
+        contractAddress: 'any',
+        methodId: '0xa9059cbb',
+        filterFunction: txFilter_Any,
+      },
+      {
+        contractAddress: '0x89d43d991F47924Dd47C9b6a7Fa17C6a15091999',
+        methodId: '0xbff25ca2',
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter(
+        (tx) => tx.to.toLowerCase() === address.toLowerCase() || tx.from.toLowerCase() === address.toLowerCase(),
+      ).length,
+    project: 'Owlto finance',
+    tags: ['DeFi', 'Bridge'],
+    relatedLinks: ['https://owlto.finance/'],
   },
 };
 

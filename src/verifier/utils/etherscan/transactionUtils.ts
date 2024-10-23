@@ -6,6 +6,7 @@ import {
   TxFilterFunction,
   SignatureCredConfig,
   CredResult,
+  VerificationConfig,
 } from '../../../utils/types';
 import { Address, Chain } from 'viem';
 
@@ -125,37 +126,55 @@ async function getTransactionsFromExplorer(
 }
 
 export async function handleTransactionCheck(config: SignatureCredConfig, check_address: Address): Promise<CredResult> {
-  const contractAddresses = Array.isArray(config.contractAddress) ? config.contractAddress : [config.contractAddress];
-  const methodIds =
-    config.methodId === 'any' ? ['any'] : Array.isArray(config.methodId) ? config.methodId : [config.methodId];
+  // Handle verification configs array
+  const verificationConfigs: VerificationConfig[] = config.verificationConfigs;
 
-  if (config.from) {
-    const txs = await getTransactions(
-      config.apiKeyOrUrl,
-      config.from,
-      contractAddresses,
-      methodIds,
-      config.network,
-      config.startBlock,
-      config.endBlock,
-      config.filterFunction,
-    );
+  let allTxs: GeneralTxItem[] = [];
 
-    return handleTransactionResult(config, txs, check_address);
-  } else {
-    const txs = await getTransactions(
-      config.apiKeyOrUrl,
-      check_address,
-      contractAddresses,
-      methodIds,
-      config.network,
-      config.startBlock,
-      config.endBlock,
-      config.filterFunction,
-    );
+  // Process each verification config
+  for (const verifyConfig of verificationConfigs) {
+    const contractAddresses = Array.isArray(verifyConfig.contractAddress)
+      ? verifyConfig.contractAddress
+      : [verifyConfig.contractAddress];
 
-    return handleTransactionResult(config, txs, check_address);
+    const methodIds =
+      verifyConfig.methodId === 'any'
+        ? ['any']
+        : Array.isArray(verifyConfig.methodId)
+        ? verifyConfig.methodId
+        : [verifyConfig.methodId];
+
+    let currentTxs: GeneralTxItem[];
+    if (verifyConfig.from) {
+      // Check transactions from specified address
+      currentTxs = await getTransactions(
+        config.apiKeyOrUrl,
+        verifyConfig.from,
+        contractAddresses,
+        methodIds,
+        config.network,
+        config.startBlock,
+        config.endBlock,
+        verifyConfig.filterFunction,
+      );
+    } else {
+      // Check transactions from check_address
+      currentTxs = await getTransactions(
+        config.apiKeyOrUrl,
+        check_address,
+        contractAddresses,
+        methodIds,
+        config.network,
+        config.startBlock,
+        config.endBlock,
+        verifyConfig.filterFunction,
+      );
+    }
+
+    allTxs = [...allTxs, ...currentTxs];
   }
+
+  return handleTransactionResult(config, allTxs, check_address);
 }
 
 function handleTransactionResult(config: SignatureCredConfig, txs: any[], address: Address): CredResult {

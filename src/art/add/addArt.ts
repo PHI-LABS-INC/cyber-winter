@@ -1,7 +1,7 @@
 import { Hex } from 'viem';
 import { ArtManager, CredChainId, ArtChainId } from '@phi-hub/sdk';
-import { createArtRequest } from './createArtRequest';
-import { executor, EXECUTOR_PRIVATE_KEY } from '../config';
+import { createArtRequest } from '../createArtRequest';
+import { executor, EXECUTOR_PRIVATE_KEY } from '../../config';
 import { newSettings } from './newArtConfig';
 
 const artChainId: ArtChainId = 8453;

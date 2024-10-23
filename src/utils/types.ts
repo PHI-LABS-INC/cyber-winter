@@ -24,14 +24,18 @@ export type SignatureCredConfig = BaseCredConfig & {
   verificationType: 'SIGNATURE';
   apiChoice: 'etherscan' | 'contractCall' | 'neynar';
   apiKeyOrUrl: string;
-  from?: Address;
-  contractAddress: Address | Address[] | 'any';
-  methodId: string | string[] | 'any';
   startBlock: string;
   endBlock: string;
-  filterFunction: TxFilterFunction;
+  verificationConfigs: VerificationConfig[];
   mintEligibility: (result: number) => boolean;
   transactionCountCondition: (txs: any[], address: string) => number;
+};
+
+export type VerificationConfig = {
+  from?: Address;
+  contractAddress: Address | Address[] | 'any';
+  methodId: string | string[];
+  filterFunction: TxFilterFunction;
 };
 
 export type ContractCallCredConfig = BaseCredConfig & {
