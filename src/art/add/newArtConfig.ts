@@ -48,4 +48,28 @@ export const newSettings: { [key: number]: ArtSettingToCred } = {
     artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
     receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
   },
+  3: {
+    ...baseSettings,
+    credId: 40,
+    name: 'Pancake Frenzy',
+    description:
+      'Vibrant pancakes soar through the air, capturing the energetic essence of a thriving decentralized exchange on Base.',
+    tags: ['Base', 'Josiah', 'Pancake'],
+    externalURL: 'https://thedapplist.com/project/pancake-swap',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod/new', '3.webp'),
+    artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+    receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+  },
+  4: {
+    ...baseSettings,
+    credId: 1,
+    name: 'The Base Enthusiast',
+    description:
+      'A bird eagerly shares their love for Base, enthusiastic about its potential to empower decentralized innovation.',
+    tags: ['Base', 'Josiah'],
+    externalURL: 'https://base.org/',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod/new', '4.png'),
+    artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+    receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+  },
 };

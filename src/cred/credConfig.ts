@@ -931,6 +931,44 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['DeFi', 'Bridge'],
     relatedLinks: ['https://owlto.finance/'],
   },
+  35: {
+    ...baseSettings,
+    title: 'Cake Token Holder',
+    requirement: 'Own at least one Cake Token',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'contractCall',
+    apiKeyOrUrl: '',
+    contractAddress: '0x3055913c90Fcc1A6CE9a358911721eEb942013A1',
+    functionName: 'balanceOf',
+    abi: [
+      {
+        name: 'balanceOf',
+        type: 'function',
+        inputs: [
+          {
+            name: 'account',
+            type: 'address',
+          },
+        ],
+        outputs: [
+          {
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+      },
+    ],
+    contractCallCondition: (result: number) => result > 0,
+    project: 'Pancake Swap',
+    tags: ['Token', 'Holder', 'Pancake'],
+    relatedLinks: [
+      'https://thedapplist.com/project/pancake-swap',
+      'https://pancakeswap.finance/?chain=base&outputCurrency=0x3055913c90Fcc1A6CE9a358911721eEb942013A1',
+      'https://basescan.org/address/0x3055913c90Fcc1A6CE9a358911721eEb942013A1',
+    ],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(

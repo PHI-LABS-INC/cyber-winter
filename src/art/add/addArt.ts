@@ -12,7 +12,7 @@ async function main() {
   console.log(`Processing executor: ${executor}`);
 
   const artManager = new ArtManager(privateKey, artChainId);
-  const configId = 2;
+  const configId = 4;
   try {
     const artSetting = newSettings[configId];
 
