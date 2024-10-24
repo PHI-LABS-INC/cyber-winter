@@ -937,30 +937,18 @@ export const credConfig: { [key: number]: CredConfig } = {
     requirement: 'Own at least one Cake Token',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
-    apiChoice: 'contractCall',
-    apiKeyOrUrl: '',
-    contractAddress: '0x3055913c90Fcc1A6CE9a358911721eEb942013A1',
-    functionName: 'balanceOf',
-    abi: [
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    verificationConfigs: [
       {
-        name: 'balanceOf',
-        type: 'function',
-        inputs: [
-          {
-            name: 'account',
-            type: 'address',
-          },
-        ],
-        outputs: [
-          {
-            name: '',
-            type: 'uint256',
-          },
-        ],
-        stateMutability: 'view',
+        contractAddress: '0xFE6508f0015C778Bdcc1fB5465bA5ebE224C9912',
+        methodId: '0x3593564c',
+        filterFunction: txFilter_Standard,
       },
     ],
-    contractCallCondition: (result: number) => result > 0,
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
     project: 'Pancake Swap',
     tags: ['Token', 'Holder', 'Pancake'],
     relatedLinks: [
