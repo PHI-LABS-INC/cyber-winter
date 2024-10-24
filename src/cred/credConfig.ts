@@ -44,7 +44,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0xD68fe5b53e7E1AbeB5A4d0A6660667791f39263a',
@@ -69,7 +69,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x8C4D42ACdAf0dea678B02A092276E2313eD7D820',
@@ -91,7 +91,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY4 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
@@ -151,7 +151,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY5 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x7b5673B598A71d27a56781271eC5fa05DE216df0',
@@ -232,7 +232,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x777777C338d93e2C7adf08D102d45CA7CC4Ed021',
@@ -254,7 +254,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD',
@@ -276,7 +276,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY4 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x258730e23cF2f25887Cb962d32Bd10b878ea8a4e',
@@ -298,7 +298,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY5 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x00000000009726632680FB29d3F7A9734E3010E2',
@@ -320,7 +320,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
     verificationConfigs: [
       {
         contractAddress: ['0xe811b62AB97d9370cE2e25F9ceBC904522b81FE1', '0xaA560D5C2Fade67CF6836Ab793e56A79F09d4282'],
@@ -477,7 +477,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x0aa23A7E112889C965010558803813710beCF263',
@@ -499,7 +499,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY4 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0xc649989246FAa59bBefA7c65551cc4461E823320',
@@ -525,7 +525,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY5 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0xc1256Ae5FF1cf2719D4937adb3bbCCab2E00A2Ca',
@@ -551,7 +551,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x5FF292d70bA9cD9e7CCb313782811b3D7120535f',
@@ -573,7 +573,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0xCa72827a3D211CfD8F6b00Ac98824872b72CAb49',
@@ -654,7 +654,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY4 ?? '',
     verificationConfigs: [
       {
         contractAddress: [
@@ -723,7 +723,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY5 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x4cCb0BB02FCABA27e82a56646E81d8c5bC4119a5',
@@ -745,7 +745,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
     verificationConfigs: [
       {
         contractAddress: ['0xd9E58978808d17F99ccCEAb5195B052E972c0188', '0x481f9289257795bbC5Cc9bab8c986D3377450331'], // Highlight.xyz contract address
@@ -804,7 +804,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
     verificationConfigs: [
       {
         contractAddress: '0x0e22B5f3E11944578b37ED04F5312Dfc246f443C',
@@ -853,7 +853,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY4 ?? '',
     verificationConfigs: [
       {
         contractAddress: [
@@ -882,7 +882,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY5 ?? '',
     verificationConfigs: [
       {
         contractAddress: ['0xCD45E55DB12E9CA3E82370F5D0c5C6876bF6f466', '0xF803F5E6072f469AB36CE365F9e7dE6C595f3484'],
@@ -908,7 +908,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
-    apiKeyOrUrl: process.env.BASESCAN_API_KEY3 ?? '',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
     verificationConfigs: [
       {
         from: '0x5e809A85Aa182A9921EDD10a4163745bb3e36284',
