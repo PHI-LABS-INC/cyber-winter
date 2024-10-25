@@ -32,6 +32,7 @@ export type SignatureCredConfig = BaseCredConfig & {
 };
 
 export type VerificationConfig = {
+  type?: 'txlist' | 'tokentx' | 'txlistinternal';
   from?: Address;
   contractAddress: Address | Address[] | 'any';
   methodId: string | string[];

@@ -8,7 +8,7 @@ import {
   CredResult,
   VerificationConfig,
 } from '../../../utils/types';
-import { Address, Chain } from 'viem';
+import { Address, Chain, zeroAddress } from 'viem';
 
 const MAX_RETRIES = 5;
 const INITIAL_DELAY = 1000;
@@ -17,6 +17,8 @@ const MAX_DELAY = 60000; // Maximum wait of 60 seconds
 export async function getTransactions(
   api_key: string,
   address: Address,
+  action: string,
+  from: Address,
   contractAddresses: (Address | 'any')[],
   methodIds: (string | 'any')[],
   network: Chain['id'],
@@ -27,6 +29,8 @@ export async function getTransactions(
   return getTransactionsFromExplorer(
     api_key,
     address,
+    action,
+    from,
     contractAddresses,
     methodIds,
     network,
@@ -39,6 +43,8 @@ export async function getTransactions(
 async function fetchTransactionsFromExplorer(
   network: Chain['id'],
   address: string,
+  action: string,
+  contractAddresses: (Address | 'any')[],
   startblock: string,
   endblock: string,
   api_key: string,
@@ -51,9 +57,13 @@ async function fetchTransactionsFromExplorer(
   } else {
     throw new Error(`Unsupported network: ${network}`);
   }
-
-  const url = `${apiBaseURL}/api?module=account&action=txlist&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=1000&apikey=${api_key}`;
-
+  let url;
+  if (action === 'tokentx') {
+    url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&contractaddress=${contractAddresses}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=1000&apikey=${api_key}`;
+  } else {
+    url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=1000&apikey=${api_key}`;
+  }
+  console.log(`Fetching transactions from ${url}`);
   let retries = 0;
   while (retries < MAX_RETRIES) {
     try {
@@ -99,6 +109,8 @@ function transformExplorerTxToGeneralTx(tx: EtherscanTxItem): GeneralTxItem {
 async function getTransactionsFromExplorer(
   api_key: string,
   address: Address,
+  action: string,
+  from: Address = zeroAddress,
   contractAddresses: (Address | 'any')[],
   methodIds: (string | 'any')[],
   network: Chain['id'],
@@ -107,7 +119,15 @@ async function getTransactionsFromExplorer(
   filterFunction: TxFilterFunction,
 ): Promise<GeneralTxItem[]> {
   try {
-    const response = await fetchTransactionsFromExplorer(network, address, startblock, endblock, api_key);
+    const response = await fetchTransactionsFromExplorer(
+      network,
+      address,
+      action,
+      contractAddresses,
+      startblock,
+      endblock,
+      api_key,
+    );
     if (response.status === '0' && response.message === 'No transactions found') {
       return [];
     }
@@ -115,7 +135,9 @@ async function getTransactionsFromExplorer(
       console.error(`Explorer API error: ${JSON.stringify(response)}`);
       return []; // Return an empty array in case of error
     }
-
+    if (action === 'tokentx') {
+      return response.result.map(transformExplorerTxToGeneralTx).filter((tx) => filterFunction(tx, [from], methodIds));
+    }
     return response.result
       .map(transformExplorerTxToGeneralTx)
       .filter((tx) => filterFunction(tx, contractAddresses, methodIds));
@@ -144,11 +166,27 @@ export async function handleTransactionCheck(config: SignatureCredConfig, check_
         ? verifyConfig.methodId
         : [verifyConfig.methodId];
 
+    const action = verifyConfig.type ?? 'txlist';
     let currentTxs: GeneralTxItem[];
-    if (verifyConfig.from) {
+    if (verifyConfig.from && action == 'txlist') {
       // Check transactions from specified address
       currentTxs = await getTransactions(
         config.apiKeyOrUrl,
+        verifyConfig.from,
+        action,
+        zeroAddress,
+        contractAddresses,
+        methodIds,
+        config.network,
+        config.startBlock,
+        config.endBlock,
+        verifyConfig.filterFunction,
+      );
+    } else if (verifyConfig.from && action !== 'txlist') {
+      currentTxs = await getTransactions(
+        config.apiKeyOrUrl,
+        check_address,
+        action,
         verifyConfig.from,
         contractAddresses,
         methodIds,
@@ -162,6 +200,8 @@ export async function handleTransactionCheck(config: SignatureCredConfig, check_
       currentTxs = await getTransactions(
         config.apiKeyOrUrl,
         check_address,
+        action,
+        zeroAddress,
         contractAddresses,
         methodIds,
         config.network,

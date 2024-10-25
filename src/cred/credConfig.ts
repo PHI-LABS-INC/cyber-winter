@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { txFilter_Any, txFilter_Contract, txFilter_Standard } from '../verifier/utils/etherscan/filter';
+import { txFilter_Any, txFilter_Contract, txFilter_From, txFilter_Standard } from '../verifier/utils/etherscan/filter';
 import { CredConfig, EtherscanTxItem } from '../utils/types';
 import { ENDPOINT } from '../config';
 import { Address, decodeAbiParameters } from 'viem';
@@ -956,6 +956,37 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://pancakeswap.finance/?chain=base&outputCurrency=0x3055913c90Fcc1A6CE9a358911721eEb942013A1',
       'https://basescan.org/address/0x3055913c90Fcc1A6CE9a358911721eEb942013A1',
     ],
+  },
+  36: {
+    ...baseSettings,
+    title: 'Stargate Traveler',
+    requirement: 'Bridge ETH/USDC through the Stargate to Base network',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY4 ?? '',
+    verificationConfigs: [
+      {
+        type: 'txlistinternal',
+        from: '0xdc181bd607330aeebef6ea62e03e5e1fb4b6f7c7',
+        contractAddress: '0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7',
+        methodId: '0xcfc32570',
+        filterFunction: txFilter_From,
+      },
+      {
+        type: 'tokentx',
+        from: '0x27a16dc786820B16E5c9028b75B99F6f604b5d26',
+        contractAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+        methodId: 'any',
+        filterFunction: txFilter_From,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.to.toLowerCase() === address.toLowerCase()).length,
+    project: 'Stargate Finance',
+    tags: ['Bridge', 'DeFi'],
+    relatedLinks: ['https://stargate.finance/bridge'],
   },
 };
 

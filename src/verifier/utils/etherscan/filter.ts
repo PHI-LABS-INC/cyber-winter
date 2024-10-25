@@ -3,7 +3,7 @@ import { GeneralTxItem } from '../../../utils/types';
 
 export const txFilter_Standard = (
   tx: GeneralTxItem,
-  contractAddresses: (Address | 'any')[],
+  checkAddresses: (Address | 'any')[],
   methodIds: (string | 'any')[],
 ): boolean => {
   // Ensure tx and tx.to are defined
@@ -12,8 +12,8 @@ export const txFilter_Standard = (
   }
 
   const isCorrectContract =
-    contractAddresses.includes('any') ||
-    contractAddresses.some((addr) => typeof addr === 'string' && tx.to.toLowerCase() === addr.toLowerCase());
+    checkAddresses.includes('any') ||
+    checkAddresses.some((addr) => typeof addr === 'string' && tx.to.toLowerCase() === addr.toLowerCase());
 
   const isCorrectMethod =
     methodIds.includes('any') || (typeof tx.methodId === 'string' && methodIds.includes(tx.methodId));
@@ -21,9 +21,14 @@ export const txFilter_Standard = (
   return isCorrectContract && isCorrectMethod;
 };
 
-export const txFilter_Contract = (tx: GeneralTxItem, contractAddresses: string | string[]): boolean => {
-  const addresses = Array.isArray(contractAddresses) ? contractAddresses : [contractAddresses];
+export const txFilter_Contract = (tx: GeneralTxItem, checkAddresses: string | string[]): boolean => {
+  const addresses = Array.isArray(checkAddresses) ? checkAddresses : [checkAddresses];
   return addresses.some((address) => tx.to.toLowerCase() === address.toLowerCase());
+};
+
+export const txFilter_From = (tx: GeneralTxItem, checkAddresses: string[]): boolean => {
+  const addresses = Array.isArray(checkAddresses) ? checkAddresses : [checkAddresses];
+  return addresses.some((address) => tx.from.toLowerCase() === address.toLowerCase());
 };
 
 export const txFilter_Any = (tx: GeneralTxItem): boolean => {

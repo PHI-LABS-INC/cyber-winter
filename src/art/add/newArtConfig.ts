@@ -72,4 +72,15 @@ export const newSettings: { [key: number]: ArtSettingToCred } = {
     artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
     receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
   },
+  5: {
+    ...baseSettings,
+    credId: 41,
+    name: 'Stargate Portal',
+    description: 'The portal to infinite possibilities open.',
+    tags: ['Base', 'Stargate Finance', 'Josiah'],
+    externalURL: 'https://stargate.finance/bridge',
+    imagePath: path.join(process.cwd(), 'public/assets/images/prod/new', '5.webp'),
+    artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+    receiver: '0x7b74954a57ed60b8136e340aa4b937919005f507',
+  },
 };
