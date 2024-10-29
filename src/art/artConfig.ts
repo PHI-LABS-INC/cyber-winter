@@ -2,10 +2,11 @@ import 'dotenv/config';
 import path from 'path';
 import { Season0endDate } from '../utils/data';
 import { ArtSetting } from '../utils/types';
+import { maxUint256 } from 'viem';
 
 const baseSettings = {
   price: 0,
-  maxSupply: undefined,
+  maxSupply: maxUint256,
   soulbound: false,
   startDate: Math.floor(Date.now() / 1000),
   endDate: Season0endDate,

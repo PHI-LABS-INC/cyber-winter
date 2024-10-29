@@ -1,11 +1,11 @@
 import { Hex } from 'viem';
-import { ArtManager, CredChainId, ArtChainId } from '@phi-hub/sdk';
+import { ArtManager } from '@phi-hub/sdk';
 import { createArtRequest } from '../createArtRequest';
 import { executor, EXECUTOR_PRIVATE_KEY } from '../../config';
 import { newSettings } from './newArtConfig';
 
-const artChainId: ArtChainId = 8453;
-const credChainId: CredChainId = 8453;
+const artChainId = 8453;
+const credChainId = 8453;
 
 async function main() {
   const privateKey = EXECUTOR_PRIVATE_KEY as Hex;

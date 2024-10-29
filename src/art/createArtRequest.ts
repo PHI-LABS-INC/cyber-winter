@@ -1,4 +1,4 @@
-import { ArtChainId, ArtCreateInput } from '@phi-hub/sdk';
+import { ArtCreateInput } from '@phi-hub/sdk';
 import { readFileAsBase64 } from '../utils/readFiles';
 import { Address } from 'viem';
 
@@ -9,12 +9,12 @@ export async function createArtRequest(params: {
   artist: Address;
   receiver: Address;
   price: number;
-  maxSupply?: number;
+  maxSupply?: bigint;
   startDate: number;
   endDate: number;
   soulbound: boolean;
   tags?: string[];
-  network: ArtChainId;
+  network: number;
   externalURL: string;
   relatedLink?: string;
   imagePath?: string;

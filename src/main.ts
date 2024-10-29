@@ -1,7 +1,7 @@
 import { Address, Hex } from 'viem';
 import { createCredRequest } from './cred/createCredRequest';
 import { createArtRequest } from './art/createArtRequest';
-import { ArtManager, CredManager, CredChainId, ArtChainId } from '@phi-hub/sdk';
+import { ArtManager, CredManager } from '@phi-hub/sdk';
 import { credConfig, credVerifyEndpoint } from './cred/credConfig';
 import { executor, EXECUTOR_PRIVATE_KEY, verifier } from './config';
 import { artSettings } from './art/artConfig';
@@ -14,8 +14,8 @@ interface ProcessResult {
   artId?: number;
 }
 
-const credChainId: CredChainId = 8453;
-const artChainId: ArtChainId = 8453;
+const credChainId = 8453;
+const artChainId = 8453;
 
 const OUTPUT_FILE = path.join(process.cwd(), 'public/assets/output', `cred_art_results_${artChainId}.json`);
 

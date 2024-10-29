@@ -110,7 +110,7 @@ export type BaseArtSetting = {
   tags: string[];
   externalURL: string;
   price: number;
-  maxSupply?: number;
+  maxSupply?: bigint;
   soulbound: boolean;
   startDate: number;
   endDate: number;
