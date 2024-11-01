@@ -1,14 +1,6 @@
 import { Hex } from 'viem';
 import { createArtRequest } from './art/createArtRequest';
-import {
-  ArtManager,
-  CredManager,
-  CredChainId,
-  ArtChainId,
-  SignatureCredRequest,
-  BaseCredRequest,
-  ArtCreateInput,
-} from '@phi-hub/sdk';
+import { ArtManager, CredManager, SignatureCredRequest, BaseCredRequest, ArtCreateInput } from '@phi-hub/sdk';
 import { ENDPOINT, executor, EXECUTOR_PRIVATE_KEY, verifier } from './config';
 import { readImageAsBase64 } from './utils/readFiles';
 
@@ -41,7 +33,7 @@ const customConfig = {
     artist: executor,
     receiver: executor,
     executor: executor,
-    network: 84532 as ArtChainId,
+    network: 84532,
   },
 };
 
@@ -49,8 +41,8 @@ async function main() {
   const privateKey = EXECUTOR_PRIVATE_KEY as Hex;
   console.log(`Processing executor: ${executor}`);
 
-  const credChainId: CredChainId = 84532;
-  const artChainId: ArtChainId = 84532;
+  const credChainId = 84532;
+  const artChainId = 84532;
 
   const credManager = new CredManager(privateKey, credChainId);
   const artManager = new ArtManager(privateKey, artChainId);
