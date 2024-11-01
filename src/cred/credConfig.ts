@@ -168,13 +168,13 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   6: {
     ...baseSettings,
-    title: 'Vrbs Holder',
-    requirement: 'Own at least one Vrbs token',
+    title: 'Vrbs Token Holder',
+    requirement: 'Own at least one Vrbs or Vrbs Vote token',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'contractCall',
     apiKeyOrUrl: '',
-    contractAddress: '0x9ea7fd1B8823a271BEC99b205B6c0C56d7C3eAe9',
+    contractAddress: '0xDFb1cd29c4aB6985F1614e0d65782cd136115b6A',
     functionName: 'balanceOf',
     abi: [
       {
@@ -200,7 +200,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['NFT'],
     relatedLinks: [
       'https://vrbs.build/vrbs/auction',
-      'https://basescan.org/address/0x9ea7fd1b8823a271bec99b205b6c0c56d7c3eae9',
+      'https://basescan.org/address/0xDFb1cd29c4aB6985F1614e0d65782cd136115b6A',
     ],
   },
   7: {

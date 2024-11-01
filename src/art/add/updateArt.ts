@@ -53,7 +53,7 @@ async function updateArtScript() {
         tags: artSetting.tags,
         executor: executor,
         receiver: artSetting.receiver as `0x${string}`,
-        maxSupply: artSetting.maxSupply || 1000,
+        maxSupply: artSetting.maxSupply || BigInt(1000),
         price: artSetting.price,
         start: artSetting.startDate,
         end: artSetting.endDate,

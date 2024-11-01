@@ -63,7 +63,7 @@ async function fetchTransactionsFromExplorer(
   } else {
     url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=1000&apikey=${api_key}`;
   }
-  console.log(`Fetching transactions from ${url}`);
+
   let retries = 0;
   while (retries < MAX_RETRIES) {
     try {
