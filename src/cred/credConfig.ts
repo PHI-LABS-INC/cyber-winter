@@ -748,8 +748,12 @@ export const credConfig: { [key: number]: CredConfig } = {
     apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
     verificationConfigs: [
       {
-        contractAddress: ['0xd9E58978808d17F99ccCEAb5195B052E972c0188', '0x481f9289257795bbC5Cc9bab8c986D3377450331'], // Highlight.xyz contract address
-        methodId: ['0x02c3a65b', '0xcdacf467'], // mint function method ID
+        contractAddress: [
+          '0xd9E58978808d17F99ccCEAb5195B052E972c0188',
+          '0x481f9289257795bbC5Cc9bab8c986D3377450331',
+          '0x8087039152c472Fa74F47398628fF002994056EA',
+        ], // Highlight.xyz contract address
+        methodId: ['0x02c3a65b', '0xcdacf467', '0x23bc2078'], // mint function method ID
         filterFunction: txFilter_Standard,
       },
     ],

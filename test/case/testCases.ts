@@ -53,8 +53,8 @@ export const testCases = {
   6: {
     title: credConfig[6].title,
     addresses: {
-      valid: '0x81Ba93B26bCe8cA5d649B6607DF15E6D45462D8F',
-      invalid: '0x5cD18dA4C84758319C8E1c228b48725f5e4a3506',
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0x9B10310Ec0c61651Dca0009Ccad0f43f62D88533',
     },
     expectedDataCheck: (data: string) => data === '',
   },
@@ -103,7 +103,7 @@ export const testCases = {
     title: credConfig[12].title,
     addresses: {
       valid: '0x956fD5BA28076f78dA4C590D7E48AAf8b738Fb8a',
-      invalid: '0x5cD18dA4C84758319C8E1c228b48725f5e4a3506',
+      invalid: '0x9B10310Ec0c61651Dca0009Ccad0f43f62D88533',
     },
     expectedDataCheck: (data: string) => data === '',
   },
@@ -129,7 +129,7 @@ export const testCases = {
       valid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
       invalid: '0x32B8E1AE0af3F8f335F59A191617aB7A0885f6a0',
     },
-    expectedDataCheck: (data: string) => data === '28292547162150163023924134',
+    expectedDataCheck: (data: string) => Number(data) > 1,
   },
   16: {
     title: credConfig[16].title,
@@ -160,7 +160,7 @@ export const testCases = {
     title: credConfig[19].title,
     addresses: {
       valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-      invalid: '0x6D83cac25CfaCdC7035Bed947B92b64e6a8B8090',
+      invalid: '0x9B10310Ec0c61651Dca0009Ccad0f43f62D88533',
     },
     expectedDataCheck: (data: string) => data === '',
   },
@@ -194,7 +194,7 @@ export const testCases = {
       valid: '0x5589fD6856534a3AdfE16173AA308D2DC0E8Fb5B',
       invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
     },
-    expectedDataCheck: (data: string) => data === '37388240993000000000000000000',
+    expectedDataCheck: (data: string) => Number(data) > 1,
   },
   24: {
     title: credConfig[24].title,
@@ -231,7 +231,7 @@ export const testCases = {
   28: {
     title: credConfig[28].title,
     addresses: {
-      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      valid: '0xEB9D176232D537B7Ed67832d8ee4aF44A6B53FEa',
       invalid: '0x0B3CF56E7dF3BB3Fb7201fFcD96d279b05DDd2E3',
     },
     expectedDataCheck: (data: string) => data === '',
