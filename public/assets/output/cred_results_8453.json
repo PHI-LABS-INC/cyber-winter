@@ -18,5 +18,17 @@
   {
     "configId": 36,
     "credId": 41
+  },
+  {
+    "configId": 37,
+    "credId": 48
+  },
+  {
+    "configId": 38,
+    "credId": 49
+  },
+  {
+    "configId": 39,
+    "credId": 50
   }
 ]

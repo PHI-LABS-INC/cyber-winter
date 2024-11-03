@@ -1,6 +1,6 @@
 import { Address, Hex } from 'viem';
 
-import { CredManager, CredChainId } from '@phi-hub/sdk';
+import { CredManager } from '@phi-hub/sdk';
 import { credConfig, credVerifyEndpoint } from '../credConfig';
 import { executor, EXECUTOR_PRIVATE_KEY, verifier } from '../../config';
 import fs from 'fs';
@@ -12,7 +12,7 @@ interface ProcessResult {
   credId: number;
 }
 
-const credChainId: CredChainId = 8453;
+const credChainId = 8453;
 
 const OUTPUT_FILE = path.join(process.cwd(), 'public/assets/output', `cred_results_${credChainId}.json`);
 
@@ -40,7 +40,7 @@ async function main() {
   const credManager = new CredManager(privateKey, credChainId);
   let results = loadExistingResults();
 
-  for (let configId = 36; configId <= 36; configId++) {
+  for (let configId = 37; configId <= 39; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 

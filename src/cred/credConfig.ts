@@ -992,6 +992,107 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['Bridge', 'DeFi'],
     relatedLinks: ['https://stargate.finance/bridge'],
   },
+  37: {
+    ...baseSettings,
+    title: 'Coinbase Wrapped BTC Holder',
+    requirement: 'Own at least one Coinbase Wrapped BTC',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'contractCall',
+    apiKeyOrUrl: '',
+    contractAddress: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
+    functionName: 'balanceOf',
+    abi: [
+      {
+        name: 'balanceOf',
+        type: 'function',
+        inputs: [
+          {
+            name: 'account',
+            type: 'address',
+          },
+        ],
+        outputs: [
+          {
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+      },
+    ],
+    contractCallCondition: (result: number) => result > 0,
+    project: 'cbBTC',
+    tags: ['Token', 'cbBTC'],
+    relatedLinks: [
+      'https://basescan.org/token/0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
+      'https://app.uniswap.org/swap?outputCurrency=0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf&chain=base',
+    ],
+  },
+  38: {
+    ...baseSettings,
+    title: 'Morpho Explorer',
+    requirement: 'Create a position on Morpho platform',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY5 ?? '',
+    verificationConfigs: [
+      {
+        contractAddress: '0x23055618898e202386e6c13955a58D3C68200BFB',
+        methodId: '0xac9650d8',
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'Morpho',
+    tags: ['Morpho', 'DeFi'],
+    relatedLinks: [
+      'https://app.morpho.org/?network=base',
+      'https://basescan.org/address/0x23055618898e202386e6c13955a58d3c68200bfb',
+    ],
+  },
+  39: {
+    ...baseSettings,
+    title: 'Luna Token Holder',
+    requirement: 'Own at least one Luna Token',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'contractCall',
+    apiKeyOrUrl: '',
+    contractAddress: '0x55cd6469f597452b5a7536e2cd98fde4c1247ee4',
+    functionName: 'balanceOf',
+    abi: [
+      {
+        name: 'balanceOf',
+        type: 'function',
+        inputs: [
+          {
+            name: 'account',
+            type: 'address',
+          },
+        ],
+        outputs: [
+          {
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+      },
+    ],
+    contractCallCondition: (result: number) => result > 0,
+    project: 'Virtuals',
+    tags: ['Token', 'Luna'],
+    relatedLinks: [
+      'https://app.virtuals.io/virtuals/68F',
+      'https://kyberswap.com/swap/base/eth-to-luna',
+      'https://medium.com/@dpycm/novilunium-oritur-8ec7f020a76f',
+      'https://basescan.org/address/0x55cd6469f597452b5a7536e2cd98fde4c1247ee4',
+    ],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
