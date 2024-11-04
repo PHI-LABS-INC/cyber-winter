@@ -1093,6 +1093,66 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://basescan.org/address/0x55cd6469f597452b5a7536e2cd98fde4c1247ee4',
     ],
   },
+  40: {
+    ...baseSettings,
+    title: 'Sound Listener on Base',
+    requirement: 'Own at least one Sound Token',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY ?? '',
+    verificationConfigs: [
+      {
+        contractAddress: '0x000000000001A36777f9930aAEFf623771b13e70',
+        methodId: '0x4a04a1c9',
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'sound-xyz',
+    tags: ['Music', 'sound-xyz'],
+    relatedLinks: ['https://thedapplist.com/project/sound-xyz', 'https://www.sound.xyz/'],
+  },
+  41: {
+    ...baseSettings,
+    title: 'KlimaDAO Token Holder on Base',
+    requirement: 'Own at least one KlimaDAO Token',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'contractCall',
+    apiKeyOrUrl: '',
+    contractAddress: '0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2',
+    functionName: 'balanceOf',
+    abi: [
+      {
+        name: 'balanceOf',
+        type: 'function',
+        inputs: [
+          {
+            name: 'account',
+            type: 'address',
+          },
+        ],
+        outputs: [
+          {
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+      },
+    ],
+    contractCallCondition: (result: number) => result > 0,
+    project: 'klima-dao',
+    tags: ['DeFi', 'klima-dao'],
+    relatedLinks: [
+      'https://base.klimadao.finance/',
+      'https://thedapplist.com/project/klima-dao',
+      'https://aerodrome.finance/swap?from=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913&to=0xdcefd8c8fcc492630b943abcab3429f12ea9fea2',
+    ],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
