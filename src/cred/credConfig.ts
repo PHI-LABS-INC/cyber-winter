@@ -1153,6 +1153,43 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://aerodrome.finance/swap?from=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913&to=0xdcefd8c8fcc492630b943abcab3429f12ea9fea2',
     ],
   },
+  42: {
+    ...baseSettings,
+    title: 'VIRTUAL Token Holder',
+    requirement: 'Own at least one VIRTUAL Token',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'contractCall',
+    apiKeyOrUrl: '',
+    contractAddress: '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b',
+    functionName: 'balanceOf',
+    abi: [
+      {
+        name: 'balanceOf',
+        type: 'function',
+        inputs: [
+          {
+            name: 'account',
+            type: 'address',
+          },
+        ],
+        outputs: [
+          {
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+      },
+    ],
+    contractCallCondition: (result: number) => result > 0,
+    project: 'Virtuals',
+    tags: ['Token', 'Virtuals'],
+    relatedLinks: [
+      'https://app.virtuals.io/virtuals/',
+      'https://aerodrome.finance/swap?from=eth&to=0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b',
+    ],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
