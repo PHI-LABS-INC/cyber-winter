@@ -61,7 +61,7 @@ async function fetchTransactionsFromExplorer(
   if (action === 'tokentx') {
     url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&contractaddress=${contractAddresses}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=10000&apikey=${api_key}`;
   } else {
-    url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=1000&apikey=${api_key}`;
+    url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=10000&apikey=${api_key}`;
   }
 
   let retries = 0;

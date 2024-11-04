@@ -159,7 +159,7 @@ export const testCases = {
   19: {
     title: credConfig[19].title,
     addresses: {
-      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      valid: '0x83bbe9CFCc205bb8E53cBa0b51d6db9386CE58B5',
       invalid: '0x9B10310Ec0c61651Dca0009Ccad0f43f62D88533',
     },
     expectedDataCheck: (data: string) => data === '',
