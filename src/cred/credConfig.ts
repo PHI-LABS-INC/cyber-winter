@@ -206,7 +206,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   7: {
     ...baseSettings,
     title: 'Paragraph Creator',
-    requirement: 'Miint content on paragraph.xyz',
+    requirement: 'Mint content on paragraph.xyz',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'etherscan',
@@ -214,7 +214,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationConfigs: [
       {
         contractAddress: '0x9Bf9D0D88C1A835F1052Ef0FBa325b35bBea127a',
-        methodId: ['0x3a81b8a5', '0x13c84557'],
+        methodId: ['0x3a81b8a5'],
         filterFunction: txFilter_Standard,
       },
     ],
@@ -1189,6 +1189,28 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://app.virtuals.io/virtuals/',
       'https://aerodrome.finance/swap?from=eth&to=0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b',
     ],
+  },
+  43: {
+    ...baseSettings,
+    title: 'Limitless Vote Winner & Redeemer',
+    requirement: 'Vote in Limitless governance, win, and redeem rewards',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.BASESCAN_API_KEY2 ?? '',
+    verificationConfigs: [
+      {
+        contractAddress: '0xC9c98965297Bc527861c898329Ee280632B76e18',
+        methodId: '0x01b7037c',
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'limitless',
+    tags: ['limitless'],
+    relatedLinks: ['https://limitless.exchange/', 'https://x.com/trylimitless'],
   },
 };
 
