@@ -214,7 +214,7 @@ export const credConfig: { [key: number]: CredConfig } = {
     verificationConfigs: [
       {
         contractAddress: '0x9Bf9D0D88C1A835F1052Ef0FBa325b35bBea127a',
-        methodId: '0x3a81b8a5',
+        methodId: ['0x3a81b8a5', '0x13c84557'],
         filterFunction: txFilter_Standard,
       },
     ],
