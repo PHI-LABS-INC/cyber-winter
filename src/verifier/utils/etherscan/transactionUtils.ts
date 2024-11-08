@@ -54,6 +54,8 @@ async function fetchTransactionsFromExplorer(
     apiBaseURL = 'https://api.basescan.org';
   } else if (network === 84532) {
     apiBaseURL = 'https://api-sepolia.basescan.org';
+  } else if (network === 10) {
+    apiBaseURL = 'https://api-optimistic.etherscan.io';
   } else {
     throw new Error(`Unsupported network: ${network}`);
   }

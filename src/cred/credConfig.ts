@@ -1212,6 +1212,34 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['limitless'],
     relatedLinks: ['https://limitless.exchange/', 'https://x.com/trylimitless'],
   },
+  44: {
+    ...baseSettings,
+    title: 'box Domain Pioneer',
+    requirement: 'Register and purchase your own .box domain name',
+    network: 10,
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.OPTIMISM_API_KEY ?? '',
+    verificationConfigs: [
+      {
+        contractAddress: '0xBB7B805B257d7C76CA9435B3ffe780355E4C4B17',
+        methodId: '0xac9650d8',
+        filterFunction: txFilter_Standard,
+      },
+      {
+        contractAddress: '0xBB7B805B257d7C76CA9435B3ffe780355E4C4B17',
+        methodId: '0xac9650d8',
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'box',
+    tags: ['box'],
+    relatedLinks: ['https://my.box/?ref=phiprotocol', 'https://docs.my.box/docs', 'https://x.com/boxdomains'],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
