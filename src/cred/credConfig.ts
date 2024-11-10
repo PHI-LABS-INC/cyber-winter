@@ -1240,6 +1240,43 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['box'],
     relatedLinks: ['https://my.box/?ref=phiprotocol', 'https://docs.my.box/docs', 'https://x.com/boxdomains'],
   },
+  45: {
+    ...baseSettings,
+    title: 'Aether Token Holder',
+    requirement: 'Own at least one Aether Token',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'contractCall',
+    apiKeyOrUrl: '',
+    contractAddress: '0xF3708859C178709d5319ad5405Bc81511B72b9e9',
+    functionName: 'balanceOf',
+    abi: [
+      {
+        name: 'balanceOf',
+        type: 'function',
+        inputs: [
+          {
+            name: 'account',
+            type: 'address',
+          },
+        ],
+        outputs: [
+          {
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+      },
+    ],
+    contractCallCondition: (result: number) => result > 0,
+    project: 'Aether',
+    tags: ['Token', 'Aether'],
+    relatedLinks: [
+      'https://warpcast.com/aethernet',
+      'https://app.uniswap.org/explore/tokens/base/0xf3708859c178709d5319ad5405bc81511b72b9e9',
+    ],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
