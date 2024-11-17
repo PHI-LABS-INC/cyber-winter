@@ -15,21 +15,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const origin = req.headers['origin'];
   const referer = req.headers['referer'];
 
-  // Determine the source of the request
-  let requestSource = 'Unknown';
-  if (origin === 'https://base.terminal.phi.box' || referer?.startsWith('https://base.terminal.phi.box')) {
-    requestSource = 'Frontend (base.terminal.phi.box)';
-  } else if (clientIp?.includes('your-ec2-ip-here')) {
-    requestSource = 'EC2 Server';
-  }
-
-  console.log(`Request received from: ${requestSource}`);
   console.log(`IP: ${clientIp}, User-Agent: ${userAgent}`);
   console.log(`Origin: ${origin}, Referer: ${referer}`);
   console.log(`Query parameters - id: ${id}, address: ${address}`);
 
   try {
-    // Check credential 0 ('Complete a transaction on Basechain') for the address
     const [mint_eligibility, data] = await check_cred(address as Address, Number(id));
     console.log(`Cred check result for address:${address}, ${id}: ${mint_eligibility}`);
 

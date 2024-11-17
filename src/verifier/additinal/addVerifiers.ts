@@ -1,4 +1,4 @@
-import { VerifierManager, CredChainId } from '@phi-hub/sdk';
+import { VerifierManager } from '@phi-hub/sdk';
 import { verifySettings } from './verifyConfig';
 
 async function addVerifiers() {

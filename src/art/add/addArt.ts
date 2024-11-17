@@ -4,15 +4,15 @@ import { createArtRequest } from '../createArtRequest';
 import { executor, EXECUTOR_PRIVATE_KEY } from '../../config';
 import { newSettings } from './newArtConfig';
 
-const artChainId = 8453;
-const credChainId = 8453;
+const artChainId = 7560;
+const credChainId = 7560;
 
 async function main() {
   const privateKey = EXECUTOR_PRIVATE_KEY as Hex;
   console.log(`Processing executor: ${executor}`);
 
   const artManager = new ArtManager(privateKey, artChainId);
-  const configId = 5;
+  const configId = 0;
   try {
     const artSetting = newSettings[configId];
 

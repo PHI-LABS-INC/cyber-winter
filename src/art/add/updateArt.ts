@@ -7,7 +7,7 @@ import { readFileAsBase64 } from '../../utils/readFiles';
 import { executor, EXECUTOR_PRIVATE_KEY } from '../../config';
 
 // const artChainId = 80084; // PHI Testnet
-const artChainId = 8453; // PHI Mainnet
+const artChainId = 7560; // PHI Mainnet
 const OUTPUT_FILE = path.join(process.cwd(), 'public/assets/output', `cred_art_results_${artChainId}.json`);
 
 function loadExistingResults(): any[] {

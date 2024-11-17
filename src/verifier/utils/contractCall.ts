@@ -1,19 +1,19 @@
 import { Address, Chain, createPublicClient, http, PublicClient } from 'viem';
-import { base } from 'viem/chains';
+import { cyber } from 'viem/chains';
 import { ContractCallCredConfig, CredResult } from '../../utils/types';
 
 export async function handleContractCall(config: ContractCallCredConfig, check_address: Address): Promise<CredResult> {
-  if (config.network !== 8453) {
+  if (config.network !== 7560) {
     throw new Error(`Unsupported network: ${config.network}`);
   }
 
-  const publicClient = await createPublicClientForNetwork(base);
+  const publicClient = await createPublicClientForNetwork(cyber);
   const contractCallResult = await callContract(publicClient, config, check_address);
   return handleContractCallResult(config, contractCallResult);
 }
 
 async function createPublicClientForNetwork(chain: Chain): Promise<PublicClient> {
-  const rpc = 'https://rpc.ankr.com/base';
+  const rpc = 'https://rpc.cyber.co';
 
   try {
     const publicClient = createPublicClient({

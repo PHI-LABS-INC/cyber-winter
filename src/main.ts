@@ -14,8 +14,8 @@ interface ProcessResult {
   artId?: number;
 }
 
-const credChainId = 8453;
-const artChainId = 8453;
+const credChainId = 7560;
+const artChainId = 7560;
 
 const OUTPUT_FILE = path.join(process.cwd(), 'public/assets/output', `cred_art_results_${artChainId}.json`);
 
@@ -45,7 +45,7 @@ async function main() {
 
   let results = loadExistingResults();
 
-  for (let configId = 0; configId <= 31; configId++) {
+  for (let configId = 0; configId <= 0; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 

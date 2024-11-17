@@ -40,6 +40,17 @@ export async function getTransactions(
   );
 }
 
+const ROUTESCAN_API_BASE_URL = 'https://api.routescan.io/v2/network';
+const CYBER_MAINNET_ID = 7560;
+function getNetworkPath(network: Chain['id']): string {
+  switch (network) {
+    case CYBER_MAINNET_ID:
+      return 'mainnet/evm/7560';
+    default:
+      throw new Error(`Unsupported network: ${network}`);
+  }
+}
+
 async function fetchTransactionsFromExplorer(
   network: Chain['id'],
   address: string,
@@ -49,27 +60,26 @@ async function fetchTransactionsFromExplorer(
   endblock: string,
   api_key: string,
 ): Promise<EtherscanResponse> {
-  let apiBaseURL;
-  if (network === 8453) {
-    apiBaseURL = 'https://api.basescan.org';
-  } else if (network === 84532) {
-    apiBaseURL = 'https://api-sepolia.basescan.org';
-  } else if (network === 10) {
-    apiBaseURL = 'https://api-optimistic.etherscan.io';
-  } else {
-    throw new Error(`Unsupported network: ${network}`);
-  }
-  let url;
-  if (action === 'tokentx') {
-    url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&contractaddress=${contractAddresses}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=10000&apikey=${api_key}`;
-  } else {
-    url = `${apiBaseURL}/api?module=account&action=${action}&address=${address}&startblock=${startblock}&endblock=${endblock}&sort=desc&page=1&offset=10000&apikey=${api_key}`;
-  }
+  const networkPath = getNetworkPath(network);
+  const url = `${ROUTESCAN_API_BASE_URL}/${networkPath}/etherscan/api`;
 
+  const params = new URLSearchParams({
+    module: 'account',
+    action: action === 'tokentx' ? 'tokentx' : 'txlist',
+    address: address.toLowerCase(), // Ensure consistent address format
+    startblock,
+    endblock,
+    page: '1',
+    offset: '10000',
+    sort: 'desc',
+    apikey: api_key,
+  });
   let retries = 0;
   while (retries < MAX_RETRIES) {
     try {
-      const response = await axios.get<EtherscanResponse>(url);
+      const response = await axios.get<EtherscanResponse>(url, {
+        params,
+      });
       if (
         response.data.message === 'Max calls per sec rate limit reached (5/sec)' ||
         response.data.message === 'NOTOK'

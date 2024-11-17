@@ -3,7 +3,6 @@ import { handleTransactionCheck } from './utils/etherscan/transactionUtils';
 import { ContractCallCredConfig, SignatureCredConfig, CredResult, NeynarCredConfig } from '../utils/types';
 import { Address } from 'viem';
 import { handleContractCall } from './utils/contractCall';
-import { handleNeynarCheck } from './utils/naynar';
 
 export async function check_cred(address: string, id: number): Promise<CredResult> {
   const config = credConfig[id];
@@ -20,8 +19,6 @@ export async function check_cred(address: string, id: number): Promise<CredResul
       return handleTransactionCheck(config as SignatureCredConfig, check_address);
     case 'contractCall':
       return handleContractCall(config as ContractCallCredConfig, check_address);
-    case 'neynar':
-      return handleNeynarCheck(config as NeynarCredConfig, address);
     default:
       throw new Error(`Invalid API choice: ${config}`);
   }
