@@ -82,6 +82,18 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['Game', 'Link3', 'Achievement'],
     relatedLinks: ['https://link3.to/link3'],
   },
+  4: {
+    ...baseSettings,
+    title: 'XOUL Achiever',
+    requirement: 'Get a XOUL score of 100 and hold XOUL SBT',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'adhoc',
+    id: 4,
+    project: 'XOUL',
+    tags: ['XOUL', 'SBT', 'Score'],
+    relatedLinks: ['https://xoul.xoapp.co'],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
