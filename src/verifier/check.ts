@@ -1,8 +1,15 @@
 import { credConfig } from '../cred/credConfig';
 import { handleTransactionCheck } from './utils/etherscan/transactionUtils';
-import { ContractCallCredConfig, SignatureCredConfig, CredResult, NeynarCredConfig } from '../utils/types';
+import {
+  ContractCallCredConfig,
+  SignatureCredConfig,
+  CredResult,
+  NeynarCredConfig,
+  BalanceCheckCredConfig,
+} from '../utils/types';
 import { Address } from 'viem';
 import { handleContractCall } from './utils/contractCall';
+import { handleNFTBalanceCheck } from './utils/etherscan/routeScanUtils';
 
 export async function check_cred(address: string, id: number): Promise<CredResult> {
   const config = credConfig[id];
@@ -19,6 +26,10 @@ export async function check_cred(address: string, id: number): Promise<CredResul
       return handleTransactionCheck(config as SignatureCredConfig, check_address);
     case 'contractCall':
       return handleContractCall(config as ContractCallCredConfig, check_address);
+    case 'nftbalance':
+      return handleNFTBalanceCheck(config as BalanceCheckCredConfig, check_address);
+    case 'adhoc':
+      return handleAdhocCheck(config as AdhocCredConfig, check_address);
     default:
       throw new Error(`Invalid API choice: ${config}`);
   }

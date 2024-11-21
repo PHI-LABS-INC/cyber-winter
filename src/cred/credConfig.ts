@@ -37,6 +37,51 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['Transaction'],
     relatedLinks: ['https://cyber.co/'],
   },
+  1: {
+    ...baseSettings,
+    title: 'Cyber NFT Family',
+    requirement:
+      'Own at least one Cyber NFT (Cyber Mascot, CZ, Cyber Chiblings, CyberID, Social Summer, Link3 EGG, or New Era)',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'adhoc',
+    id: 1,
+    project: 'Cyber',
+    tags: ['NFT', 'Cyber', 'CyberConnect'],
+    relatedLinks: [
+      'https://element.market/assets/cyber/0x60a1b9c6900c6cef0e08b939cc00635ad7df02a1/2', // Cyber Mascot
+      'https://element.market/assets/cyber/0x60a1b9c6900c6cef0e08b939cc00635ad7df02a1/1', // CZ
+      'https://highlight.xyz/mint/cyber:0x03f3d8ba574B89af2A9c2199E4312837e1151750', // Cyber Chiblings
+      'https://cyber.co/cyber-id', // CyberID
+      'https://cyberscan.co/address/0x2d9181b954736971bb74043d4782dfe93b55a9af', // Social Summer
+      'https://element.market/collections/link3-origins-nft-1', // Link3 EGG
+      'https://element.market/collections/cyber-the-new-era', // New Era
+    ],
+  },
+  2: {
+    ...baseSettings,
+    title: 'Dino Jump Master',
+    requirement: 'Achieve 500 points in the Link3 Frame mini-game - Dino Jump',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'adhoc',
+    id: 2,
+    project: 'Link3',
+    tags: ['Game', 'Link3', 'Achievement'],
+    relatedLinks: ['https://link3.to'],
+  },
+  3: {
+    ...baseSettings,
+    title: 'Guess The Ball Master',
+    requirement: 'Have a score greater than or equal to 300 on "Guess The Ball" Link3 game',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'adhoc',
+    id: 3,
+    project: 'Link3',
+    tags: ['Game', 'Link3', 'Achievement'],
+    relatedLinks: ['https://link3.to/link3'],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(

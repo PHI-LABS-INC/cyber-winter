@@ -60,7 +60,19 @@ export type NeynarCredConfig = BaseCredConfig & {
   endpoint: string;
 };
 
-export type CredConfig = SignatureCredConfig | MerkleCredConfig | ContractCallCredConfig | NeynarCredConfig;
+export type AdhocCredConfig = BaseCredConfig & {
+  verificationType: 'SIGNATURE';
+  apiChoice: 'adhoc';
+  id: number;
+};
+
+export type CredConfig =
+  | SignatureCredConfig
+  | MerkleCredConfig
+  | ContractCallCredConfig
+  | NeynarCredConfig
+  | BalanceCheckCredConfig
+  | AdhocCredConfig;
 export type CredResult = [boolean, string];
 
 export type EtherscanFilter = (a: EtherscanTxItem) => boolean;
@@ -140,4 +152,12 @@ export type VerifySetting = {
   endpoint: string;
   address: Address;
   verificationSource: string;
+};
+
+export type BalanceCheckCredConfig = BaseCredConfig & {
+  verificationType: 'SIGNATURE';
+  apiChoice: 'balanceCheck' | 'nftbalance';
+  apiKeyOrUrl: string;
+  contractAddress: Address | Address[];
+  checkCondition: (result: any) => boolean;
 };
