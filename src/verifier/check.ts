@@ -4,12 +4,13 @@ import {
   ContractCallCredConfig,
   SignatureCredConfig,
   CredResult,
-  NeynarCredConfig,
   BalanceCheckCredConfig,
+  AdhocCredConfig,
 } from '../utils/types';
 import { Address } from 'viem';
 import { handleContractCall } from './utils/contractCall';
 import { handleNFTBalanceCheck } from './utils/etherscan/routeScanUtils';
+import { handleAdhocCheck } from './adhoc';
 
 export async function check_cred(address: string, id: number): Promise<CredResult> {
   const config = credConfig[id];

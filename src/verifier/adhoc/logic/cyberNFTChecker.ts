@@ -29,7 +29,7 @@ export const CYBER_NFT_COLLECTIONS: NFTCollection[] = [
   {
     name: 'Social Summer',
     address: '0x2d9181b954736971bb74043d4782dfe93b55a9af',
-    standard: 'ERC721',
+    standard: 'ERC1155',
   },
   {
     name: 'Link3 EGG',
@@ -39,7 +39,7 @@ export const CYBER_NFT_COLLECTIONS: NFTCollection[] = [
   {
     name: 'New Era',
     address: '0x4d5a1bf279aa7371e230df48a89fab822e4ad30e',
-    standard: 'ERC721',
+    standard: 'ERC1155',
   },
 ] as const;
 

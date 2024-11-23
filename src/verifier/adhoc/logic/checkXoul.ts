@@ -1,7 +1,6 @@
 import { Address } from 'viem';
 import { CredResult } from '../../../utils/types';
 import axios from 'axios';
-import { off } from 'process';
 
 interface XoulResponse {
   isBound: boolean;
@@ -26,7 +25,7 @@ interface RoutescanTxResponse {
 const XOUL_SBT_ADDRESS = '0x84583e7d2d92d87d5b3bac850ab4bad37ae568e8';
 const SBT_UPDATE_METHOD_ID = '0x78fea6ac';
 
-async function checkXoulScore(check_address: Address): Promise<number> {
+async function checkXoulScore(check_address: Address): Promise<[number, string | null]> {
   try {
     const response = await axios.get<XoulResponse>(
       `https://api.rooit.net/latest/crypto/xoul/eoa-bound?address=${check_address}`,
@@ -39,23 +38,23 @@ async function checkXoulScore(check_address: Address): Promise<number> {
 
     if (!response.data.isBound) {
       console.log('Address not bound to XOUL');
-      return 0;
+      return [0, null];
     }
 
-    return response.data.score;
+    return [response.data.score, response.data.address];
   } catch (error) {
     console.error('Error fetching XOUL score:', error);
-    return 0;
+    return [0, null];
   }
 }
 
-async function checkSbtUpdated(check_address: Address): Promise<boolean> {
+async function checkSbtUpdated(xoulAddress: string): Promise<boolean> {
   const url = `https://api.routescan.io/v2/network/mainnet/evm/7560/etherscan/api`;
   const api_key = process.env.ROUTESCAN_API_KEY;
   const params = {
     module: 'account',
     action: 'txlist',
-    address: check_address,
+    address: xoulAddress,
     startblock: '0',
     endblock: '99999999',
     apikey: api_key,
@@ -70,6 +69,7 @@ async function checkSbtUpdated(check_address: Address): Promise<boolean> {
       throw new Error(`API error: ${response.data.message}`);
     }
 
+    console.log('Sbt response:', response.data);
     const hasSbtUpdate = response.data.result.some(
       (tx) =>
         tx.to.toLowerCase() === XOUL_SBT_ADDRESS.toLowerCase() &&
@@ -82,17 +82,21 @@ async function checkSbtUpdated(check_address: Address): Promise<boolean> {
     return false;
   }
 }
+
 export async function checkXoulAchievement(check_address: Address): Promise<CredResult> {
   const REQUIRED_SCORE = 100;
 
-  // 両方のチェックを並列で実行
-  const [score, hasSbt] = await Promise.all([checkXoulScore(check_address), checkSbtUpdated(check_address)]);
+  // First check XOUL score and get the XOUL address
+  const [score, xoulAddress] = await checkXoulScore(check_address);
 
-  // スコアとSBT保有の両方の条件を満たす必要がある
-  const achieved = score >= REQUIRED_SCORE && hasSbt;
+  // If score is insufficient or no XOUL address found, return false immediately
+  if (score < REQUIRED_SCORE || !xoulAddress) {
+    return [false, '0'];
+  }
 
-  // スコアの詳細を返す
-  const details = `Score: ${score}${hasSbt ? ', Has XOUL SBT' : ', No XOUL SBT'}`;
+  // Only check SBT if score requirement is met
+  const hasSbt = await checkSbtUpdated(xoulAddress);
+  const achieved = hasSbt; // We already know score >= REQUIRED_SCORE
 
-  return [achieved, details];
+  return [achieved, score.toString()];
 }

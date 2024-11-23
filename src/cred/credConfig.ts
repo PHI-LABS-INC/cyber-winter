@@ -94,6 +94,18 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['XOUL', 'SBT', 'Score'],
     relatedLinks: ['https://xoul.xoapp.co'],
   },
+  5: {
+    ...baseSettings,
+    title: 'Plato Registration',
+    requirement: 'Register for a Plato account through the Phi platform',
+    credType: 'BASIC',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'adhoc',
+    id: 5,
+    project: 'Plato',
+    tags: ['Registration', 'Plato', 'Phi'],
+    relatedLinks: ['https://m.getplato.app/#/phi?wallet={connected_address}'],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(

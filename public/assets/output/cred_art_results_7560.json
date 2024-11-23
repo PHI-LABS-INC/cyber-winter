@@ -1,0 +1,22 @@
+[
+  {
+    "configId": 1,
+    "credId": 2,
+    "artId": 2
+  },
+  {
+    "configId": 2,
+    "credId": 3,
+    "artId": 3
+  },
+  {
+    "configId": 3,
+    "credId": 4,
+    "artId": 4
+  },
+  {
+    "configId": 4,
+    "credId": 5,
+    "artId": 5
+  }
+]

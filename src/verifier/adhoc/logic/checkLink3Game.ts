@@ -43,8 +43,14 @@ async function checkLink3GameScore(
 
     const data = (await response.json()) as Link3GameResponse;
     const score = data.data.getUserGameScore;
-
-    return [score >= requiredScore, score.toString()];
+    if (score === null) {
+      return [false, '0'];
+    }
+    if (score >= requiredScore) {
+      return [true, score.toString()];
+    } else {
+      return [false, score.toString()];
+    }
   } catch (error) {
     console.error(`Error fetching ${gameType} score:`, error);
     return [false, '0'];

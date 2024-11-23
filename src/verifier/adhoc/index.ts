@@ -3,6 +3,7 @@ import { AdhocCredConfig, CredResult } from '../../utils/types';
 import { checkCyberNFTs } from './logic/cyberNFTChecker';
 import { checkDinoJumpAchievement, checkGuessBallAchievement } from './logic/checkLink3Game';
 import { checkXoulAchievement } from './logic/checkXoul';
+import { checkPlatoSignup } from './logic/checkPlatoSignup';
 
 export async function handleAdhocCheck(config: AdhocCredConfig, check_address: Address): Promise<CredResult> {
   switch (config.id) {
@@ -14,6 +15,8 @@ export async function handleAdhocCheck(config: AdhocCredConfig, check_address: A
       return checkGuessBallAchievement(check_address);
     case 4:
       return checkXoulAchievement(check_address);
+    case 5:
+      return checkPlatoSignup(check_address);
     default:
       console.error(`Unknown checker id: ${config.id}`);
       return [false, 'Invalid checker configuration'];

@@ -45,7 +45,7 @@ async function main() {
 
   let results = loadExistingResults();
 
-  for (let configId = 0; configId <= 0; configId++) {
+  for (let configId = 2; configId <= 4; configId++) {
     try {
       console.log(`Processing cred config: ${configId}`);
 

@@ -20,10 +20,12 @@ function hexToPrivateKey(hex: string): Hex {
 }
 
 export const VERIFIER_PRIVATE_KEY = hexToPrivateKey(getEnvVar('VERIFIER_PRIVATE_KEY'));
+export const VERIFIER_PRIVATE_KEY2 = hexToPrivateKey(getEnvVar('VERIFIER_PRIVATE_KEY2'));
 export const EXECUTOR_PRIVATE_KEY = hexToPrivateKey(getEnvVar('EXECUTOR_PRIVATE_KEY'));
 export const executor_account = privateKeyToAccount(EXECUTOR_PRIVATE_KEY);
 export const executor: Address = executor_account.address;
-export const verifier_account = privateKeyToAccount(VERIFIER_PRIVATE_KEY);
+// export const verifier_account = privateKeyToAccount(VERIFIER_PRIVATE_KEY);
+export const verifier_account = privateKeyToAccount(VERIFIER_PRIVATE_KEY2);
 export const verifier: Address = verifier_account.address;
 
 export const ENDPOINT = 'cyber-winter.vercel.app';
