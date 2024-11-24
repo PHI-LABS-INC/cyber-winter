@@ -26,7 +26,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } else {
       signature = await create_cyber_signature(address as Address, mint_eligibility, data);
     }
-    console.log(`Signature created for config ${id}: ${signature}`);
+    console.log(`Signature created, for config ${id}: ${signature}`);
     return res.status(200).json({ mint_eligibility, signature, data });
   } catch (error) {
     console.error('Error in verify:', error);

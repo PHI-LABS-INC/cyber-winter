@@ -18,5 +18,25 @@
     "configId": 4,
     "credId": 5,
     "artId": 5
+  },
+  {
+    "configId": 5,
+    "credId": 6,
+    "artId": 6
+  },
+  {
+    "configId": 6,
+    "credId": 7,
+    "artId": 7
+  },
+  {
+    "configId": 7,
+    "credId": 8,
+    "artId": 8
+  },
+  {
+    "configId": 8,
+    "credId": 9,
+    "artId": 9
   }
 ]
