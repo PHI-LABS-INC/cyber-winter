@@ -2,7 +2,6 @@ import 'dotenv/config';
 import { txFilter_Any, txFilter_Contract, txFilter_From, txFilter_Standard } from '../verifier/utils/etherscan/filter';
 import { CredConfig, EtherscanTxItem } from '../utils/types';
 import { ENDPOINT } from '../config';
-import { Address, decodeAbiParameters } from 'viem';
 
 const baseSettings = {
   network: 7560,

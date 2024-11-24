@@ -12,20 +12,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     throw new Error('Address is required');
   }
   const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-  const userAgent = req.headers['user-agent'];
-  const origin = req.headers['origin'];
   const referer = req.headers['referer'];
 
-  console.log(`IP: ${clientIp}, User-Agent: ${userAgent}`);
-  console.log(`Origin: ${origin}, Referer: ${referer}`);
-  console.log(`Query parameters - id: ${id}, address: ${address}`);
+  console.log(`Query parameters - id: ${id}, address: ${address}, Referer: ${referer},clientIp ${clientIp}`);
 
   try {
     const [mint_eligibility, data] = await check_cred(address as Address, Number(id));
     console.log(`Cred check result for address:${address}, ${id}: ${mint_eligibility}`);
 
     let signature;
-    if (id == '1') {
+    if (id == '0') {
       signature = await create_signature(address as Address, mint_eligibility, data);
     } else {
       signature = await create_cyber_signature(address as Address, mint_eligibility, data);
