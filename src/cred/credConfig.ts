@@ -59,7 +59,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   2: {
     ...baseSettings,
-    title: 'Dino Jump Master',
+    title: 'Dino Jump',
     requirement: 'Achieve 500 points in the Link3 Frame mini-game - Dino Jump',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
@@ -71,8 +71,8 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   3: {
     ...baseSettings,
-    title: 'Guess The Ball Master',
-    requirement: 'Have a score greater than or equal to 300 on "Guess The Ball" Link3 game',
+    title: 'Guess The Ball',
+    requirement: 'Have a score of 300 or more on "Guess The Ball" Link3 game',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'adhoc',
@@ -84,7 +84,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   4: {
     ...baseSettings,
     title: 'XOUL Achiever',
-    requirement: 'Get a XOUL score of 100 and hold XOUL SBT',
+    requirement: 'Get a XOUL score of 100',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'adhoc',
@@ -96,7 +96,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   5: {
     ...baseSettings,
     title: 'Plato Registration',
-    requirement: 'Register for a Plato account through the Phi platform',
+    requirement: 'Register for a Plato account through Phi (link shown below)',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'adhoc',
@@ -120,7 +120,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   7: {
     ...baseSettings,
     title: 'Commit Starter',
-    requirement: 'Users to deposit 0.0005 ETH as part of joining a Commit.',
+    requirement: 'Deposit 0.0005 ETH as part of joining a Commit.',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'adhoc',
@@ -132,13 +132,13 @@ export const credConfig: { [key: number]: CredConfig } = {
   8: {
     ...baseSettings,
     title: 'Commit Master',
-    requirement: 'Collect all Creds on Phi Cyber Campaign to earn your Commit Reward.',
+    requirement: 'Collect all Creds on Phi Cyber Campaign and become eligible to earn your Commit Reward.',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'adhoc',
     id: 8,
     project: 'Commit',
-    tags: ['Cyer', 'Commit'],
+    tags: ['Cyber', 'Commit'],
     relatedLinks: ['https://x.com/commitwtf'],
   },
 };
