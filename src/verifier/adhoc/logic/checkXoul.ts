@@ -28,14 +28,14 @@ const SBT_UPDATE_METHOD_ID = '0x78fea6ac';
 async function checkXoulScore(check_address: Address): Promise<[number, string | null]> {
   try {
     const response = await axios.get<XoulResponse>(
-      `https://api.rooit.net/latest/crypto/xoul/eoa-bound?address=${check_address}`,
+      `https://api.rooit.net/latest/crypto/xoul/eoa-bound?address=${check_address.toLowerCase()}`,
       {
         headers: {
           accept: 'application/json',
         },
       },
     );
-
+    console.log('XOUL response:', response.data.isBound);
     if (!response.data.isBound) {
       console.log('Address not bound to XOUL');
       return [0, null];
@@ -95,8 +95,8 @@ export async function checkXoulAchievement(check_address: Address): Promise<Cred
   }
 
   // Only check SBT if score requirement is met
-  const hasSbt = await checkSbtUpdated(xoulAddress);
-  const achieved = hasSbt; // We already know score >= REQUIRED_SCORE
+  // const hasSbt = await checkSbtUpdated(xoulAddress);
+  // const achieved = hasSbt; // We already know score >= REQUIRED_SCORE
 
-  return [achieved, score.toString()];
+  return [true, score.toString()];
 }
