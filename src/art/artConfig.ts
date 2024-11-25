@@ -57,7 +57,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     name: 'Lovers Paradise',
     description: 'One kiss away from your XOUL mate.',
-    tags: ['Cyber', 'XOUL', 'josiah'],
+    tags: ['Cyber', 'XOUL', 'josiah', 'datartist'],
     externalURL: 'https://xoul.xoapp.co',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '4.webp'),
     artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
