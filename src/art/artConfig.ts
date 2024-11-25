@@ -26,7 +26,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
   1: {
     ...baseSettings,
     name: 'Chained onto Cyber',
-    description: "There's might be 7 collections, but there's only 1 you. Thank you for minting on Cyber.",
+    description: "There might be 7 collections, but there's only 1 you. Thank you for minting on Cyber.",
     tags: ['Cyber', 'Maning'],
     externalURL: 'https://cyber.co/',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '1.gif'),
@@ -57,7 +57,7 @@ export const artSettings: { [key: number]: ArtSetting } = {
     ...baseSettings,
     name: 'Lovers Paradise',
     description: 'One kiss away from your XOUL mate.',
-    tags: ['Cyber', 'XOUL', 'josiah'],
+    tags: ['Cyber', 'XOUL', 'josiah', 'datartist'],
     externalURL: 'https://xoul.xoapp.co',
     imagePath: path.join(process.cwd(), 'public/assets/images/prod', '4.webp'),
     artist: '0x7b74954a57ed60b8136e340aa4b937919005f507',
