@@ -35,16 +35,16 @@ async function checkXoulScore(check_address: Address): Promise<[number, string |
         },
       },
     );
-    console.log('XOUL response:', response.data.isBound);
+
     if (!response.data.isBound) {
       console.log('Address not bound to XOUL');
-      return [0, null];
+      return [0, ''];
     }
 
     return [response.data.score, response.data.address];
   } catch (error) {
     console.error('Error fetching XOUL score:', error);
-    return [0, null];
+    return [0, ''];
   }
 }
 
