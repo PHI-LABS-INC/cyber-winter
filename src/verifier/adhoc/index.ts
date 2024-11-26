@@ -18,8 +18,8 @@ export async function handleAdhocCheck(config: AdhocCredConfig, check_address: A
       return checkXoulAchievement(check_address);
     case 5:
       return checkPlatoSignup(check_address);
-    case 6:
-      return checkEtherEater(check_address);
+    // case 6:
+    //   return checkEtherEater(check_address);
     default:
       console.error(`Unknown checker id: ${config.id}`);
       return [false, 'Invalid checker configuration'];
