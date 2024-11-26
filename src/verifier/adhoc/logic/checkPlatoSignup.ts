@@ -15,9 +15,8 @@ export async function checkPlatoSignup(check_address: Address): Promise<CredResu
     client.release();
 
     const isRegistered = result.rowCount > 0;
-    const details = isRegistered ? `Registered with handle: ${result.rows[0].user_handle}` : 'Not registered';
 
-    return [isRegistered, details];
+    return [isRegistered, ''];
   } catch (error) {
     console.error('Error checking Plato registration:', error);
     return [false, 'Error checking registration status'];

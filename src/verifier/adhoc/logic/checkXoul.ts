@@ -48,40 +48,40 @@ async function checkXoulScore(check_address: Address): Promise<[number, string |
   }
 }
 
-async function checkSbtUpdated(xoulAddress: string): Promise<boolean> {
-  const url = `https://api.routescan.io/v2/network/mainnet/evm/7560/etherscan/api`;
-  const api_key = process.env.ROUTESCAN_API_KEY;
-  const params = {
-    module: 'account',
-    action: 'txlist',
-    address: xoulAddress,
-    startblock: '0',
-    endblock: '99999999',
-    apikey: api_key,
-    page: '1',
-    offset: '10000',
-  };
+// async function checkSbtUpdated(xoulAddress: string): Promise<boolean> {
+//   const url = `https://api.routescan.io/v2/network/mainnet/evm/7560/etherscan/api`;
+//   const api_key = process.env.ROUTESCAN_API_KEY;
+//   const params = {
+//     module: 'account',
+//     action: 'txlist',
+//     address: xoulAddress,
+//     startblock: '0',
+//     endblock: '99999999',
+//     apikey: api_key,
+//     page: '1',
+//     offset: '10000',
+//   };
 
-  try {
-    const response = await axios.get<RoutescanTxResponse>(url, { params });
+//   try {
+//     const response = await axios.get<RoutescanTxResponse>(url, { params });
 
-    if (response.data.status !== '1') {
-      throw new Error(`API error: ${response.data.message}`);
-    }
+//     if (response.data.status !== '1') {
+//       throw new Error(`API error: ${response.data.message}`);
+//     }
 
-    console.log('Sbt response:', response.data);
-    const hasSbtUpdate = response.data.result.some(
-      (tx) =>
-        tx.to.toLowerCase() === XOUL_SBT_ADDRESS.toLowerCase() &&
-        tx.methodId.toLowerCase() === SBT_UPDATE_METHOD_ID.toLowerCase(),
-    );
+//     console.log('Sbt response:', response.data);
+//     const hasSbtUpdate = response.data.result.some(
+//       (tx) =>
+//         tx.to.toLowerCase() === XOUL_SBT_ADDRESS.toLowerCase() &&
+//         tx.methodId.toLowerCase() === SBT_UPDATE_METHOD_ID.toLowerCase(),
+//     );
 
-    return hasSbtUpdate;
-  } catch (error) {
-    console.error('Error checking SBT updates:', error);
-    return false;
-  }
-}
+//     return hasSbtUpdate;
+//   } catch (error) {
+//     console.error('Error checking SBT updates:', error);
+//     return false;
+//   }
+// }
 
 export async function checkXoulAchievement(check_address: Address): Promise<CredResult> {
   const REQUIRED_SCORE = 100;

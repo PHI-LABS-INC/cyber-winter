@@ -3,12 +3,11 @@ import { CredResult } from '../../../utils/types';
 
 interface Link3EmailResponse {
   data: {
-    getCollectedEmail: string | null;
+    getCollectedEmail: string[] | string | null;
   };
 }
 
 export async function checkEtherEater(check_address: Address): Promise<CredResult> {
-  // GraphQL query with proper formatting
   const query = {
     query: `
       query GetCollectEmails {
@@ -21,7 +20,6 @@ export async function checkEtherEater(check_address: Address): Promise<CredResul
   };
 
   try {
-    // Make POST request to the API
     const response = await fetch('https://api.cyberconnect.dev/link3/', {
       method: 'POST',
       headers: {
@@ -31,29 +29,28 @@ export async function checkEtherEater(check_address: Address): Promise<CredResul
       body: JSON.stringify(query),
     });
 
-    // Check if response is ok
     if (!response.ok) {
       console.error(`API request failed with status: ${response.status}`);
-      return [false, `API request failed: ${response.statusText}`];
+      return [false, ''];
     }
 
-    // Parse response data
     const data = (await response.json()) as Link3EmailResponse;
 
-    // Validate response structure
     if (!data || !('data' in data) || !('getCollectedEmail' in data.data)) {
       console.error('Invalid response structure:', data);
-      return [false, 'Invalid response structure'];
+      return [false, ''];
     }
 
     const email = data.data.getCollectedEmail;
 
-    // Return result based on email presence
+    if (Array.isArray(email)) {
+      return email.length > 0 ? [true, ''] : [false, ''];
+    }
+
     return email ? [true, ''] : [false, ''];
   } catch (error) {
-    // Enhanced error logging
     console.error('Error in checkEtherEater:', error);
-    return [false, error instanceof Error ? error.message : 'Unknown error occurred'];
+    return [false, ''];
   }
 }
 
