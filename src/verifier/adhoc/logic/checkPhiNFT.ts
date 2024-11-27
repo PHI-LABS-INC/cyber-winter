@@ -17,11 +17,12 @@ const PHI_CONTRACT_ABI = [
   },
 ] as const;
 
+const CYBER_RPC = process.env.CYBER_RPC;
 async function createPublicClientForNetwork(chain: Chain): Promise<PublicClient> {
   try {
     const publicClient = createPublicClient({
       chain,
-      transport: http('https://rpc.cyber.co'),
+      transport: http(CYBER_RPC),
     });
 
     if (!publicClient) {

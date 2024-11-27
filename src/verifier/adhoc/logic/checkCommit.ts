@@ -17,10 +17,6 @@ interface GraphQLResponse {
   };
 }
 
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_CONNECTION_STRING,
-});
-
 export async function checkCommitParticipation(check_address: Address): Promise<CredResult> {
   try {
     const response = await fetch(
