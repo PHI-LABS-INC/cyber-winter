@@ -26,11 +26,11 @@ export const CYBER_NFT_COLLECTIONS: NFTCollection[] = [
     address: '0xc137be6b59e824672aada673e55cf4d150669af8',
     standard: 'ERC721',
   },
-  {
-    name: 'Social Summer',
-    address: '0x2d9181b954736971bb74043d4782dfe93b55a9af',
-    standard: 'ERC1155',
-  },
+  // {
+  //   name: 'Social Summer',
+  //   address: '0x2d9181b954736971bb74043d4782dfe93b55a9af',
+  //   standard: 'ERC1155',
+  // },
   {
     name: 'Link3 EGG',
     address: '0x28cd7b0e0e927a8b627e96a0ba598d7101d87b2d',

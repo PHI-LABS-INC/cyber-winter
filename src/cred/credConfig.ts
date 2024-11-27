@@ -52,7 +52,7 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://element.market/assets/cyber/0x60a1b9c6900c6cef0e08b939cc00635ad7df02a1/1', // CZ
       'https://highlight.xyz/mint/cyber:0x03f3d8ba574B89af2A9c2199E4312837e1151750', // Cyber Chiblings
       'https://cyber.co/cyber-id', // CyberID
-      'https://cyberscan.co/address/0x2d9181b954736971bb74043d4782dfe93b55a9af', // Social Summer
+      // 'https://cyberscan.co/address/0x2d9181b954736971bb74043d4782dfe93b55a9af', // Social Summer
       'https://element.market/collections/link3-origins-nft-1', // Link3 EGG
       'https://element.market/collections/cyber-the-new-era', // New Era
     ],
