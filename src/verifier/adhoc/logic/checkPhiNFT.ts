@@ -72,9 +72,9 @@ export async function checkPhiNFTCredentials(check_address: Address): Promise<Cr
     const publicClient = await createPublicClientForNetwork(cyber);
     const chainId = 7560n;
 
-    // Prepare multicall calls for credentials 2-9
-    const calls = Array.from({ length: 8 }, (_, i) => {
-      const credId = i + 2; // credentials from 2 to 9
+    // Prepare multicall calls for credentials 2-8
+    const calls = Array.from({ length: 7 }, (_, i) => {
+      const credId = i + 2; // credentials from 2 to 8
       const callData = encodeFunctionData({
         abi: PHI_CONTRACT_ABI,
         functionName: 'isCredMinted',
@@ -98,6 +98,7 @@ export async function checkPhiNFTCredentials(check_address: Address): Promise<Cr
 
     // Check if all credentials are minted
     const allMinted = results.every((result) => {
+      console.log('result:', result);
       if (!result.success) return false;
       // Decode the boolean result from the returnData
       return result.returnData === '0x0000000000000000000000000000000000000000000000000000000000000001';

@@ -39,8 +39,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   1: {
     ...baseSettings,
     title: 'Cyber NFT Family',
-    requirement:
-      'Own at least one Cyber NFT (Cyber Mascot, CZ, Cyber Chiblings, CyberID, Social Summer, Link3 EGG, or New Era)',
+    requirement: 'Own at least one Cyber NFT (Cyber Mascot, CZ, Cyber Chiblings, CyberID, Link3 EGG, or New Era)',
     credType: 'BASIC',
     verificationType: 'SIGNATURE',
     apiChoice: 'adhoc',
