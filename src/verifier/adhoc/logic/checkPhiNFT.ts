@@ -41,8 +41,8 @@ export async function checkPhiNFTCredentials(check_address: Address): Promise<Cr
     const publicClient = await createPublicClientForNetwork(cyber);
     const chainId = 7560n;
 
-    // Check credentials from 2 to 9
-    for (let credId = 2; credId <= 9; credId++) {
+    // Check credentials from 2 to 8
+    for (let credId = 2; credId <= 8; credId++) {
       const isMinted = await publicClient.readContract({
         address: PHI_CONTRACT_ADDRESS,
         abi: PHI_CONTRACT_ABI,

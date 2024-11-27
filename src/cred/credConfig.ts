@@ -60,7 +60,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   2: {
     ...baseSettings,
     title: 'Dino Jump',
-    requirement: 'Achieve 500 points in the Link3 Frame mini-game - Dino Jump',
+    requirement: 'Achieve 200 points in the Link3 Frame mini-game - Dino Jump',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
     apiChoice: 'adhoc',
