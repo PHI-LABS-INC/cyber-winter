@@ -9,18 +9,18 @@ interface XoulResponse {
   address: string;
 }
 
-interface RoutescanTxResponse {
-  status: string;
-  message: string;
-  result: {
-    blockNumber: string;
-    timeStamp: string;
-    hash: string;
-    from: string;
-    to: string;
-    methodId: string;
-  }[];
-}
+// interface RoutescanTxResponse {
+//   status: string;
+//   message: string;
+//   result: {
+//     blockNumber: string;
+//     timeStamp: string;
+//     hash: string;
+//     from: string;
+//     to: string;
+//     methodId: string;
+//   }[];
+// }
 
 const XOUL_SBT_ADDRESS = '0x84583e7d2d92d87d5b3bac850ab4bad37ae568e8';
 const SBT_UPDATE_METHOD_ID = '0x78fea6ac';
