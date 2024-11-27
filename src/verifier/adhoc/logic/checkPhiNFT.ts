@@ -21,7 +21,7 @@ async function createPublicClientForNetwork(chain: Chain): Promise<PublicClient>
   try {
     const publicClient = createPublicClient({
       chain,
-      transport: http('https://broken-late-bush.cyber-mainnet.quiknode.pro/46d3cec2b5968f1597cf51fc886b45cca5069d22'),
+      transport: http('https://rpc.cyber.co'),
     });
 
     if (!publicClient) {
