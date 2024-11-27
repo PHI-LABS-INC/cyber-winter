@@ -48,11 +48,12 @@ const MULTICALL3_ABI = [
   },
 ] as const;
 
+const CYBRE_RPC = process.env.CYBER_RPC || 'https://rpc.cyber.co';
 async function createPublicClientForNetwork(chain: Chain): Promise<PublicClient> {
   try {
     const publicClient = createPublicClient({
       chain,
-      transport: http('https://rpc.cyber.co'),
+      transport: http(CYBRE_RPC),
     });
 
     if (!publicClient) {
