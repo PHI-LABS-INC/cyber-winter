@@ -46,12 +46,20 @@ export const testCases = {
     title: credConfig[5].title,
     addresses: {
       valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
-      invalid: '0xb7Caa0ed757bbFaA208342752C9B1c541e36a4b9',
+      invalid: '0x1d8A4B2594050166a05c19eBe8b4cf1A41F3908C',
     },
     expectedDataCheck: (data: string) => data == '',
   },
   6: {
     title: credConfig[6].title,
+    addresses: {
+      valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
+      invalid: '0xb7Caa0ed757bbFaA208342752C9B1c541e36a4b9',
+    },
+    expectedDataCheck: (data: string) => data == '',
+  },
+  7: {
+    title: credConfig[7].title,
     addresses: {
       valid: '0x5037e7747fAa78fc0ECF8DFC526DcD19f73076ce',
       invalid: '0xb7Caa0ed757bbFaA208342752C9B1c541e36a4b9',

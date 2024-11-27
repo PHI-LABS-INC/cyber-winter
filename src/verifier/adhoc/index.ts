@@ -4,6 +4,8 @@ import { checkCyberNFTs } from './logic/cyberNFTChecker';
 import { checkDinoJumpAchievement, checkGuessBallAchievement } from './logic/checkLink3Game';
 import { checkXoulAchievement } from './logic/checkXoul';
 import { checkPlatoSignup } from './logic/checkPlatoSignup';
+import { checkCommitParticipation } from './logic/checkCommit';
+
 import checkEtherEater from './logic/checkEtherEater';
 
 export async function handleAdhocCheck(config: AdhocCredConfig, check_address: Address): Promise<CredResult> {
@@ -20,6 +22,10 @@ export async function handleAdhocCheck(config: AdhocCredConfig, check_address: A
       return checkPlatoSignup(check_address);
     case 6:
       return checkEtherEater(check_address);
+    case 7:
+      return checkCommitParticipation(check_address);
+    // case 8:
+    //   return checkAllPHiNFTClaimed(check_address);
     default:
       console.error(`Unknown checker id: ${config.id}`);
       return [false, 'Invalid checker configuration'];
