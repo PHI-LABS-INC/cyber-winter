@@ -51,7 +51,8 @@ export async function checkPhiNFTCredentials(check_address: Address): Promise<Cr
       });
 
       if (!isMinted) {
-        return [false, `Credential ${credId} not minted`];
+        console.log(`Credential ${credId} not minted for ${check_address}`);
+        return [false, ''];
       }
     }
 
