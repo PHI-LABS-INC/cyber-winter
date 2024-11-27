@@ -1,8 +1,10 @@
-import { Address, Chain, createPublicClient, http, PublicClient } from 'viem';
+import { Address, Chain, createPublicClient, http, PublicClient, encodeFunctionData } from 'viem';
 import { cyber } from 'viem/chains';
 import { CredResult } from '../../../utils/types';
 
 const PHI_CONTRACT_ADDRESS = '0x9baBBbE884fe75244f277F90d4bB696434fA1920' as const;
+const MULTICALL3_ADDRESS = '0xcA11bde05977b3631167028862bE2a173976CA11' as const;
+
 const PHI_CONTRACT_ABI = [
   {
     type: 'function',
@@ -17,12 +19,40 @@ const PHI_CONTRACT_ABI = [
   },
 ] as const;
 
-const CYBER_RPC = process.env.CYBER_RPC;
+const MULTICALL3_ABI = [
+  {
+    inputs: [
+      {
+        components: [
+          { name: 'target', type: 'address' },
+          { name: 'allowFailure', type: 'bool' },
+          { name: 'callData', type: 'bytes' },
+        ],
+        name: 'calls',
+        type: 'tuple[]',
+      },
+    ],
+    name: 'aggregate3',
+    outputs: [
+      {
+        components: [
+          { name: 'success', type: 'bool' },
+          { name: 'returnData', type: 'bytes' },
+        ],
+        name: 'returnData',
+        type: 'tuple[]',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+] as const;
+
 async function createPublicClientForNetwork(chain: Chain): Promise<PublicClient> {
   try {
     const publicClient = createPublicClient({
       chain,
-      transport: http(CYBER_RPC),
+      transport: http('https://rpc.cyber.co'),
     });
 
     if (!publicClient) {
@@ -41,22 +71,41 @@ export async function checkPhiNFTCredentials(check_address: Address): Promise<Cr
     const publicClient = await createPublicClientForNetwork(cyber);
     const chainId = 7560n;
 
-    // Check credentials from 2 to 8
-    for (let credId = 2; credId <= 8; credId++) {
-      const isMinted = await publicClient.readContract({
-        address: PHI_CONTRACT_ADDRESS,
+    // Prepare multicall calls for credentials 2-9
+    const calls = Array.from({ length: 8 }, (_, i) => {
+      const credId = i + 2; // credentials from 2 to 9
+      const callData = encodeFunctionData({
         abi: PHI_CONTRACT_ABI,
         functionName: 'isCredMinted',
         args: [chainId, BigInt(credId), check_address],
       });
 
-      if (!isMinted) {
-        console.log(`Credential ${credId} not minted for ${check_address}`);
-        return [false, ''];
-      }
+      return {
+        target: PHI_CONTRACT_ADDRESS,
+        allowFailure: false,
+        callData,
+      };
+    });
+
+    // Execute multicall
+    const results = await publicClient.readContract({
+      address: MULTICALL3_ADDRESS,
+      abi: MULTICALL3_ABI,
+      functionName: 'aggregate3',
+      args: [calls],
+    });
+
+    // Check if all credentials are minted
+    const allMinted = results.every((result) => {
+      if (!result.success) return false;
+      // Decode the boolean result from the returnData
+      return result.returnData === '0x0000000000000000000000000000000000000000000000000000000000000001';
+    });
+
+    if (!allMinted) {
+      return [false, ''];
     }
 
-    // If we get here, all credentials are minted
     return [true, ''];
   } catch (error) {
     console.error('Error checking PHI NFT credentials:', error);
@@ -64,22 +113,37 @@ export async function checkPhiNFTCredentials(check_address: Address): Promise<Cr
   }
 }
 
-// Optional: Function to check specific credential
-export async function checkSinglePhiCredential(check_address: Address, credId: number): Promise<CredResult> {
+// Optional: Check multiple specific credentials in one call
+export async function checkMultiplePhiCredentials(check_address: Address, credIds: number[]): Promise<CredResult> {
   try {
     const publicClient = await createPublicClientForNetwork(cyber);
     const chainId = 7560n;
 
-    const isMinted = await publicClient.readContract({
-      address: PHI_CONTRACT_ADDRESS,
-      abi: PHI_CONTRACT_ABI,
-      functionName: 'isCredMinted',
-      args: [chainId, BigInt(credId), check_address],
+    const calls = credIds.map((credId) => ({
+      target: PHI_CONTRACT_ADDRESS,
+      allowFailure: false,
+      callData: encodeFunctionData({
+        abi: PHI_CONTRACT_ABI,
+        functionName: 'isCredMinted',
+        args: [chainId, BigInt(credId), check_address],
+      }),
+    }));
+
+    const results = await publicClient.readContract({
+      address: MULTICALL3_ADDRESS,
+      abi: MULTICALL3_ABI,
+      functionName: 'aggregate3',
+      args: [calls],
     });
 
-    return [isMinted, ''];
+    const allMinted = results.every((result) => {
+      if (!result.success) return false;
+      return result.returnData === '0x0000000000000000000000000000000000000000000000000000000000000001';
+    });
+
+    return [allMinted, ''];
   } catch (error) {
-    console.error(`Error checking PHI credential ${credId}:`, error);
+    console.error('Error checking PHI credentials:', error);
     return [false, 'Error checking credential status'];
   }
 }
