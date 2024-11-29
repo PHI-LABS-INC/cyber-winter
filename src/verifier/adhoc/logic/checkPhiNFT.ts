@@ -98,7 +98,6 @@ export async function checkPhiNFTCredentials(check_address: Address): Promise<Cr
 
     // Check if all credentials are minted
     const allMinted = results.every((result) => {
-      console.log('result:', result);
       if (!result.success) return false;
       // Decode the boolean result from the returnData
       return result.returnData === '0x0000000000000000000000000000000000000000000000000000000000000001';

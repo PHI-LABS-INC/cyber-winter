@@ -37,7 +37,6 @@ async function checkXoulScore(check_address: Address): Promise<[number, string |
     );
 
     if (!response.data.isBound) {
-      console.log('Address not bound to XOUL');
       return [0, ''];
     }
 

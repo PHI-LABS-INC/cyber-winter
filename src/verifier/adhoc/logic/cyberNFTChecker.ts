@@ -40,6 +40,7 @@ export const CYBER_NFT_COLLECTIONS: NFTCollection[] = [
     name: 'New Era',
     address: '0x4d5a1bf279aa7371e230df48a89fab822e4ad30e',
     standard: 'ERC1155',
+    tokenId: 1,
   },
 ] as const;
 
@@ -115,7 +116,7 @@ export async function checkCyberNFTs(check_address: Address): Promise<CredResult
     } else if (collection.standard === 'ERC1155' && collection.tokenId !== undefined) {
       hasNFT = await checkERC1155Balance(publicClient, collection.address, check_address, collection.tokenId);
     }
-
+    console.log('hasNFT:', hasNFT);
     if (hasNFT) {
       return [true, ''];
     }
