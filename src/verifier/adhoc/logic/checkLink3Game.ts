@@ -58,7 +58,7 @@ async function checkLink3GameScore(
 }
 
 export async function checkDinoJumpAchievement(check_address: Address): Promise<CredResult> {
-  const REQUIRED_SCORE = 200;
+  const REQUIRED_SCORE = 100;
   return checkLink3GameScore(check_address, Link3GameType.CYBER_JUMP, REQUIRED_SCORE);
 }
 
