@@ -116,7 +116,7 @@ export async function checkCyberNFTs(check_address: Address): Promise<CredResult
     } else if (collection.standard === 'ERC1155' && collection.tokenId !== undefined) {
       hasNFT = await checkERC1155Balance(publicClient, collection.address, check_address, collection.tokenId);
     }
-    console.log('hasNFT:', hasNFT);
+
     if (hasNFT) {
       return [true, ''];
     }

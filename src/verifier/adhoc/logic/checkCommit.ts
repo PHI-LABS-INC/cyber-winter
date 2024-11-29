@@ -19,6 +19,8 @@ interface GraphQLResponse {
 
 export async function checkCommitParticipation(check_address: Address): Promise<CredResult> {
   try {
+    const normalizedAddress = check_address.toLowerCase();
+
     const response = await fetch(
       'https://api.goldsky.com/api/public/project_cm3xfcgzcn8gb01yr1qf8g4jx/subgraphs/commit-subgraph/0.0.1/gn',
       {
@@ -28,11 +30,13 @@ export async function checkCommitParticipation(check_address: Address): Promise<
         },
         body: JSON.stringify({
           query: `{
-            commitments(where: {id_in: ["6", "7", "8"]}) {
-              id
-              participants {
-                address
+            commitments(
+              where: {
+                id_in: ["6", "7", "8"]
+                participants_: { address: "${normalizedAddress}" }
               }
+            ) {
+              id
             }
           }`,
         }),
@@ -40,11 +44,7 @@ export async function checkCommitParticipation(check_address: Address): Promise<
     );
 
     const { data } = (await response.json()) as GraphQLResponse;
-    const normalizedAddress = check_address.toLowerCase();
-
-    const isParticipant = data.commitments.some((commitment) =>
-      commitment.participants.some((participant) => participant.address.toLowerCase() === normalizedAddress),
-    );
+    const isParticipant = data.commitments.length > 0;
 
     return [isParticipant, ''];
   } catch (error) {
