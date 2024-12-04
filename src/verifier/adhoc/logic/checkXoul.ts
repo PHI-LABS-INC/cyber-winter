@@ -83,7 +83,7 @@ async function checkXoulScore(check_address: Address): Promise<[number, string |
 // }
 
 export async function checkXoulAchievement(check_address: Address): Promise<CredResult> {
-  const REQUIRED_SCORE = 100;
+  const REQUIRED_SCORE = 48;
 
   // First check XOUL score and get the XOUL address
   const [score, xoulAddress] = await checkXoulScore(check_address);
