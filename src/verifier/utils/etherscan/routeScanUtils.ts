@@ -75,7 +75,8 @@ async function makeRoutescanRequest<T>(url: string, params: Record<string, strin
     return makeRoutescanRequest<T>(url, params, retries + 1);
   }
 }
-async function fetchTokenBalanceFromRoutescan(
+
+export async function fetchTokenBalanceFromRoutescan(
   address: Address,
   contractAddress: Address,
   api_key: string,

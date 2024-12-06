@@ -140,6 +140,18 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['Cyber', 'Commit'],
     relatedLinks: ['https://x.com/commitwtf'],
   },
+  9: {
+    ...baseSettings,
+    title: 'Stake Cyber',
+    requirement: 'Join the Cyber ecosystem by staking CCYBER tokens to earn Commit rewards.',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'adhoc',
+    id: 9,
+    project: 'Cyber',
+    tags: ['Cyber', 'Staking'],
+    relatedLinks: ['https://cyber.co/stake'],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(

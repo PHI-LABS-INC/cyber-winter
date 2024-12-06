@@ -8,6 +8,7 @@ import { checkCommitParticipation } from './logic/checkCommit';
 
 import checkEtherEater from './logic/checkEtherEater';
 import { checkPhiNFTCredentials } from './logic/checkPhiNFT';
+import { fetchCCyberTokenBalance } from './logic/checkCyberStaking';
 
 export async function handleAdhocCheck(config: AdhocCredConfig, check_address: Address): Promise<CredResult> {
   switch (config.id) {
@@ -27,6 +28,8 @@ export async function handleAdhocCheck(config: AdhocCredConfig, check_address: A
       return checkCommitParticipation(check_address);
     case 8:
       return checkPhiNFTCredentials(check_address);
+    case 9:
+      return fetchCCyberTokenBalance(check_address);
     default:
       console.error(`Unknown checker id: ${config.id}`);
       return [false, 'Invalid checker configuration'];
