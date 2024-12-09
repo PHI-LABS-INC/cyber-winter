@@ -32,7 +32,7 @@ export async function checkCommitParticipation(check_address: Address): Promise<
           query: `{
             commitments(
               where: {
-                id_in: ["6", "7", "8"]
+                id_in: ["6", "7", "8", "14", "15", "16"]
                 participants_: { address: "${normalizedAddress}" }
               }
             ) {
