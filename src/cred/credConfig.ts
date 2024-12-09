@@ -51,7 +51,6 @@ export const credConfig: { [key: number]: CredConfig } = {
       'https://element.market/assets/cyber/0x60a1b9c6900c6cef0e08b939cc00635ad7df02a1/1', // CZ
       'https://highlight.xyz/mint/cyber:0x03f3d8ba574B89af2A9c2199E4312837e1151750', // Cyber Chiblings
       'https://cyber.co/cyber-id', // CyberID
-      // 'https://cyberscan.co/address/0x2d9181b954736971bb74043d4782dfe93b55a9af', // Social Summer
       'https://element.market/collections/link3-origins-nft-1', // Link3 EGG
       'https://element.market/collections/cyber-the-new-era', // New Era
     ],
@@ -151,6 +150,33 @@ export const credConfig: { [key: number]: CredConfig } = {
     project: 'Cyber',
     tags: ['Cyber', 'Staking'],
     relatedLinks: ['https://cyber.co/stake'],
+  },
+  10: {
+    ...baseSettings,
+    title: 'Swap Explorer on CyberSwap',
+    requirement: 'Execute a swap transaction on Cyber Swap',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'etherscan',
+    apiKeyOrUrl: process.env.ROUTESCAN_API_KEY ?? '',
+    verificationConfigs: [
+      {
+        contractAddress: '0x3ef68d3f7664b2805d4e88381b64868a56f88bc4', // Cyber Router contract address
+        methodId: '0xac9650d8',
+        filterFunction: txFilter_Standard,
+      },
+      {
+        contractAddress: '0x3ef68d3f7664b2805d4e88381b64868a56f88bc4', // Cyber Router contract address
+        methodId: '0x75ceafe6',
+        filterFunction: txFilter_Standard,
+      },
+    ],
+    mintEligibility: (result: number) => result > 0,
+    transactionCountCondition: (txs: any[], address: string) =>
+      txs.filter((tx) => tx.from.toLowerCase() === address.toLowerCase()).length,
+    project: 'Cyber',
+    tags: ['DeFi', 'Swap', 'Transaction'],
+    relatedLinks: ['https://cyberswap.cc/trade/swap', 'https://x.com/cyberswap_dex'],
   },
 };
 
