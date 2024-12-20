@@ -90,6 +90,14 @@ export const testCases = {
     },
     expectedDataCheck: (data: string) => parseInt(data) > 0,
   },
+  11: {
+    title: credConfig[11].title,
+    addresses: {
+      valid: '0x5037e7747faa78fc0ecf8dfc526dcd19f73076ce',
+      invalid: '0x1d8A4B2594050166a05c19eBe8b4cf1A41F3908C',
+    },
+    expectedDataCheck: (data: string) => parseInt(data) == 0,
+  },
 };
 
 export type TestCase = {

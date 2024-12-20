@@ -178,6 +178,18 @@ export const credConfig: { [key: number]: CredConfig } = {
     tags: ['DeFi', 'Swap', 'Transaction'],
     relatedLinks: ['https://cyberswap.cc/trade/swap', 'https://x.com/cyberswap_dex'],
   },
+  11: {
+    ...baseSettings,
+    title: 'Check CyberGas Usage',
+    requirement: 'Verify your gas usage on the Cyber network by checking historical transaction fees.',
+    credType: 'ADVANCED',
+    verificationType: 'SIGNATURE',
+    apiChoice: 'adhoc',
+    id: 10,
+    project: 'Cyber',
+    tags: ['Cyber', 'Gas', 'Transaction'],
+    relatedLinks: ['https://cyber.co/gas'],
+  },
 };
 
 export const credVerifyEndpoint: { [key: number]: string } = Object.fromEntries(
