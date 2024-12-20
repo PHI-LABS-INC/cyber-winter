@@ -180,7 +180,7 @@ export const credConfig: { [key: number]: CredConfig } = {
   },
   11: {
     ...baseSettings,
-    title: 'Check CyberGas Usage',
+    title: 'CyberGas',
     requirement: 'Verify your gas usage on the Cyber network by checking historical transaction fees.',
     credType: 'ADVANCED',
     verificationType: 'SIGNATURE',
