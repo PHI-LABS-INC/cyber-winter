@@ -9,6 +9,9 @@ import {
   VerificationConfig,
 } from '../../../utils/types';
 import { Address, Chain, zeroAddress } from 'viem';
+import { cyber } from 'viem/chains';
+import { getJiffyscanTransactions, isContractAddress } from './jiffyscan';
+import { createPublicClientForNetwork } from '../contractCall';
 
 const MAX_RETRIES = 5;
 const INITIAL_DELAY = 1000;
@@ -164,65 +167,96 @@ export async function handleTransactionCheck(config: SignatureCredConfig, check_
   const verificationConfigs: VerificationConfig[] = config.verificationConfigs;
 
   let allTxs: GeneralTxItem[] = [];
+  let chain: Chain;
+  if (config.network === 7560) {
+    chain = cyber;
+  } else throw new Error(`Unsupported network: ${config.network}`);
+  const publicClient = await createPublicClientForNetwork(chain);
+  const isContract = await isContractAddress(publicClient, check_address);
+  if (!publicClient) {
+    throw new Error('PublicClient is undefined');
+  }
 
   // Process each verification config
   for (const verifyConfig of verificationConfigs) {
-    const contractAddresses = Array.isArray(verifyConfig.contractAddress)
-      ? verifyConfig.contractAddress
-      : [verifyConfig.contractAddress];
-
-    const methodIds =
-      verifyConfig.methodId === 'any'
-        ? ['any']
-        : Array.isArray(verifyConfig.methodId)
-        ? verifyConfig.methodId
-        : [verifyConfig.methodId];
-
-    const action = verifyConfig.type ?? 'txlist';
     let currentTxs: GeneralTxItem[];
-    if (verifyConfig.from && action == 'txlist') {
-      // Check transactions from specified address
-      currentTxs = await getTransactions(
-        config.apiKeyOrUrl,
-        verifyConfig.from,
-        action,
-        zeroAddress,
-        contractAddresses,
-        methodIds,
-        config.network,
-        config.startBlock,
-        config.endBlock,
-        verifyConfig.filterFunction,
-      );
-    } else if (verifyConfig.from && action !== 'txlist') {
-      currentTxs = await getTransactions(
-        config.apiKeyOrUrl,
-        check_address,
-        action,
-        verifyConfig.from,
-        contractAddresses,
-        methodIds,
-        config.network,
-        config.startBlock,
-        config.endBlock,
-        verifyConfig.filterFunction,
-      );
-    } else {
-      // Check transactions from check_address
-      currentTxs = await getTransactions(
-        config.apiKeyOrUrl,
-        check_address,
-        action,
-        zeroAddress,
-        contractAddresses,
-        methodIds,
-        config.network,
-        config.startBlock,
-        config.endBlock,
-        verifyConfig.filterFunction,
-      );
-    }
 
+    if (isContract) {
+      console.log('Using Jiffyscan API');
+
+      currentTxs = await getJiffyscanTransactions(check_address, config.network);
+      // Apply filters
+      currentTxs = currentTxs.filter((tx) => {
+        const eligibleMethodIds =
+          verifyConfig.methodId === 'any'
+            ? ['any']
+            : Array.isArray(verifyConfig.methodId)
+            ? verifyConfig.methodId
+            : [verifyConfig.methodId];
+
+        const contractAddresses = Array.isArray(verifyConfig.contractAddress)
+          ? verifyConfig.contractAddress
+          : [verifyConfig.contractAddress];
+
+        return verifyConfig.filterFunction(tx, contractAddresses, eligibleMethodIds);
+      });
+    } else {
+      const contractAddresses = Array.isArray(verifyConfig.contractAddress)
+        ? verifyConfig.contractAddress
+        : [verifyConfig.contractAddress];
+
+      const methodIds =
+        verifyConfig.methodId === 'any'
+          ? ['any']
+          : Array.isArray(verifyConfig.methodId)
+          ? verifyConfig.methodId
+          : [verifyConfig.methodId];
+
+      const action = verifyConfig.type ?? 'txlist';
+
+      if (verifyConfig.from && action == 'txlist') {
+        // Check transactions from specified address
+        currentTxs = await getTransactions(
+          config.apiKeyOrUrl,
+          verifyConfig.from,
+          action,
+          zeroAddress,
+          contractAddresses,
+          methodIds,
+          config.network,
+          config.startBlock,
+          config.endBlock,
+          verifyConfig.filterFunction,
+        );
+      } else if (verifyConfig.from && action !== 'txlist') {
+        currentTxs = await getTransactions(
+          config.apiKeyOrUrl,
+          check_address,
+          action,
+          verifyConfig.from,
+          contractAddresses,
+          methodIds,
+          config.network,
+          config.startBlock,
+          config.endBlock,
+          verifyConfig.filterFunction,
+        );
+      } else {
+        // Check transactions from check_address
+        currentTxs = await getTransactions(
+          config.apiKeyOrUrl,
+          check_address,
+          action,
+          zeroAddress,
+          contractAddresses,
+          methodIds,
+          config.network,
+          config.startBlock,
+          config.endBlock,
+          verifyConfig.filterFunction,
+        );
+      }
+    }
     allTxs = [...allTxs, ...currentTxs];
   }
 

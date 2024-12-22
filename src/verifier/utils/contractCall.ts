@@ -12,7 +12,7 @@ export async function handleContractCall(config: ContractCallCredConfig, check_a
   return handleContractCallResult(config, contractCallResult);
 }
 
-async function createPublicClientForNetwork(chain: Chain): Promise<PublicClient> {
+export async function createPublicClientForNetwork(chain: Chain): Promise<PublicClient> {
   const rpc = 'https://rpc.cyber.co';
 
   try {
